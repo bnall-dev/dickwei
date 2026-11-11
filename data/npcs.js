@@ -1,6 +1,17 @@
-import {triggerFlag} from "../functions/game"
+import {triggerFlag, createInteraction, createAction, handleMsgUI} from "../functions/game"
 
 export function npcDataInit(){
+  
+  function createNpc(name, location, flags, interactText, interactions) {
+    return {
+      name: name,
+      location: location,
+      flags: flags,
+      interactText: interactText,
+      interactions: interactions
+    }
+  }
+  
   return (
     {
       drew: {
@@ -204,6 +215,71 @@ export function npcDataInit(){
           }
         }
       }
+      
+      
+        /*
+  
+    : createNPC(
+      "",
+      "",
+      {},
+      "",
+      {
+        inspect: createInteraction(
+          "Inspect",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+              },
+              ()=>true
+            )
+          ]
+        ),
+         investigate: createInteraction(
+          "Investigate",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().npcs..interactions.investigate.actions[0].message)
+              },
+              ()=>true
+            )
+          ]
+        ),
+         chat: createInteraction(
+          "Chat",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().npcs..interactions..actions[0].message)
+              },
+              ()=>true
+            )
+          ]
+        )
+        
+      }
+    )
+  
+  */
+      
+      
     }
   )
 }

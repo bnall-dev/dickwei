@@ -1,4 +1,4 @@
-import { handleChangeLocation, createAction, createInteraction, handleMsgUI } from "../functions/game"
+import { handleChangeLocation, createAction, createInteraction } from "../functions/game"
 
 
 
@@ -14,6 +14,20 @@ export function locationDataInit() {
       interactions: interactions
     }
   }
+  
+ function handleMsgUI(msg) {
+  window.setGame(
+    prev => ({
+      ...prev,
+      messageIndex: 0,
+      choiceUIActive: false,
+     interactionUIActive: true,
+     toolsUIActive: true,
+      message: msg
+      
+    })
+  )
+}
   
   return (
   {
@@ -31,14 +45,15 @@ export function locationDataInit() {
           [
             createAction(
               [
+                //DEFAULT
                 {
                   text: "You enter the town Outskirts."
                 }
                 
               ],
               () => {
-                
-                handleMsgUI(locations.outskirts.interactions.go.actions[0].message)
+
+                handleMsgUI(window.getGame().locations.outskirts.interactions.go.actions[0].message)
                 handleChangeLocation("outskirts")
                 
               },
@@ -70,16 +85,9 @@ export function locationDataInit() {
               text: "You enter the Municipal District."
             }],
              () => {
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.municipal_district.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-              }))
+
               
+              handleMsgUI(window.getGame().locations.municipal_district.interactions.go.actions[0].message)
               handleChangeLocation("municipal_district")
               
             },
@@ -90,136 +98,123 @@ export function locationDataInit() {
       }
     ),
     
-    town_hall: {
-      name: "Town Hall",
-      subLocations: [
+    town_hall: createLocation(
+      "Town Hall",
+      [
         "mayors_office",
         "municipal_district"
-        
       ],
-      displayText: "You are in the Town Hall.",
-      interactText: "You see the Town Hall.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
+      [],
+      "You see the Town Hall.",
+      "You are in the Town Hall.",
+     
+      {
+        go: createInteraction(
+          "Go",
+          [
+          createAction(
+            [
             {
               text: "You enter the Town Hall."
             }],
-            func: () => {
+            () => {
               
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.town_hall.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-                
-              }))
+
+              
+ handleMsgUI(window.getGame().locations.town_hall.interactions.go.actions[0].message)
               
               handleChangeLocation("town_hall")
             },
-            condition: () => true
+            () => true
             
-          }]
-        }
+          )]
+        )
       }
-    },
-    mayors_office: {
-      name: "Mayor's Office",
-      subLocations: [
+    ),
+    
+    mayors_office: createLocation(
+      "Mayor's Office",
+      [
         "town_hall"
       ],
-      displayText: "You are in the Mayor's Office.",
-      interactText: "You see the Mayor's Office.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [{
+      [],
+       "You see the Mayor's Office.",
+      "You are in the Mayor's Office.",
+     
+      {
+        go: createInteraction(
+          "Go",
+          [
+          createAction(
+            [{
               text: "You enter the Mayor's Office."
             }],
-            func: () => {
+            () => {
               
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.mayors_office.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-                
-              }))
+
+              
+             handleMsgUI(window.getGame().locations.mayors_office.interactions.go.actions[0].message)
               handleChangeLocation("mayors_office")
               
             },
-            condition: () => true
-          }]
-        }
+            () => true
+          )]
+        )
       }
-    },
-    sheriffs_station: {
-      name: "Sheriff's Station",
-      subLocations: [
+    ),
+    
+    sheriffs_station: createLocation(
+      "Sheriff's Station",
+      [
         "jail",
         "municipal_district"
       ],
-      displayText: "You are in the Sheriff's Station.",
-      interactText: "You see the Sheriff's Station.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
+      [],
+      "You see the Sheriff's Station.",
+      "You are in the Sheriff's Station.",
+     
+      {
+        go: createInteraction(
+          "Go",
+          [
+          createAction(
+            [
             {
               text: "You enter the Sheriff's Station."
             }],
-            func: () => {
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.sheriffs_station.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-              }))
+            () => {
               
+              handleMsgUI(window.getGame().locations.sheriffs_station.interactions.go.actions[0].message)
               handleChangeLocation("sheriffs_station")
               
             },
-            condition: () => true
-          }]
+            () => true
+          )]
           
-        }
+        )
       }
-    },
-    jail: {
-      name: "Jail",
-      subLocations: [
+    ),
+    
+    jail: createLocation(
+      "Jail",
+      [
         "cell_a",
         "cell_b",
         "cell_c",
         "sheriffs_station"
       ],
-      flags: {
+      {
         first_go: false
       },
-      displayText: "You are in the Jail.",
-      interactText: "A secure door leads toward the jail cells.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [{
+      "A secure door leads toward the jail cells.",
+      "You are in the Jail.",
+      
+      {
+        go: createInteraction(
+          "Go",
+          [createAction(
               
-              message: [
+              [
                 {
                   text: "As you pull the handle of the door, it suddenly bursts open. The man hurrying out slams into you and spills coffee all over himself."
                 },
@@ -302,7 +297,7 @@ export function locationDataInit() {
                   }
                 }
               ],
-              func: () => {
+              () => {
                 window.setGame(prev => (
                 {
                   ...prev,
@@ -336,35 +331,28 @@ export function locationDataInit() {
                 
                 
               },
-              condition: () => window.getGame().locations["jail"].flags.first_go == false
-            },
+              () => window.getGame().locations["jail"].flags.first_go == false
+            ),
             
-            {
-              message: [
+            createAction(
+               [
               {
                 text: "You enter the Jail."
               }],
-              func: () => {
-                window.setGame(prev => (
-                {
-                  ...prev,
-                  message: prev.locations.jail.interactions.go.actions[1].message,
-                  messageIndex: 0,
-                  choiceUIActive: false,
-                  interactionUIActive: true,
-                  toolsUIActive: true
-                }))
+               () => {
+             handleMsgUI(window.getGame().locations.jail.interactions.go.actions[1].message)
                 
                 handleChangeLocation("jail")
                 
               },
-              condition: () => true
-            }
+               () => true
+            )
           ]
           
-        }
+        )
       }
-    },
+    ),
+    
     cell_a: {
       name: "Cell A",
       subLocations: [
@@ -480,45 +468,38 @@ export function locationDataInit() {
       }
       
     },
-    hospital: {
+    hospital: createLocation(
       
-      name: "Hospital",
-      subLocations: [
+      "Hospital",
+      [
         "morgue",
         "municipal_district"
       ],
-      displayText: "You are in the Hospital.",
-      interactText: "You see the Hospital.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
+      "You see the Hospital.",
+      "You are in the Hospital.",
+      {},
+     {
+        go: createInteraction(
+          "Go",
+          [
+          createAction(
+            [
             {
               text: "You enter the Hospital."
             }],
-            func: () => {
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.hospital.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-              }))
+            () => {
+              handleMsgUI(window.getGame().locations.hospital.interactions.go.actions[0].message)
               
               handleChangeLocation("hospital")
               
             },
-            condition: () => true
-          }]
+            () => true
+          )]
           
-        }
+        )
       }
       
-    },
+    ),
     morgue: createLocation(
       
       "Morgue",
@@ -526,8 +507,9 @@ export function locationDataInit() {
         "hospital"
       ],
       [],
+       "You see a sign indicating the direction of the morgue.",
       "You are in the morgue.",
-      "You see a sign indicating the direction of the morgue.",
+     
       {
         go: createInteraction(
           "Go",
@@ -548,6 +530,36 @@ export function locationDataInit() {
           )])
           
       }  )
+      
+  /*
+  
+    : createLocation(
+      "",
+      [],
+      {},
+      "",
+      "",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations..interactions.go.actions[0].message)
+                handleChangelocation()
+              }
+            )
+          ]
+        )
+      }
+    )
+  
+  */
       
       
     
