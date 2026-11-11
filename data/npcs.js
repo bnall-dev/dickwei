@@ -250,7 +250,7 @@ export function npcDataInit() {
           ]
         ),
         chat: createInteraction(
-          "Chat",
+          "Cha 3t",
           [
             createAction(
               [
