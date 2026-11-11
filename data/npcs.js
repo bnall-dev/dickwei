@@ -157,7 +157,7 @@ export function npcDataInit(){
         }
       },
       old_woman: {
-        name: "Old Woman",
+        name: "Old Woman 1",
         location: "municipal_district",
         interactText: "An old woman putters down the sidewalk.",
         interactions: {
