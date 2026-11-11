@@ -1,4 +1,4 @@
-import { handleChangeLocation, createAction, createInteraction } from "../functions/game"
+import { handleChangeLocation, createAction, createInteraction, passTime } from "../functions/game"
 
 
 
@@ -55,6 +55,7 @@ export function locationDataInit() {
 
                 handleMsgUI(window.getGame().locations.outskirts.interactions.go.actions[0].message)
                 handleChangeLocation("outskirts")
+                passTime(300)
                 
               },
               () => true
@@ -89,6 +90,7 @@ export function locationDataInit() {
               
               handleMsgUI(window.getGame().locations.municipal_district.interactions.go.actions[0].message)
               handleChangeLocation("municipal_district")
+              passTime(300)
               
             },
              () => true
@@ -278,7 +280,7 @@ export function locationDataInit() {
                             ...prev,
                             sceneActive: false
                           }))
-                          
+                          passTime(300)
                         }
                       }
                       
@@ -329,7 +331,7 @@ export function locationDataInit() {
                 }))
                 
                 
-                
+               
               },
               () => window.getGame().locations["jail"].flags.first_go == false
             ),
@@ -353,121 +355,6 @@ export function locationDataInit() {
       }
     ),
     
-    cell_a: {
-      name: "Cell A",
-      subLocations: [
-        
-        "jail"
-      ],
-      displayText: "You are in a jail cell.",
-      interactText: "You see a jail cell through steel bars.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
-            {
-              text: "You enter the cell."
-            }],
-            func: () => {
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.cell_a.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-              }))
-              
-              handleChangeLocation("cell_a")
-              
-            },
-            condition: () => true
-          }]
-          
-        }
-      }
-    },
-    cell_b: {
-      
-      name: "Cell B",
-      subLocations: [
-        
-        "jail"
-      ],
-      displayText: "You are in a jail cell.",
-      interactText: "You see a jail cell through steel bars.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
-            {
-              text: "You enter the cell."
-            }],
-            func: () => {
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.cell_b.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-              }))
-              
-              handleChangeLocation("cell_b")
-              
-            },
-            condition: () => true
-          }]
-          
-        }
-      }
-      
-    },
-    cell_c: {
-      
-      name: "Cell C",
-      subLocations: [
-        
-        "jail"
-      ],
-      displayText: "You are in a jail cell.",
-      interactText: "You see a jail cell through steel bars.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
-            {
-              text: "You enter the cell."
-            }],
-            func: () => {
-              window.setGame(prev => (
-              {
-                ...prev,
-                message: prev.locations.cell_c.interactions.go.actions[0].message,
-                messageIndex: 0,
-                choiceUIActive: false,
-                interactionUIActive: true,
-                toolsUIActive: true
-              }))
-              
-              handleChangeLocation("cell_c")
-              
-            },
-            condition: () => true
-          }]
-          
-        }
-      }
-      
-    },
     hospital: createLocation(
       
       "Hospital",
@@ -475,9 +362,10 @@ export function locationDataInit() {
         "morgue",
         "municipal_district"
       ],
+      {},
       "You see the Hospital.",
       "You are in the Hospital.",
-      {},
+      
      {
         go: createInteraction(
           "Go",

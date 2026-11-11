@@ -25,11 +25,11 @@ function App() {
   
   
   
-
   
- 
   
- 
+  
+  
+  
   
   
   
@@ -110,10 +110,32 @@ function App() {
   function Header() {
     const dayOfWeek = Object.values(window.getGame().weekDays).find(d => d.day == window.getGame().day % 7).abbrev
     
+    const cigStyle = {
+      height: "5px",
+      width: "60px",
+      display: "flex",
+      justifyContent: "flex-end"
+    }
+    const cigRemainingStyle = {
+      backgroundColor: "white",
+      height: "5px",
+      width: (window.getGame().player.currentCig / 1440 * 40).toString() + "px",
+      borderLeft: "3px solid orange"
+    }
+    const cigFilterStyle = {
+      height: "5px",
+      width: "20px",
+      backgroundColor: "orange"
+    }
     
-    return <div>
-      <h6>{dayOfWeek}</h6>
+    return <div className = "Header">
+      <h6>{dayOfWeek} {window.getGame().dayTime.toUpperCase()}</h6>
       <h6>Day {window.getGame().day}</h6>
+      <div style = {cigStyle}>
+        <div style = {cigRemainingStyle}/>
+        <div style = {cigFilterStyle}/>
+      </div>
+      <h6>({window.getGame().player.cigs})</h6>
     </div>
   }
   

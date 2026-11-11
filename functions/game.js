@@ -17,9 +17,7 @@ export function handleChangeLocation(id) {
   )
 }
 
-export function handleScene(scene) {
-  
-}
+
 
 export function changeDisplayText(newText) {
   window.setGame(prev => (
@@ -143,3 +141,59 @@ export function endScene() {
     )
   }
   
+  export function lightCig() {
+    var newText = " You light up a cigarette."
+    if (window.getGame().player.cigs == 1) {
+      newText += " It's your last one! You'll have to take a break and get more if you run out."
+    }
+     window.setGame(prev => ({
+   ...prev,
+   player: {
+     ...prev.player,
+     cigs: prev.player.cigs - 1,
+     currentCig: 1440
+
+   },
+   
+ message: prev.message.map((msg, index) =>
+     index === window.getGame().messageIndex ?
+     { ...msg, text: msg.text + newText } :
+     msg)
+
+
+ }))
+  }
+  
+  export function endDay() {
+
+     window.setGame(prev => ({
+   ...prev,
+   
+ message: [{text: "You ran out of smokes!"},
+   {text: "You return to the hotel to relax and restock."}
+ ],
+ messageActive: true,
+ interactionUIActive: false,
+ toolsUIActive: false
+
+
+ }))
+  }
+  
+  export function passTime(sec) {
+    
+    window.setGame(prev=>({
+      ...prev,
+      player: {
+        ...prev.player,
+        currentCig: prev.player.currentCig - sec
+      }
+    }))
+    
+    if(window.getGame().player.currentCig <= 0) {
+      if (window.getGame().player.cigs > 0)
+      lightCig()
+      else endDay()
+    }
+    
+  }

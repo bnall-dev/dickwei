@@ -18,7 +18,9 @@ function playerDataInit() {
       "player_phone",
       "player_gun",
       "cigarettes_open"
-    ]
+    ],
+    cigs: 19,
+    currentCig: 1440,
   })
 }
 
@@ -88,7 +90,8 @@ export function initGame() {
         day: 7
       },
     },
-    day: 1
+    day: 1,
+    dayTime: "am"
     
   })
 }

@@ -47,6 +47,11 @@ h6 {margin: 8px;font-size: 12px; font-weight: normal;}
   box-sizing: border-box;
 }
 
+.Header {
+  display: flex;
+  align-items: center;
+}
+
 .TextDisplay {
   text-align: left;
   height: 20vh;

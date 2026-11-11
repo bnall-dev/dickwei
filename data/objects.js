@@ -1,4 +1,4 @@
-import { triggerFlag, handleScene, changeDisplayText, createAction, createInteraction, handleMsgUI } from "../functions/game"
+import { triggerFlag, handleScene, changeDisplayText, createAction, createInteraction, handleMsgUI, passTime } from "../functions/game"
 
 export function objectDataInit() {
   
@@ -31,12 +31,75 @@ export function objectDataInit() {
               ],
               () => {
                 handleMsgUI(window.getGame().objects.player_car.interactions.inspect.actions[0].message)
+                passTime(60)
               },
               () => true
+            )
+          ]
+        ),
+         use: createInteraction(
+          "Use",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects.player_car.interactions.use.actions[0].message)
+                passTime(60)
+              },
+              ()=> {}
             )
           ]
         )
       }
     )
+    
+      /*
+  
+    : createObject(
+      "",
+      "",
+      {},
+      "",
+      {
+        inspect: createInteraction(
+          "Inspect",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects..interactions.inspect.actions[0].message)
+              }
+            )
+          ]
+        ),
+        use: createInteraction(
+          "Use",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects..interactions.use.actions[0].message)
+              }
+            )
+          ]
+        )
+      }
+    )
+  
+  */
+    
+    
   }
 }
