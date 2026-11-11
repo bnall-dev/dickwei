@@ -1,76 +1,75 @@
-import { handleChangeLocation } from "../functions/game"
+import { handleChangeLocation, createAction, createInteraction, handleMsgUI } from "../functions/game"
 
-function createAction(message, func, condition) {
-  return {
-    message: message,
-    func: func,
-    condition: condition
-  }
-}
+
 
 export function locationDataInit() {
+  
+  function createLocation(name, subLocations, flags, interactText, displayText, interactions) {
+    return {
+      name: name,
+      subLocations: subLocations,
+      flags: flags,
+      interactText: interactText,
+      displayText: displayText,
+      interactions: interactions
+    }
+  }
+  
   return (
   {
-    outskirts: {
-      name: "Outskirts",
-      subLocations: [
+    outskirts: createLocation(
+      "Outskirts",
+      [
         "municipal_district"
       ],
-      interactText: "You see the town outskirts.",
-      displayText: "You are in the town Outskirts.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
+      [],
+      "You see the town outskirts.",
+      "You are in the town Outskirts.",
+      {
+        go: createInteraction(
+          "Go",
+          [
             createAction(
               [
-              {
-                text: "You enter the town Outskirts."
-              }],
-              () => {
-                window.setGame(prev => (
                 {
-                  ...prev,
-                  message: prev.locations.outskirts.interactions.go.actions[0].message,
-                  messageIndex: 0,
-                  choiceUIActive: false,
-                  interactionUIActive: true,
-                  toolsUIActive: true
-                }))
+                  text: "You enter the town Outskirts."
+                }
                 
+              ],
+              () => {
+                
+                handleMsgUI(locations.outskirts.interactions.go.actions[0].message)
                 handleChangeLocation("outskirts")
                 
               },
               () => true
+              
+              
             )
-            
-            
-            
-          ]
-          
-        }
-      }
-    },
-    municipal_district: {
-      name: "Municipal District",
-      subLocations: [
+          ])
+      }),
+    
+    municipal_district: createLocation(
+      "Municipal District",
+      [
         "town_hall",
         "sheriffs_station",
         "hospital",
         "outskirts"
       ],
-      interactText: "You see the Municipal District.",
-      displayText: "You are in the Municipal District.",
-      interactions: {
-        go: {
-          text: "Go",
-          actions: [
-          {
-            message: [
+      [],
+      "You see the Municipal District.",
+      "You are in the Municipal District.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction( 
+            [
             {
               text: "You enter the Municipal District."
             }],
-            func: () => {
+             () => {
               window.setGame(prev => (
               {
                 ...prev,
@@ -84,12 +83,13 @@ export function locationDataInit() {
               handleChangeLocation("municipal_district")
               
             },
-            condition: () => true
-          }]
+             () => true
+          )]
           
-        }
+        )
       }
-    },
+    ),
+    
     town_hall: {
       name: "Town Hall",
       subLocations: [
@@ -238,49 +238,51 @@ export function locationDataInit() {
                       { text: "... Your Badge!" }
                     ] : [
                       { text: "... absolutely nothing..." },
-                      {text: "You see yourself reflected in the deputy's sunglasses, your hand held limply in the air. The deputy folds his arms."},
-                      {text: "You regain your composure clearing your throat and snapping your fingers intothe shape of  a gun."},
-                      {text:"Dick: \"I'm Special Operative Richard Wei! I work for The Agency am here regarding last night's incident.\""},
-                      {text: "Dick: \"I seem to have misplaced my credentials, but I'm sure we can clear that up if you'll just direct me to your superior...\""},
-                      {text: "The deputy's expression hasn't changed, but his face is turning red. He taps the badge on his chest."},
-                      {text: "Angry Deputy: \"You see this here, 'Dick'? This makes me the only superior you need to be concerned with.\""},
-                      {text: "Angry Deputy: \"And nobody's told me anything about any 'Special Operatives' involving themselves in our case.\""},
-                      {text: "Dick: \"'Richard,' please. Actually, 'Special Operative Wei.'\""},
-                      {text: "Angry Deputy: \"It's time for you to leave, 'Special Operative Dick.' Come back when you find your badge.\""},
-                      {text: "*DOSSIER UPDATED*",
-                        func: ()=>{
+                      { text: "You see yourself reflected in the deputy's sunglasses, your hand held limply in the air. The deputy folds his arms." },
+                      { text: "You regain your composure clearing your throat and snapping your fingers intothe shape of  a gun." },
+                      { text: "Dick: \"I'm Special Operative Richard Wei! I work for The Agency am here regarding last night's incident.\"" },
+                      { text: "Dick: \"I seem to have misplaced my credentials, but I'm sure we can clear that up if you'll just direct me to your superior...\"" },
+                      { text: "The deputy's expression hasn't changed, but his face is turning red. He taps the badge on his chest." },
+                      { text: "Angry Deputy: \"You see this here, 'Dick'? This makes me the only superior you need to be concerned with.\"" },
+                      { text: "Angry Deputy: \"And nobody's told me anything about any 'Special Operatives' involving themselves in our case.\"" },
+                      { text: "Dick: \"'Richard,' please. Actually, 'Special Operative Wei.'\"" },
+                      { text: "Angry Deputy: \"It's time for you to leave, 'Special Operative Dick.' Come back when you find your badge.\"" },
+                      {
+                        text: "*DOSSIER UPDATED*",
+                        func: () => {
                           window.setGame(
-                            prev =>(
-                              {
-                                ...prev,
-                                quests: {
-                                  ...prev.quests,
-                                  report_for_duty: {
-                                    ...prev.quests.report_for_duty,
-                                    subquests: {
-                                      ...prev.quests.report_for_duty.subquests,
-                                      convince_drew : {
-                                        ...prev.quests.report_for_duty.subquests.convince_drew,
-                                        active: true
-                                      }
+                            prev => (
+                            {
+                              ...prev,
+                              quests: {
+                                ...prev.quests,
+                                report_for_duty: {
+                                  ...prev.quests.report_for_duty,
+                                  subquests: {
+                                    ...prev.quests.report_for_duty.subquests,
+                                    convince_drew: {
+                                      ...prev.quests.report_for_duty.subquests.convince_drew,
+                                      active: true
                                     }
                                   }
                                 }
                               }
-                            )
+                            })
                           )
                           
-                          window.setGame(prev=>({...prev, 
-           choiceUIActive:window.getGame().sceneActive? false: true,
-           messageActive:  false,
-           interactionUIActive: window.getGame().sceneActive?  true: false,
-           toolsUIActive: window.getGame().sceneActive? true: false,
-           messageIndex: 0,
-           message:window.getGame().sceneActive == false? [{text: window.getGame().currentObj.interactText}] : [{text: window.getGame().currentObj.displayText}]
-          }))
-          window.setGame(prev=>({...prev,
-            sceneActive: false
-          }))
+                          window.setGame(prev => ({
+                            ...prev,
+                            choiceUIActive: window.getGame().sceneActive ? false : true,
+                            messageActive: false,
+                            interactionUIActive: window.getGame().sceneActive ? true : false,
+                            toolsUIActive: window.getGame().sceneActive ? true : false,
+                            messageIndex: 0,
+                            message: window.getGame().sceneActive == false ? [{ text: window.getGame().currentObj.interactText }] : [{ text: window.getGame().currentObj.displayText }]
+                          }))
+                          window.setGame(prev => ({
+                            ...prev,
+                            sceneActive: false
+                          }))
                           
                         }
                       }
@@ -479,83 +481,76 @@ export function locationDataInit() {
       
     },
     hospital: {
-  
-  name: "Hospital",
-  subLocations: [
-    "morgue",
-    "municipal_district"
-  ],
-  displayText: "You are in the Hospital.",
-  interactText: "You see the Hospital.",
-  interactions: {
-    go: {
-      text: "Go",
-      actions: [
-      {
-        message: [
-        {
-          text: "You enter the Hospital."
-        }],
-        func: () => {
-          window.setGame(prev => (
-          {
-            ...prev,
-            message: prev.locations.hospital.interactions.go.actions[0].message,
-            messageIndex: 0,
-            choiceUIActive: false,
-            interactionUIActive: true,
-            toolsUIActive: true
-          }))
-          
-          handleChangeLocation("hospital")
-          
-        },
-        condition: () => true
-      }]
       
-    }
-  }
-  
-},
-morgue: {
-  
-  name: "Morgue",
-  subLocations: [
+      name: "Hospital",
+      subLocations: [
+        "morgue",
+        "municipal_district"
+      ],
+      displayText: "You are in the Hospital.",
+      interactText: "You see the Hospital.",
+      interactions: {
+        go: {
+          text: "Go",
+          actions: [
+          {
+            message: [
+            {
+              text: "You enter the Hospital."
+            }],
+            func: () => {
+              window.setGame(prev => (
+              {
+                ...prev,
+                message: prev.locations.hospital.interactions.go.actions[0].message,
+                messageIndex: 0,
+                choiceUIActive: false,
+                interactionUIActive: true,
+                toolsUIActive: true
+              }))
+              
+              handleChangeLocation("hospital")
+              
+            },
+            condition: () => true
+          }]
+          
+        }
+      }
+      
+    },
+    morgue: createLocation(
+      
+      "Morgue",
+      [
+        "hospital"
+      ],
+      [],
+      "You are in the morgue.",
+      "You see a sign indicating the direction of the morgue.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+            {
+              text: "You enter the morgue."
+            }],
+            () => {
+           
+                handleMsgUI(window.getGame().locations.morgue.interactions.go.actions[0].message)
+              
+              handleChangeLocation("morgue")
+              
+            },
+            () => true
+          )])
+          
+      }  )
+      
+      
     
-    "hospital"
-  ],
-  displayText: "You are in the morgue.",
-  interactText: "You see a sign indicating the direction of the morgue.",
-  interactions: {
-    go: {
-      text: "Go",
-      actions: [
-      {
-        message: [
-        {
-          text: "You enter the morgue."
-        }],
-        func: () => {
-          window.setGame(prev => (
-          {
-            ...prev,
-            message: prev.locations.morgue.interactions.go.actions[0].message,
-            messageIndex: 0,
-            choiceUIActive: false,
-            interactionUIActive: true,
-            toolsUIActive: true
-          }))
-          
-          handleChangeLocation("morgue")
-          
-        },
-        condition: () => true
-      }]
-      
-    }
-  }
-  
-}
     
   })
 }

@@ -114,3 +114,32 @@ export function endScene() {
   setMessageCurrentObj()
   setSceneActive(false)
 }
+
+  export function createInteraction(text, actions) {
+    return {
+      text: text,
+      actions: actions
+    }
+  }
+  
+  export function createAction(msg, func, cond) {
+    return {
+      message: msg,
+      func: func,
+      condition: cond
+    }
+  }
+  
+ export function handleMsgUI(msg) {
+    window.setGame(
+      prev => ({
+        ...prev,
+        messageIndex: 0,
+        messageActive: true,
+        choiceUIActive: false,
+        message: msg
+        
+      })
+    )
+  }
+  
