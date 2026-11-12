@@ -155,10 +155,10 @@ export function endScene() {
 
    },
    
- message: prev.message.map((msg, index) =>
+ displayText: prev.message.map((msg, index) =>
      index === window.getGame().messageIndex ?
-     { ...msg, text: msg.text + newText } :
-     msg)
+     prev.displayText + newText  :
+     prev.displayText),
 
 
  }))
@@ -178,6 +178,7 @@ export function endScene() {
  player: {
    ...prev.player,
    currentCig: 1440,
+   cigs: 19,
    location: "player_room"
    
  } ,

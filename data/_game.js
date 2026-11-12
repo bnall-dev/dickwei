@@ -19,7 +19,7 @@ function playerDataInit() {
       "player_gun",
       "cigarettes_open"
     ],
-    cigs: 0,
+    cigs: 19,
     currentCig: 1440,
   })
 }
