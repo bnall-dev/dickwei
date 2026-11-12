@@ -170,11 +170,23 @@ export function endScene() {
    ...prev,
    
  message: [{text: "You ran out of smokes!"},
-   {text: "You return to the hotel to relax and restock."}
+   {text: "You return to the hotel to rest and restock."},
+   prev.dayTime == "am" ? {text: "The sun sets outside your window. It is now evening."} : {text: "You fall asleep until your alarm wakes you. It is now daytime."}
  ],
+ dayTime: prev.dayTime == "am" ? "pm" : "am",
+ day: prev.dayTime == "am" ? prev.day : prev.day + 1,
+ player: {
+   ...prev.player,
+   currentCig: 1440,
+   location: "player_room"
+   
+ } ,
  messageActive: true,
  interactionUIActive: false,
- toolsUIActive: false
+ toolsUIActive: false,
+ choiceUIActive: false,
+ currentObj: prev.locations.player_room,
+ sceneActive: true
 
 
  }))

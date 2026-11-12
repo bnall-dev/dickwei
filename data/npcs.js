@@ -26,12 +26,11 @@ export function npcDataInit() {
             createAction(
               [
               {
-                text: "He is a lanky man wearing a deputy's uniform under a leather bomber jacket. Even with his dark sunglasses, you can sense him staring at you with suspicion.",
-                func: ()=>{passTime(10)}
+                text: "He is a lanky man wearing a deputy's uniform under a leather bomber jacket. Even with his dark sunglasses, you can sense him staring at you with suspicion."
               }],
               () => {
                 handleMsgUI(window.getGame().npcs.drew.interactions.inspect.actions[0].message)
-                
+                passTime(30)
                 
               },
               () => true
@@ -46,10 +45,11 @@ export function npcDataInit() {
               [
               {
                 text: "Angry Deputy: \"Are you trying to get jammed up? If you can't prove who you are, get out of here!\"",
-                func: ()=>{passTime(10)}
+               
               }],
               () => {
                 handleMsgUI(window.getGame().npcs.drew.interactions.investigate.actions[0].message)
+                passTime(10)
               },
               () => window.getGame().player.inventory.includes("player_badge") == false
             ),
@@ -57,10 +57,11 @@ export function npcDataInit() {
               [
               {
                 text: "\"What do you want?\"",
-                func: ()=>{passTime(10)}
+           
               }],
               () => {
                 handleMsgUI(window.getGame().npcs.drew.interactions.investigate.actions[1].message)
+                passTime(10)
               },
               () => true
             )
@@ -73,11 +74,12 @@ export function npcDataInit() {
             createAction(
               [
               {
-                text: "",
-                func: ()=>{passTime(60)}
+                text: ""
               }],
               () => {
                 handleMsgUI(window.getGame().npcs.drew.interactions.chat.actions[0].message)
+                  passTime(10)
+                
               },
               () => true
             )
@@ -127,13 +129,13 @@ export function npcDataInit() {
             createAction(
               [
                 { text: "Her hair is a bright pink bob. She is wearing a purple cardigan over a white blouse with a red bow tie." ,
-                  func: ()=>{passTime(30)}
+                 
                 }
               ],
               () => {
                 
                 handleMsgUI(window.getGame().npcs.gwen.interactions.inspect.actions[0].message)
-   
+                passTime(30)
               },
               () => true
             )
@@ -149,12 +151,12 @@ export function npcDataInit() {
               },
               {
                 text: "The girl seems extremely absorbed in her work and doesn't seem to even register your presence. Perhaps now isn't the time...",
-                func: ()=>{passTime(30)}
+               
               }],
               () => {
                 
                 handleMsgUI(window.getGame().npcs.gwen.interactions.investigate.actions[0].message)
-       
+              passTime(30)
               },
               () => true
             )
@@ -170,6 +172,7 @@ export function npcDataInit() {
               }],
               () => {
                 handleMsgUI(window.getGame().npcs.gwen.interactions.chat.actions[0].message)
+                passTime(10)
               },
               () => true
             )

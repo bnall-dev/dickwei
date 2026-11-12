@@ -71,6 +71,7 @@ export function locationDataInit() {
         "town_hall",
         "sheriffs_station",
         "hospital",
+        "residential_district",
         "outskirts"
       ],
       [],
@@ -125,7 +126,9 @@ export function locationDataInit() {
               
  handleMsgUI(window.getGame().locations.town_hall.interactions.go.actions[0].message)
               
-              handleChangeLocation("town_hall")
+              handleChangeLocation("town_hall"
+              )
+                passTime(180)
             },
             () => true
             
@@ -157,6 +160,7 @@ export function locationDataInit() {
               
              handleMsgUI(window.getGame().locations.mayors_office.interactions.go.actions[0].message)
               handleChangeLocation("mayors_office")
+              passTime(180)
               
             },
             () => true
@@ -188,6 +192,7 @@ export function locationDataInit() {
               
               handleMsgUI(window.getGame().locations.sheriffs_station.interactions.go.actions[0].message)
               handleChangeLocation("sheriffs_station")
+              passTime(180)
               
             },
             () => true
@@ -200,9 +205,7 @@ export function locationDataInit() {
     jail: createLocation(
       "Jail",
       [
-        "cell_a",
-        "cell_b",
-        "cell_c",
+     
         "sheriffs_station"
       ],
       {
@@ -345,7 +348,7 @@ export function locationDataInit() {
              handleMsgUI(window.getGame().locations.jail.interactions.go.actions[1].message)
                 
                 handleChangeLocation("jail")
-                
+                passTime(180)
               },
                () => true
             )
@@ -379,7 +382,7 @@ export function locationDataInit() {
               handleMsgUI(window.getGame().locations.hospital.interactions.go.actions[0].message)
               
               handleChangeLocation("hospital")
-              
+              passTime(180)
             },
             () => true
           )]
@@ -394,7 +397,7 @@ export function locationDataInit() {
       [
         "hospital"
       ],
-      [],
+      {},
        "You see a sign indicating the direction of the morgue.",
       "You are in the morgue.",
      
@@ -412,12 +415,96 @@ export function locationDataInit() {
                 handleMsgUI(window.getGame().locations.morgue.interactions.go.actions[0].message)
               
               handleChangeLocation("morgue")
-              
+              passTime(180)
             },
             () => true
           )])
           
-      }  )
+      }  ),
+      
+    residential_district: createLocation(
+      "Residential District",
+      ["hotel", "municipal_district"],
+      {},
+      "You see the Residential District.",
+      "You are in the Residential District.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Residential District."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.residential_district.interactions.go.actions[0].message)
+                handleChangeLocation("residential_district")
+                passTime(300)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    hotel: createLocation(
+      "Hotel",
+      ["player_room", "residential_district"],
+      {},
+      "You see the Hotel.",
+      "You are in the Hotel.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Hotel."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.hotel.interactions.go.actions[0].message)
+                handleChangeLocation("hotel")
+                passTime(180)
+              },
+              ()=> true
+              
+            )
+          ]
+        )
+      }
+    ),
+    player_room: createLocation(
+      "Your Room",
+      ["hotel"],
+      {},
+      "You see your hotel room.",
+      "You are in your hotel room.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter your hotel room."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.player_room.interactions.go.actions[0].message)
+                handleChangeLocation("player_room")
+                passTime(180)
+              },
+              ()=> true
+            )
+          ]
+        )
+      }
+    )
+    
       
   /*
   
@@ -439,8 +526,10 @@ export function locationDataInit() {
               ],
               ()=>{
                 handleMsgUI(window.getGame().locations..interactions.go.actions[0].message)
-                handleChangelocation()
-              }
+                handleChangeLocation()
+                passTime()
+              },
+              ()=>true
             )
           ]
         )

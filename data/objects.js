@@ -50,7 +50,7 @@ export function objectDataInit() {
                 handleMsgUI(window.getGame().objects.player_car.interactions.use.actions[0].message)
                 passTime(60)
               },
-              ()=> {}
+              ()=> true
             )
           ]
         )

@@ -2,6 +2,8 @@
   import ReactDOM from 'react-dom';
   const { useState, useEffect } = React;
   
+  import {passTime} from "../../functions/game"
+  
   
   function InteractionUI() {
     
@@ -68,6 +70,7 @@ const subLocations = location.subLocations.map(loc => window.getGame().locations
           
         })
       )
+      passTime(10)
     }
     
     
