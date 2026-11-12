@@ -120,7 +120,7 @@ function App() {
       backgroundColor: "white",
       height: "5px",
       width: (window.getGame().player.currentCig / 1440 * 40).toString() + "px",
-      borderLeft: "3px solid orange"
+      borderLeft: "3px solid yellow"
     }
     const cigFilterStyle = {
       height: "5px",
