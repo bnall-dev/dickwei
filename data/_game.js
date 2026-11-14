@@ -19,7 +19,7 @@ function playerDataInit() {
       "player_gun",
       "cigarettes_open"
     ],
-    cigs: 19,
+    cigs: 0,
     currentCig: 1440,
   })
 }
@@ -69,7 +69,7 @@ export function initGame() {
         abbrev: "TUE",
         day: 3
       },
-      wrdnesday: {
+      wednesday: {
         name: "Wednesday",
         abbrev: "WED",
         day: 4
@@ -87,7 +87,7 @@ export function initGame() {
       saturday: {
         name: "Saturay",
         abbrev: "SAT",
-        day: 7
+        day: 0
       },
     },
     day: 1,

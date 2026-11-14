@@ -50,6 +50,13 @@ h6 {margin: 8px;font-size: 12px; font-weight: normal;}
 .Header {
   display: flex;
   align-items: center;
+
+}
+
+.Header > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .TextDisplay {
@@ -66,7 +73,7 @@ h6 {margin: 8px;font-size: 12px; font-weight: normal;}
 .InteractionUI {
   display: flex;
    padding: 12px;
-   height: 20vh;
+   height: 30vh;
    margin: 0 16px 16px 16px;
    border: 2px solid white;
 }
@@ -165,4 +172,24 @@ text-align: center;
    padding: 16px;
    margin: 0 16px 16px 16px;
    border: 2px solid white;
+}
+
+.InventoryUI {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 0 16px 16px 16px;
+  border: 2px solid white;
+}
+
+.NpcButton {
+  border: 1px solid red;
+}
+
+.ObjectButton {
+  border: 1px solid green;
+}
+
+.LocationButton {
+  border: 1px solid blue;
 }

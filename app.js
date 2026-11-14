@@ -15,6 +15,7 @@ function App() {
   window.getGame = () => game
   window.setGame = setGame
   
+  
   useEffect(() => {
     window.getGame = () => game
   }, [game])
@@ -23,10 +24,28 @@ function App() {
     changeDisplayText(game.message[game.messageIndex].text)
   }, [game.message, game.messageIndex])
   
+  useEffect(()=>{
+    
+    Object.keys(window.getGame().npcs).forEach((n, i)=>{
+      setGame(prev=>({
+        ...prev,
+        npcs: {
+          ...prev.npcs,
+          [n]: {
+            ...prev.npcs[n],
+            location:npcScheduleLocation(prev.npcs[n])
+          }
+        }
+      }))
+    })
+    
+  }, [game.dayTime])
   
   
-  
-  
+  function npcScheduleLocation(npc){
+    const today = Object.keys(game.weekDays)[game.day % 7 - 1]
+    return npc.schedule[today][game.dayTime]
+  }
   
   
   
@@ -36,7 +55,7 @@ function App() {
   function InventoryUI() {
     
     const itemList = window.getGame().player.inventory.map((item, i) => <li key = {i}>
-      <h4>{window.getGame().items[item].name}</h4>
+      <button>{window.getGame().items[item].name}</button>
     </li>)
     
     return (
@@ -129,13 +148,15 @@ function App() {
     }
     
     return <div className = "Header">
-      <h6>{dayOfWeek} {window.getGame().dayTime.toUpperCase()}</h6>
-      <h6>Day {window.getGame().day}</h6>
-      <div style = {cigStyle}>
+      <h6>{dayOfWeek} {window.getGame().dayTime == "am" ? "Daytime" : "Evening"}</h6>
+      <div>
+       <div style = {cigStyle}>
         <div style = {cigRemainingStyle}/>
         <div style = {cigFilterStyle}/>
+        </div>
       </div>
-      <h6>({window.getGame().player.cigs})</h6>
+      <h6>Day {window.getGame().day}</h6>
+     
     </div>
   }
   

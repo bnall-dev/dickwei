@@ -71,7 +71,9 @@ export function locationDataInit() {
         "town_hall",
         "sheriffs_station",
         "hospital",
+        "high_school",
         "residential_district",
+        "downtown",
         "outskirts"
       ],
       [],
@@ -424,7 +426,7 @@ export function locationDataInit() {
       
     residential_district: createLocation(
       "Residential District",
-      ["hotel", "municipal_district"],
+      ["hotel", "gas_station", "diner", "church","municipal_district", "industrial_district"],
       {},
       "You see the Residential District.",
       "You are in the Residential District.",
@@ -503,7 +505,429 @@ export function locationDataInit() {
           ]
         )
       }
+    ),
+    
+    downtown: createLocation(
+      "Downtown",
+      ["mall", "apartments", "pier","municipal_district", "industrial_district"],
+      {},
+      "You see Downtown.",
+      "You are Downtown.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You go Downtown."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.downtown.interactions.go.actions[0].message)
+                handleChangeLocation("downtown")
+                passTime(300)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    industrial_district: createLocation(
+      "Industrial District",
+      ["trailer_park","cemetary", "mill", "factory","residential_district",
+        "downtown"
+      ],
+      {},
+      "You see the Industrial District.",
+      "You are in the Industrial District.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Industrial District."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.industrial_district.interactions.go.actions[0].message)
+                handleChangeLocation("industrial_district")
+                passTime(300)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    high_school: createLocation(
+      "Goodwood High",
+      ["residential_district"],
+      {},
+      "You see Goodwood High School.",
+      "You are in the High School.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the High School."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.high_school.interactions.go.actions[0].message)
+                handleChangeLocation("high_school")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    mall: createLocation(
+      "Goodwood Town Mall",
+      ["downtown"],
+      {},
+      "You see the Mall.",
+      "You are in the Mall.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Mall."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.mall.interactions.go.actions[0].message)
+                handleChangeLocation("mall")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    apartments: createLocation(
+      "Apartment Building",
+      ["downtown"],
+      {},
+      "You see an Apartment Building.",
+      "You are in the Apartment Building.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Apartment Building."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.apartments.interactions.go.actions[0].message)
+                handleChangeLocation("apartments")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    pier: createLocation(
+      "Pier",
+      ["beach", "lighthouse","downtown"],
+      {},
+      "You see the Pier.",
+      "You are on the Pier.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You walk to the Pier."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.pier.interactions.go.actions[0].message)
+                handleChangeLocation("pier")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    beach: createLocation(
+      "Beach",
+      ["pier"],
+      {},
+      "You see the Beach.",
+      "You are on the Beach.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You walk down to the Beach."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.beach.interactions.go.actions[0].message)
+                handleChangeLocation("beach")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    lighthouse: createLocation(
+      "Lighthouse",
+      ["pier"],
+      {},
+      "You see the Lighthouse.",
+      "You are in the Lighthouse.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Lighthouse."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.lighthouse.interactions.go.actions[0].message)
+                handleChangeLocation("lighthouse")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    gas_station: createLocation(
+      "Gas Station",
+      ["residential_district"],
+      {},
+      "You see the Gas Station.",
+      "You are in the Gas Station.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Gas Station."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.gas_station.interactions.go.actions[0].message)
+                handleChangeLocation("gas_station")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    diner: createLocation(
+      "Diner",
+      ["residential_district"],
+      {},
+      "You see the Diner.",
+      "You are in the Diner.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Diner."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.diner.interactions.go.actions[0].message)
+                handleChangeLocation("diner")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    church: createLocation(
+      "Church",
+      ["cemetary","residential_district"],
+      {},
+      "You see the Church.",
+      "You are in the Church.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Church."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.church.interactions.go.actions[0].message)
+                handleChangeLocation("church")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    cemetary: createLocation(
+      "Cemetary",
+      ["church", "industrial_district"],
+      {},
+      "You see the Cemetary.",
+      "You are in the Cemetary.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Cemetary."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.cemetary.interactions.go.actions[0].message)
+                handleChangeLocation("cemetary")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    trailer_park: createLocation(
+      "Trailer Park",
+      ["industrial_district"],
+      {},
+      "You see the Trailer Park.",
+      "You are in the Trailer Park.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Trailer Park."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.trailer_park.interactions.go.actions[0].message)
+                handleChangeLocation("trailer_park")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    factory: createLocation(
+      "Abandoned Factory",
+      ["industrial_district"],
+      {},
+      "You see an Abandoned Factory.",
+      "You are in the Abandoned Factory.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Abandoned Factory."
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.factory.interactions.go.actions[0].message)
+                handleChangeLocation("factory")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    mill: createLocation(
+      "Mill",
+      ["industrial_district"],
+      {},
+      "You see the Mill.",
+      "You are in the Mill.",
+      {
+        go: createInteraction(
+          "Go",
+          [
+            createAction(
+              [
+                {
+                  text: "You enter the Mill "
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().locations.mill.interactions.go.actions[0].message)
+                handleChangeLocation("mill")
+                passTime(180)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
     )
+    
+
+
+
     
       
   /*

@@ -55,7 +55,93 @@ export function objectDataInit() {
           ]
         )
       }
-    )
+    ),
+    
+    town_sign: createObject(
+      "Welcome Sign",
+      "outskirts",
+      {},
+      "You see a large sign.",
+      {
+        inspect: createInteraction(
+          "Inspect",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects.town_sign.interactions.inspect.actions[0].message)
+                passTime(60)
+              },
+              ()=>{}
+            )
+          ]
+        ),
+        use: createInteraction(
+          "Use",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects.town_sign.interactions.use.actions[0].message)
+                passTime(10)
+              }
+            )
+          ]
+        )
+      }
+    ),
+    
+    fountain: createObject(
+      "Fountain",
+      "municipal_district",
+      {},
+      "You see a Fountain.",
+      {
+        inspect: createInteraction(
+          "Inspect",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects.fountain.interactions.inspect.actions[0].message)
+                passTime(60)
+              },
+              ()=>{}
+            )
+          ]
+        ),
+        use: createInteraction(
+          "Use",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI(window.getGame().objects.fountain.interactions.use.actions[0].message)
+                passTime(30)
+              }
+            )
+          ]
+        )
+      }
+    ),
+    
+    
     
       /*
   
@@ -76,7 +162,9 @@ export function objectDataInit() {
               ],
               ()=>{
                 handleMsgUI(window.getGame().objects..interactions.inspect.actions[0].message)
-              }
+                passTime()
+              },
+              ()=>{}
             )
           ]
         ),
@@ -91,7 +179,9 @@ export function objectDataInit() {
               ],
               ()=>{
                 handleMsgUI(window.getGame().objects..interactions.use.actions[0].message)
-              }
+                passTime()
+              },
+              ()=>{}
             )
           ]
         )
