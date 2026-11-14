@@ -134,7 +134,8 @@ function App() {
       height: "5px",
       width: "60px",
       display: "flex",
-      justifyContent: "flex-end"
+      justifyContent: "flex-end",
+      backgroundColor: "dimgrey"
     }
     const cigRemainingStyle = {
       backgroundColor: "white",
