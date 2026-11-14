@@ -2,7 +2,7 @@
   import ReactDOM from 'react-dom';
   const { useState, useEffect } = React;
   
-  import {passTime} from "../../functions/game"
+  import {passTime, handleInteraction} from "../../functions/game"
   
   
   function InteractionUI() {
@@ -85,24 +85,7 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
       
     }
     
-    function handleInteraction(obj) {
-      if (obj.name)
-      {window.setGame(
-        prev => (
-        {
-          ...prev,
-          displayText: obj.interactText,
-          currentObj: obj,
-          interaction: Object.values(obj.interactions),
-          choiceUIActive: true,
-          interactionUIActive: false,
-          toolsUIActive: false
-          
-          
-        })
-      )
-      passTime(10)}
-    }
+    
     
     
     

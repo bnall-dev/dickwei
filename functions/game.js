@@ -239,3 +239,22 @@ export  function setObjFlag(obj, flag, bool){
       }
     }))
   }
+  export function handleInteraction(obj) {
+      if (obj.name)
+      {window.setGame(
+        prev => (
+        {
+          ...prev,
+          displayText: obj.interactText,
+          currentObj: obj,
+          interaction: Object.values(obj.interactions),
+          choiceUIActive: true,
+          interactionUIActive: false,
+          toolsUIActive: false, 
+          inventoryUIActive: false
+          
+          
+        })
+      )
+      passTime(10)}
+    }

@@ -18,8 +18,8 @@ export function itemDataInit(){
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -28,7 +28,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "player_badge", "inspect", 0)
+                handleMsgUI("items", "player_badge", "examine", 0)
               },
               ()=>true
             )
@@ -55,8 +55,8 @@ export function itemDataInit(){
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -65,7 +65,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "dossier", "inspect", 0)
+                handleMsgUI("items", "dossier", "examine", 0)
               },
               ()=>true
             )
@@ -89,8 +89,8 @@ export function itemDataInit(){
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -99,7 +99,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "player_gun", "inspect", 0)
+                handleMsgUI("items", "player_gun", "examine", 0)
               },
               ()=> true
             )
@@ -128,8 +128,8 @@ export function itemDataInit(){
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -138,7 +138,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "cigarettes_open", "inspect", 0)
+                handleMsgUI("items", "cigarettes_open", "examine", 0)
               },
               ()=> true
             )
@@ -167,8 +167,8 @@ export function itemDataInit(){
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -177,7 +177,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "player_phone", "inspect", 0)
+                handleMsgUI("items", "player_phone", "examine", 0)
               },
               ()=> true
             )
@@ -210,8 +210,8 @@ export function itemDataInit(){
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [

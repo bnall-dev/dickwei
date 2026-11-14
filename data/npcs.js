@@ -21,8 +21,8 @@ export function npcDataInit() {
       "jail", {},
       "You see the deputy.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -30,7 +30,7 @@ export function npcDataInit() {
                 text: "He is a lanky man wearing a deputy's uniform under a leather bomber jacket. Even with his dark sunglasses, you can sense him staring at you with suspicion."
               }],
               () => {
-                handleMsgUI("npcs", "drew", "inspect", 0)
+                handleMsgUI("npcs", "drew", "examine", 0)
                 passTime(30)
                 
               },
@@ -126,8 +126,8 @@ export function npcDataInit() {
       {},
       "She sits at the front desk typing furiously at her computer. She seems stressed out.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -137,7 +137,7 @@ export function npcDataInit() {
               ],
               () => {
                 
-                handleMsgUI("npcs", "gwen", "inspect", 0)
+                handleMsgUI("npcs", "gwen", "examine", 0)
                 passTime(30)
               },
               () => true
@@ -219,8 +219,8 @@ export function npcDataInit() {
       "municipal_district", {},
       "An old woman putters down the sidewalk.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -229,7 +229,7 @@ export function npcDataInit() {
               () => {
                 
                 
-                handleMsgUI("npcs", "old_woman", "inspect", 0)
+                handleMsgUI("npcs", "old_woman", "examine", 0)
                 passTime(30)
                 
                 
@@ -310,8 +310,8 @@ export function npcDataInit() {
       {},
       "You see Sabra.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -320,7 +320,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("npcs", "sabra", "inspect", 0)
+                handleMsgUI("npcs", "sabra", "examine", 0)
               },
               ()=>true
             )
@@ -396,8 +396,8 @@ export function npcDataInit() {
       {},
       "You see Rikki.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -406,7 +406,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("npcs", "rikki", "inspect", 0)
+                handleMsgUI("npcs", "rikki", "examine", 0)
               },
               ()=>true
             )
@@ -482,8 +482,8 @@ export function npcDataInit() {
       {},
       "You see Breezy.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -492,7 +492,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("npcs", "breezy", "inspect", 0)
+                handleMsgUI("npcs", "breezy", "examine", 0)
               },
               ()=>true
             )
@@ -568,8 +568,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -578,7 +578,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("npcs", "heather", "inspect", 0)
+                handleMsgUI("npcs", "heather", "examine", 0)
               },
               ()=>true
             )
@@ -654,8 +654,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -664,7 +664,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("npcs", "monica", "inspect", 0)
+                handleMsgUI("npcs", "monica", "examine", 0)
               },
               ()=>true
             )
@@ -741,8 +741,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -751,7 +751,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -827,8 +827,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -837,7 +837,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -913,8 +913,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -923,7 +923,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -999,8 +999,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1009,7 +1009,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1085,8 +1085,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1095,7 +1095,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1171,8 +1171,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1181,7 +1181,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1257,8 +1257,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1267,7 +1267,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1343,8 +1343,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1353,7 +1353,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1429,8 +1429,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1439,7 +1439,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1515,8 +1515,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1525,7 +1525,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1601,8 +1601,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1611,7 +1611,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1687,8 +1687,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1697,7 +1697,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1773,8 +1773,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1783,7 +1783,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1859,8 +1859,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1869,7 +1869,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -1945,8 +1945,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -1955,7 +1955,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2031,8 +2031,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2041,7 +2041,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2117,8 +2117,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2127,7 +2127,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2203,8 +2203,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2213,7 +2213,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2289,8 +2289,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2299,7 +2299,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2375,8 +2375,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2385,7 +2385,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2461,8 +2461,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2471,7 +2471,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )
@@ -2551,8 +2551,8 @@ export function npcDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -2561,7 +2561,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
               },
               ()=>true
             )

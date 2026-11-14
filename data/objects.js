@@ -18,30 +18,30 @@ export function objectDataInit() {
       "Your Car",
       "outskirts",
       {
-        first_inspect: false
+        first_examine: false
       },
       "You see your car.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
-                { text: "You inspect your car." }
+                { text: "You examine your car." }
               ],
               () => {
-                handleMsgUI("objects", "player_car", "inspect", 0)
+                handleMsgUI("objects", "player_car", "examine", 0)
                 passTime(60)
-                setObjFlag("player_car", "first_inspect", true)
+                setObjFlag("player_car", "first_examine", true)
               },
-              () => window.getGame().objects.player_car.flags.first_inspect == false
+              () => window.getGame().objects.player_car.flags.first_examine == false
             ),
              createAction(
               [
-                { text: "You inspect your car again and find your badge." }
+                { text: "You examine your car again and find your badge." }
               ],
               () => {
-                handleMsgUI("objects", "player_car", "inspect", 1)
+                handleMsgUI("objects", "player_car", "Examine", 1)
                 passTime(60)
                 playerGetItem("player_badge")
               },
@@ -52,7 +52,7 @@ export function objectDataInit() {
      { text: "It's broken down." }
    ],
    () => {
-     handleMsgUI("objects", "player_car", "inspect", 2)
+     handleMsgUI("objects", "player_car", "Examine", 2)
      passTime(60)
    },
    () => true
@@ -85,8 +85,8 @@ export function objectDataInit() {
       {},
       "You see a large sign.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -95,7 +95,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("objects", "town_sign", "inspect", 0)
+                handleMsgUI("objects", "town_sign", "examine", 0)
                 passTime(60)
               },
               ()=>true
@@ -128,8 +128,8 @@ export function objectDataInit() {
       {},
       "You see a Fountain.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -138,7 +138,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("objects", "fountain", "inspect", 0)
+                handleMsgUI("objects", "fountain", "examine", 0)
                 passTime(60)
               },
               ()=>true
@@ -171,8 +171,8 @@ export function objectDataInit() {
       {},
       "You see a newspaper box.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -181,7 +181,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("objects", "newspaper_box", "inspect", 0)
+                handleMsgUI("objects", "newspaper_box", "examine", 0)
                 passTime(60)
               },
               ()=>true
@@ -214,8 +214,8 @@ export function objectDataInit() {
       {},
       "You see a post box. You could send a letter in the mail if you had one.",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -224,7 +224,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("objects", "post_box", "inspect", 0)
+                handleMsgUI("objects", "post_box", "examine", 0)
                 passTime(60)
               },
               ()=>true
@@ -263,8 +263,8 @@ export function objectDataInit() {
       {},
       "",
       {
-        inspect: createInteraction(
-          "Inspect",
+        examine: createInteraction(
+          "Examine",
           [
             createAction(
               [
@@ -273,7 +273,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().objects..interactions.inspect.actions[0].message)
+                handleMsgUI(window.getGame().objects..interactions.examine.actions[0].message)
                 passTime()
               },
               ()=>true

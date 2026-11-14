@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 const { useState, useEffect } = React;
 
 import { initGame } from "./data/_game"
-import { changeDisplayText } from "./functions/game"
+import { changeDisplayText, handleInteraction } from "./functions/game"
 import TextDisplay from "./modules/UI/TextDisplay"
 import InteractionUI from "./modules/UI/InteractionUI"
 import ChoiceUI from "./modules/UI/ChoiceUI"
@@ -56,7 +56,7 @@ function App() {
   function InventoryUI() {
     
     const itemList = window.getGame().player.inventory.map((item, i) => <li key = {i}>
-      <button>{window.getGame().items[item].name}</button>
+      <button onClick = {()=> handleInteraction(window.getGame().items[item])}>{window.getGame().items[item].name}</button>
     </li>)
     
     return (
