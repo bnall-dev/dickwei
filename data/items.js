@@ -28,7 +28,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.player_badge.interactions.inspect.actions[0].message)
+                handleMsgUI("items", "player_badge", "inspect", 0)
               },
               ()=>true
             )
@@ -44,7 +44,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.player_badge.interactions.use.actions[0].message)
+                handleMsgUI("items", "player_badge", "use", 0)
               },
               ()=>true
             )])
@@ -65,7 +65,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.dossier.interactions.inspect.actions[0].message)
+                handleMsgUI("items", "dossier", "inspect", 0)
               },
               ()=>true
             )
@@ -81,7 +81,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.dossier.interactions.use.actions[0].message)
+                handleMsgUI("items", "dossier", "use", 0)
               }
             )])}),
       player_gun: createItem(
@@ -99,7 +99,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.player_gun.interactions.inspect.actions[0].message)
+                handleMsgUI("items", "player_gun", "inspect", 0)
               },
               ()=> true
             )
@@ -115,7 +115,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.player_gun.interactions.use.actions[0].message)
+                handleMsgUI("items", "player_gun", "use", 0)
               },
               ()=>true
             )
@@ -138,7 +138,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.cigarettes_open.interactions.inspect.actions[0].message)
+                handleMsgUI("items", "cigarettes_open", "inspect", 0)
               },
               ()=> true
             )
@@ -154,7 +154,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.cigarettes_open.interactions.use.actions[0].message)
+                handleMsgUI("items", "cigarettes_open", "use", 0)
               },
               ()=>true
             )
@@ -177,7 +177,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.player_phone.interactions.inspect.actions[0].message)
+                handleMsgUI("items", "player_phone", "inspect", 0)
               },
               ()=> true
             )
@@ -193,7 +193,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().items.player_phone.interactions.use.actions[0].message)
+                handleMsgUI("items", "player_phone", "use", 0)
               },
               ()=>true
             )

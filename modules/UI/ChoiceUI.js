@@ -7,7 +7,7 @@ import {setChoiceUIActive, setMessage, setInteractionUIActive, setToolsUIActive}
   function ChoiceUI() {
     
     function handleActionCondition (int){
-      console.log("yeee")
+      
       int.actions.find(a => a.condition()).func()
     }
     

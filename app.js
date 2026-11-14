@@ -22,6 +22,7 @@ function App() {
   
   useEffect(() => {
     changeDisplayText(game.message[game.messageIndex].text)
+    console.log(game.message)
   }, [game.message, game.messageIndex])
   
   useEffect(()=>{

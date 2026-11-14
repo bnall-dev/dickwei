@@ -15,7 +15,7 @@ export function locationDataInit() {
     }
   }
   
- function handleMsgUI(msg) {
+ function handleMsgUI(cat, obj, act, i) {
   window.setGame(
     prev => ({
       ...prev,
@@ -23,7 +23,9 @@ export function locationDataInit() {
       choiceUIActive: false,
      interactionUIActive: true,
      toolsUIActive: true,
-      message: msg
+      message: window.getGame()[cat][obj].interactions[act].actions[i].message
+        
+    
       
     })
   )
@@ -53,7 +55,7 @@ export function locationDataInit() {
               ],
               () => {
 
-                handleMsgUI(window.getGame().locations.outskirts.interactions.go.actions[0].message)
+                handleMsgUI("locations", "outskirts", "go", 0)
                 handleChangeLocation("outskirts")
                 passTime(300)
                 
@@ -89,10 +91,9 @@ export function locationDataInit() {
               text: "You enter the Municipal District."
             }],
              () => {
-
-              
-              handleMsgUI(window.getGame().locations.municipal_district.interactions.go.actions[0].message)
+             
               handleChangeLocation("municipal_district")
+              handleMsgUI("locations", "municipal_district", "go", 0)
               passTime(300)
               
             },
@@ -126,7 +127,7 @@ export function locationDataInit() {
               
 
               
- handleMsgUI(window.getGame().locations.town_hall.interactions.go.actions[0].message)
+ handleMsgUI("locations", "town_hall", "go", 0)
               
               handleChangeLocation("town_hall"
               )
@@ -160,7 +161,7 @@ export function locationDataInit() {
               
 
               
-             handleMsgUI(window.getGame().locations.mayors_office.interactions.go.actions[0].message)
+             handleMsgUI("locations", "mayors_office", "go", 0)
               handleChangeLocation("mayors_office")
               passTime(180)
               
@@ -192,7 +193,7 @@ export function locationDataInit() {
             }],
             () => {
               
-              handleMsgUI(window.getGame().locations.sheriffs_station.interactions.go.actions[0].message)
+              handleMsgUI("locations", "sheriffs_station", "go", 0)
               handleChangeLocation("sheriffs_station")
               passTime(180)
               
@@ -347,7 +348,7 @@ export function locationDataInit() {
                 text: "You enter the Jail."
               }],
                () => {
-             handleMsgUI(window.getGame().locations.jail.interactions.go.actions[1].message)
+             handleMsgUI("locations", "jail", "go", 0)
                 
                 handleChangeLocation("jail")
                 passTime(180)
@@ -381,7 +382,7 @@ export function locationDataInit() {
               text: "You enter the Hospital."
             }],
             () => {
-              handleMsgUI(window.getGame().locations.hospital.interactions.go.actions[0].message)
+              handleMsgUI("locations", "hospital", "go", 0)
               
               handleChangeLocation("hospital")
               passTime(180)
@@ -414,7 +415,7 @@ export function locationDataInit() {
             }],
             () => {
            
-                handleMsgUI(window.getGame().locations.morgue.interactions.go.actions[0].message)
+                handleMsgUI("locations", "morgue", "go", 0)
               
               handleChangeLocation("morgue")
               passTime(180)
@@ -441,7 +442,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.residential_district.interactions.go.actions[0].message)
+                handleMsgUI("locations", "residential_district", "go", 0)
                 handleChangeLocation("residential_district")
                 passTime(300)
               },
@@ -468,7 +469,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.hotel.interactions.go.actions[0].message)
+                handleMsgUI("locations", "hotel", "go", 0)
                 handleChangeLocation("hotel")
                 passTime(180)
               },
@@ -496,7 +497,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.player_room.interactions.go.actions[0].message)
+                handleMsgUI("locations", "player_room", "go", 0)
                 handleChangeLocation("player_room")
                 passTime(180)
               },
@@ -524,7 +525,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.downtown.interactions.go.actions[0].message)
+                handleMsgUI("locations", "downtown", "go", 0)
                 handleChangeLocation("downtown")
                 passTime(300)
               },
@@ -553,7 +554,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.industrial_district.interactions.go.actions[0].message)
+                handleMsgUI("locations", "industrial_district", "go", 0)
                 handleChangeLocation("industrial_district")
                 passTime(300)
               },
@@ -581,7 +582,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.high_school.interactions.go.actions[0].message)
+                handleMsgUI("locations", "high_school", "go", 0)
                 handleChangeLocation("high_school")
                 passTime(180)
               },
@@ -609,7 +610,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.mall.interactions.go.actions[0].message)
+                handleMsgUI("locations", "mall", "go", 0)
                 handleChangeLocation("mall")
                 passTime(180)
               },
@@ -637,7 +638,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.apartments.interactions.go.actions[0].message)
+                handleMsgUI("locations", "apartments", "go", 0)
                 handleChangeLocation("apartments")
                 passTime(180)
               },
@@ -665,7 +666,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.pier.interactions.go.actions[0].message)
+                handleMsgUI("locations", "pier", "go", 0)
                 handleChangeLocation("pier")
                 passTime(180)
               },
@@ -693,7 +694,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.beach.interactions.go.actions[0].message)
+                handleMsgUI("locations", "beach", "go", 0)
                 handleChangeLocation("beach")
                 passTime(180)
               },
@@ -721,7 +722,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.lighthouse.interactions.go.actions[0].message)
+                handleMsgUI("locations", "lighthouse", "go", 0)
                 handleChangeLocation("lighthouse")
                 passTime(180)
               },
@@ -749,7 +750,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.gas_station.interactions.go.actions[0].message)
+                handleMsgUI("locations", "gas_station", "go", 0)
                 handleChangeLocation("gas_station")
                 passTime(180)
               },
@@ -777,7 +778,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.diner.interactions.go.actions[0].message)
+                handleMsgUI("locations", "diner", "go", 0)
                 handleChangeLocation("diner")
                 passTime(180)
               },
@@ -804,7 +805,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.church.interactions.go.actions[0].message)
+                handleMsgUI("locations", "church", "go", 0)
                 handleChangeLocation("church")
                 passTime(180)
               },
@@ -832,7 +833,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.cemetary.interactions.go.actions[0].message)
+                handleMsgUI("locations", "cemetary", "go", 0)
                 handleChangeLocation("cemetary")
                 passTime(180)
               },
@@ -860,7 +861,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.trailer_park.interactions.go.actions[0].message)
+                handleMsgUI("locations", "trailer_park", "go", 0)
                 handleChangeLocation("trailer_park")
                 passTime(180)
               },
@@ -887,7 +888,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.factory.interactions.go.actions[0].message)
+                handleMsgUI("locations", "factory", "go", 0)
                 handleChangeLocation("factory")
                 passTime(180)
               },
@@ -914,7 +915,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().locations.mill.interactions.go.actions[0].message)
+                handleMsgUI("locations", "mill", "go", 0)
                 handleChangeLocation("mill")
                 passTime(180)
               },

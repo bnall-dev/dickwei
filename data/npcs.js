@@ -30,7 +30,7 @@ export function npcDataInit() {
                 text: "He is a lanky man wearing a deputy's uniform under a leather bomber jacket. Even with his dark sunglasses, you can sense him staring at you with suspicion."
               }],
               () => {
-                handleMsgUI(window.getGame().npcs.drew.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "drew", "inspect", 0)
                 passTime(30)
                 
               },
@@ -49,7 +49,7 @@ export function npcDataInit() {
                
               }],
               () => {
-                handleMsgUI(window.getGame().npcs.drew.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "drew", "investigate", 0)
                 passTime(10)
               },
               () => window.getGame().player.inventory.includes("player_badge") == false
@@ -61,7 +61,7 @@ export function npcDataInit() {
            
               }],
               () => {
-                handleMsgUI(window.getGame().npcs.drew.interactions.investigate.actions[1].message)
+                handleMsgUI("npcs", "drew", "investigate", 1)
                 passTime(10)
               },
               () => true
@@ -78,7 +78,7 @@ export function npcDataInit() {
                 text: ""
               }],
               () => {
-                handleMsgUI(window.getGame().npcs.drew.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "drew", "chat", 0)
                   passTime(10)
                 
               },
@@ -137,7 +137,7 @@ export function npcDataInit() {
               ],
               () => {
                 
-                handleMsgUI(window.getGame().npcs.gwen.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "gwen", "inspect", 0)
                 passTime(30)
               },
               () => true
@@ -158,7 +158,7 @@ export function npcDataInit() {
               }],
               () => {
                 
-                handleMsgUI(window.getGame().npcs.gwen.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "gwen", "investigate", 0)
               passTime(30)
               },
               () => true
@@ -174,7 +174,7 @@ export function npcDataInit() {
                 text: ""
               }],
               () => {
-                handleMsgUI(window.getGame().npcs.gwen.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "gwen", "chat", 0)
                 passTime(10)
               },
               () => true
@@ -229,7 +229,7 @@ export function npcDataInit() {
               () => {
                 
                 
-                handleMsgUI(window.getGame().npcs.old_woman.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "old_woman", "inspect", 0)
                 passTime(30)
                 
                 
@@ -248,7 +248,7 @@ export function npcDataInit() {
               }],
               () => {
                 
-                handleMsgUI(window.getGame().npcs.old_woman.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "old_woman", "investigate", 0)
                 passTime(10)
                 
               },
@@ -265,7 +265,7 @@ export function npcDataInit() {
                 text: ""
               }],
               () => {
-                handleMsgUI(window.getGame().npcs.old_woman.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "old_woman", "chat", 0)
                 passTime(10)
               },
               () => true
@@ -320,7 +320,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.sabra.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "sabra", "inspect", 0)
               },
               ()=>true
             )
@@ -336,7 +336,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.sabra.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "sabra", "investigate", 0)
               },
               ()=>true
             )
@@ -352,7 +352,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.sabra.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "sabra", "chat", 0)
               },
               ()=>true
             )
@@ -406,7 +406,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.rikki.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "rikki", "inspect", 0)
               },
               ()=>true
             )
@@ -422,7 +422,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.rikki.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "rikki", "investigate", 0)
               },
               ()=>true
             )
@@ -438,7 +438,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.rikki.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "rikki", "chat", 0)
               },
               ()=>true
             )
@@ -492,7 +492,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.breezy.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "breezy", "inspect", 0)
               },
               ()=>true
             )
@@ -508,7 +508,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.breezy.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "breezy", "investigate", 0)
               },
               ()=>true
             )
@@ -524,7 +524,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.breezy.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "breezy", "chat", 0)
               },
               ()=>true
             )
@@ -578,7 +578,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.heather.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "heather", "inspect", 0)
               },
               ()=>true
             )
@@ -594,7 +594,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.heather.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "heather", "investigate", 0)
               },
               ()=>true
             )
@@ -610,7 +610,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.heather.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "heather", "chat", 0)
               },
               ()=>true
             )
@@ -664,7 +664,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.monica.interactions.inspect.actions[0].message)
+                handleMsgUI("npcs", "monica", "inspect", 0)
               },
               ()=>true
             )
@@ -680,7 +680,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.monica.interactions.investigate.actions[0].message)
+                handleMsgUI("npcs", "monica", "investigate", 0)
               },
               ()=>true
             )
@@ -696,7 +696,7 @@ export function npcDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.monica.interactions.chat.actions[0].message)
+                handleMsgUI("npcs", "monica", "chat", 0)
               },
               ()=>true
             )

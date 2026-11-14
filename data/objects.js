@@ -1,4 +1,4 @@
-import { triggerFlag, handleScene, changeDisplayText, createAction, createInteraction, handleMsgUI, passTime } from "../functions/game"
+import { triggerFlag, handleScene, changeDisplayText, createAction, createInteraction, handleMsgUI, passTime, setObjFlag, playerGetItem } from "../functions/game"
 
 export function objectDataInit() {
   
@@ -30,11 +30,33 @@ export function objectDataInit() {
                 { text: "You inspect your car." }
               ],
               () => {
-                handleMsgUI(window.getGame().objects.player_car.interactions.inspect.actions[0].message)
+                handleMsgUI("objects", "player_car", "inspect", 0)
                 passTime(60)
+                setObjFlag("player_car", "first_inspect", true)
               },
-              () => true
-            )
+              () => window.getGame().objects.player_car.flags.first_inspect == false
+            ),
+             createAction(
+              [
+                { text: "You inspect your car again and find your badge." }
+              ],
+              () => {
+                handleMsgUI("objects", "player_car", "inspect", 1)
+                passTime(60)
+                playerGetItem("player_badge")
+              },
+              () => !window.getGame().player.inventory.includes("player_badge")
+            ),
+             createAction(
+   [
+     { text: "It's broken down." }
+   ],
+   () => {
+     handleMsgUI("objects", "player_car", "inspect", 2)
+     passTime(60)
+   },
+   () => true
+ )
           ]
         ),
          use: createInteraction(
@@ -47,7 +69,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().objects.player_car.interactions.use.actions[0].message)
+                handleMsgUI("objects", "player_car", "use", 0)
                 passTime(60)
               },
               ()=> true
@@ -73,10 +95,10 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().objects.town_sign.interactions.inspect.actions[0].message)
+                handleMsgUI("objects", "town_sign", "inspect", 0)
                 passTime(60)
               },
-              ()=>{}
+              ()=>true
             )
           ]
         ),
@@ -90,9 +112,10 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().objects.town_sign.interactions.use.actions[0].message)
-                passTime(10)
-              }
+                handleMsgUI("objects", "town_sign", "use", 0)
+                passTime(60)
+              },
+              ()=> true
             )
           ]
         )
@@ -115,10 +138,10 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().objects.fountain.interactions.inspect.actions[0].message)
+                handleMsgUI("objects", "fountain", "inspect", 0)
                 passTime(60)
               },
-              ()=>{}
+              ()=>true
             )
           ]
         ),
@@ -132,14 +155,103 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().objects.fountain.interactions.use.actions[0].message)
+                handleMsgUI("objects", "fountain", "use", 0)
                 passTime(30)
-              }
+              },
+              ()=> true
             )
           ]
         )
       }
     ),
+    
+    newspaper_box: createObject(
+      "Newspaper Box",
+      "municipal_district",
+      {},
+      "You see a newspaper box.",
+      {
+        inspect: createInteraction(
+          "Inspect",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI("objects", "newspaper_box", "inspect", 0)
+                passTime(60)
+              },
+              ()=>true
+            )
+          ]
+        ),
+        use: createInteraction(
+          "Use",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI("objects", "newspaper_box", "use", 0)
+                passTime(60)
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    post_box: createObject(
+      "Post Box",
+      "municipal_district",
+      {},
+      "You see a post box. You could send a letter in the mail if you had one.",
+      {
+        inspect: createInteraction(
+          "Inspect",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI("objects", "post_box", "inspect", 0)
+                passTime(60)
+              },
+              ()=>true
+            )
+          ]
+        ),
+        use: createInteraction(
+          "Use",
+          [
+            createAction(
+              [
+                {
+                  text: ""
+                }
+              ],
+              ()=>{
+                handleMsgUI("objects", "post_box", "", 0)
+                passTime()
+              },
+              ()=>true
+            )
+          ]
+        )
+      }
+    ),
+    
+    
     
     
     
@@ -164,7 +276,7 @@ export function objectDataInit() {
                 handleMsgUI(window.getGame().objects..interactions.inspect.actions[0].message)
                 passTime()
               },
-              ()=>{}
+              ()=>true
             )
           ]
         ),
@@ -181,7 +293,7 @@ export function objectDataInit() {
                 handleMsgUI(window.getGame().objects..interactions.use.actions[0].message)
                 passTime()
               },
-              ()=>{}
+              ()=>true
             )
           ]
         )

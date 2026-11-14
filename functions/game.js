@@ -5,16 +5,16 @@ export function triggerFlag(category, item, flag) {
 }
 
 export function handleChangeLocation(id) {
-  console.log(id)
+
   window.setGame(
     prev => (
     {
       ...prev,
-      choiceActive: false,
+      
       player: {
         ...prev.player,
         location: id
-      }
+      },
     })
   )
 }
@@ -130,14 +130,14 @@ export function endScene() {
     }
   }
   
- export function handleMsgUI(msg) {
+ export function handleMsgUI(cat, obj, act, i) {
     window.setGame(
       prev => ({
         ...prev,
         messageIndex: 0,
         messageActive: true,
         choiceUIActive: false,
-        message: msg
+        message: window.getGame()[cat][obj].interactions[act].actions[i].message
         
       })
     )
@@ -213,3 +213,29 @@ export function endScene() {
     
   }
  
+export  function setObjFlag(obj, flag, bool){
+                 window.setGame(prev=>({...prev,
+                  objects: {
+                    ...prev.objects,
+                    [obj]: {
+                      ...prev.objects[obj],
+                      flags: {
+                        ...prev.objects[obj].flags,
+                        [flag]:bool
+                      }
+                    }
+                  }
+                }))
+              }
+              
+  export function playerGetItem(item){
+    window.setGame(prev=>({...prev,
+      player: {
+        ...prev.player,
+        inventory: [
+          ...prev.player.inventory,
+          "player_badge"
+        ]
+      }
+    }))
+  }
