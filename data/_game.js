@@ -5,7 +5,7 @@ import { npcDataInit } from "./npcs"
 import { questDataInit } from "./quests"
 import { documentsDataInit } from "./documents"
 
-
+import {setBackgroundImg} from "../../functions/game"
 
 function playerDataInit() {
   return (
@@ -36,16 +36,22 @@ export function initGame() {
     currentObj: locationDataInit().outskirts,
     items: itemDataInit(),
     displayText: "Dick Wei",
-    message: [{ text: "You are driving deep in the mountains, on the way to investigate a very important case." },
-      { text: "As you apprach your destination, something suddenly averts your attention and the car spins out of control!" },
+    message: [{ text: "You are driving deep in the mountains, on the way to investigate a very important case." ,
+      func: ()=>{setBackgroundImg("opening2")}
+    },
+      { text: "As you apprach your destination, something suddenly averts your attention and the car spins out of control!",
+      func: ()=>{setBackgroundImg("opening3")}
+ },
       { text: "Miraculously, you aren't harmed, but your car has been wrapped around a tree." },
       { text: "Dick: \"I can't believe I survived that! I shall take it as a cosmic mandate that I must solve this case!\"" },
-      { text: "Dick: \"But it looks like we're on foot from here...\"" }
+      { text: "Dick: \"But it looks like we're on foot from here...\"",
+      func: ()=>{setBackgroundImg("outskirts")}
+ }
     ],
     messageIndex: 0,
     messageActive: true,
     sceneActive: true,
-    backgroundImage: "outskirts",
+    backgroundImage: "opening1",
     interaction: [
       
     ],

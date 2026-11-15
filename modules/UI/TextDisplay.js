@@ -28,7 +28,9 @@ function TextDisplay() {
   }
   
   function handleContinueButton(){
-    if (messageLineHasFunction()) {handleMessageLineFunction()}
+    if (messageLineHasFunction()) {handleMessageLineFunction()
+    if (messageIsContinued()) {goToNextLine()} 
+    else endScene()}
     else if (messageIsContinued()) {goToNextLine()} 
     else endScene()
         
