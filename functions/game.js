@@ -4,6 +4,12 @@ export function triggerFlag(category, item, flag) {
   
 }
 
+export function setBackgroundImg(img){
+  window.setGame(prev=>({...prev,
+    backgroundImage: img
+  }))
+}
+
 export function handleChangeLocation(id) {
 
   window.setGame(
@@ -25,7 +31,9 @@ export function changeDisplayText(newText) {
   window.setGame(prev => (
   {
     ...prev,
-    displayText: newText
+    displayText: typeof newText === "function"
+  ? newText()
+  : newText
   }))
 }
 
@@ -68,6 +76,14 @@ export function setInventoryUIActive(bool) {
   
 }
 
+export function setPhoneUIActive(bool) {
+  window.setGame(prev => ({
+    ...prev,
+    phoneUIActive: bool
+  }))
+  
+}
+
 export function setDossierUIActive(bool) {
   window.setGame(prev => ({
     ...prev,
@@ -75,6 +91,7 @@ export function setDossierUIActive(bool) {
   }))
   
 }
+
 
 export function setToolsUIActive(bool) {
   window.setGame(prev => ({
@@ -103,6 +120,7 @@ export function setMessage(arr) {
 export function setMessageCurrentObj() {
   const msg = window.getGame().sceneActive ? [{ text: window.getGame().currentObj.displayText }] : [{ text: window.getGame().currentObj.interactText }]
   setMessage(msg)
+  
 }
 
 export function endScene() {
@@ -140,7 +158,9 @@ export function endScene() {
         message: window.getGame()[cat][obj].interactions[act].actions[i].message
         
       })
-    )
+    ) 
+    
+    
   }
   
   export function lightCig() {
@@ -173,7 +193,7 @@ export function endScene() {
    
  message: [{text: "You ran out of smokes!"},
    {text: "You return to the hotel to rest and restock."},
-   prev.dayTime == "am" ? {text: "The sun sets outside your window. It is now evening."} : {text: "You fall asleep until your alarm wakes you. It is now daytime."}
+   prev.dayTime == "am" ? {text: "The sun sets outside your window. It is now evening."} : {text: "You fall asleep until your alarm wakes you. It is day" + window.getGame().day + " of your investigation."}
  ],
  dayTime: prev.dayTime == "am" ? "pm" : "am",
  day: prev.dayTime == "am" ? prev.day : prev.day + 1,
@@ -256,5 +276,7 @@ export  function setObjFlag(obj, flag, bool){
           
         })
       )
+            setBackgroundImg(obj.id)
+
       passTime(10)}
     }

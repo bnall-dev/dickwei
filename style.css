@@ -60,14 +60,33 @@ h6 {margin: 8px;font-size: 12px; font-weight: normal;}
 }
 
 .TextDisplay {
+  position: relative;
   text-align: left;
-  height: 20vh;
-  margin: 16px;
-  padding: 24px;
+  height: 30vh;
+  margin: 0 16px 16px 16px;
+  padding: 16px;
   border: 2px solid white;
  display: flex;
- justify-content: center;
+ flex-direction:column;
+ justify-content: flex-start;
  align-items: center;
+}
+
+.TextDisplay p {
+  position: absolute;
+  font-size: 10px;
+background-color: black;
+border: 1px solid white;
+bottom: 16px;
+padding: 8px;
+width: 80%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
 }
 
 .InteractionUI {
@@ -141,6 +160,8 @@ text-align: center;
   border: 1px solid white;
   padding: 8px;
   font-family: "Courier Prime";
+  font-size: 10px;
+  height: 3em;
 }
 
 .ToolsUI {
@@ -180,6 +201,8 @@ text-align: center;
   padding: 12px;
   margin: 0 16px 16px 16px;
   border: 2px solid white;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .InventoryUI ul {
@@ -198,8 +221,16 @@ align-items: stretch;
   margin: 4px;
 }
 
+.PhoneUI {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin: 0 16px 16px 16px;
+  border: 2px solid white;
+  flex: 1;
+  justify-content: space-between;
+}
 
-  
 
 
 

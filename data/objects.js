@@ -2,8 +2,9 @@ import { triggerFlag, handleScene, changeDisplayText, createAction, createIntera
 
 export function objectDataInit() {
   
-  function createObject(name, location, flags, interactText, interactions) {
+  function createObject(id, name, location, flags, interactText, interactions) {
     return {
+      id: id,
       name: name,
       location: location,
       flags: flags,
@@ -15,6 +16,7 @@ export function objectDataInit() {
 
   return {
     player_car: createObject(
+      "player_car",
       "Your Car",
       "outskirts",
       {
@@ -41,7 +43,7 @@ export function objectDataInit() {
                 { text: "You examine your car again and find your badge." }
               ],
               () => {
-                handleMsgUI("objects", "player_car", "Examine", 1)
+                handleMsgUI("objects", "player_car", "examine", 1)
                 passTime(60)
                 playerGetItem("player_badge")
               },
@@ -52,7 +54,7 @@ export function objectDataInit() {
      { text: "It's broken down." }
    ],
    () => {
-     handleMsgUI("objects", "player_car", "Examine", 2)
+     handleMsgUI("objects", "player_car", "examine", 2)
      passTime(60)
    },
    () => true
@@ -80,6 +82,7 @@ export function objectDataInit() {
     ),
     
     town_sign: createObject(
+      "town_sign",
       "Welcome Sign",
       "outskirts",
       {},
@@ -241,7 +244,7 @@ export function objectDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("objects", "post_box", "", 0)
+                handleMsgUI("objects", "post_box", "use", 0)
                 passTime()
               },
               ()=>true

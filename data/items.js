@@ -2,8 +2,9 @@ import {triggerFlag, createInteraction, createAction, handleMsgUI} from "../func
 
 export function itemDataInit(){
   
-    function createItem(name, flags, interactText, interactions) {
+    function createItem(id, name, flags, interactText, interactions) {
     return {
+      id: id,
       name: name,
       flags: flags,
       interactText: interactText,
@@ -14,6 +15,7 @@ export function itemDataInit(){
   return (
     {
       player_badge: createItem(
+        "player_badge",
       "Badge",
       {},
       "",
@@ -51,6 +53,7 @@ export function itemDataInit(){
         
       }),
       dossier:  createItem(
+        "dossier",
       "Dossier",
       {},
       "",
@@ -85,6 +88,7 @@ export function itemDataInit(){
               }
             )])}),
       player_gun: createItem(
+        "player_gun",
       "Gun",
       {},
       "",
@@ -124,9 +128,10 @@ export function itemDataInit(){
       }
     ),
       cigarettes_open: createItem(
+        "cigarettes_open",
       "Cigarettes",
       {},
-      "",
+      "It's an open pack of cigarettes.",
       {
         examine: createInteraction(
           "Examine",
@@ -134,7 +139,7 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text:()=> `Your favorite brand. There's ${window.getGame().player.cigs} left.`
                 }
               ],
               ()=>{
@@ -163,6 +168,7 @@ export function itemDataInit(){
       }
     ),
       player_phone: createItem(
+        "player_phone",
       "Cell Phone",
       {},
       "",

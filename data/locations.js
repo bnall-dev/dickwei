@@ -4,8 +4,9 @@ import { handleChangeLocation, createAction, createInteraction, passTime } from 
 
 export function locationDataInit() {
   
-  function createLocation(name, subLocations, flags, interactText, displayText, interactions) {
+  function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
     return {
+      id: id,
       name: name,
       subLocations: subLocations,
       flags: flags,
@@ -34,6 +35,7 @@ export function locationDataInit() {
   return (
   {
     outskirts: createLocation(
+      "outskirts",
       "Outskirts",
       [
         "municipal_district"
@@ -68,6 +70,7 @@ export function locationDataInit() {
       }),
     
     municipal_district: createLocation(
+      "municipal_district",
       "Municipal District",
       [
         "town_hall",
@@ -105,6 +108,7 @@ export function locationDataInit() {
     ),
     
     town_hall: createLocation(
+      "town_hall",
       "Town Hall",
       [
         "mayors_office",
@@ -141,6 +145,7 @@ export function locationDataInit() {
     ),
     
     mayors_office: createLocation(
+      "mayors_office",
       "Mayor's Office",
       [
         "town_hall"
@@ -173,6 +178,7 @@ export function locationDataInit() {
     ),
     
     sheriffs_station: createLocation(
+      "sheriffs_station",
       "Sheriff's Station",
       [
         "jail",
@@ -206,6 +212,7 @@ export function locationDataInit() {
     ),
     
     jail: createLocation(
+      "jail",
       "Jail",
       [
      
@@ -362,7 +369,7 @@ export function locationDataInit() {
     ),
     
     hospital: createLocation(
-      
+      "hospital",
       "Hospital",
       [
         "morgue",
@@ -395,7 +402,7 @@ export function locationDataInit() {
       
     ),
     morgue: createLocation(
-      
+      "morgue",
       "Morgue",
       [
         "hospital"
@@ -426,6 +433,7 @@ export function locationDataInit() {
       }  ),
       
     residential_district: createLocation(
+      "residential_district",
       "Residential District",
       ["hotel", "gas_station", "diner", "church","municipal_district", "industrial_district"],
       {},
@@ -454,6 +462,7 @@ export function locationDataInit() {
     ),
     hotel: createLocation(
       "Hotel",
+      "hotel",
       ["player_room", "residential_district"],
       {},
       "You see the Hotel.",
@@ -481,6 +490,7 @@ export function locationDataInit() {
       }
     ),
     player_room: createLocation(
+      "player_room",
       "Your Room",
       ["hotel"],
       {},
@@ -509,6 +519,7 @@ export function locationDataInit() {
     ),
     
     downtown: createLocation(
+      "downtown",
       "Downtown",
       ["mall", "apartments", "pier","municipal_district", "industrial_district"],
       {},
@@ -536,6 +547,7 @@ export function locationDataInit() {
       }
     ),
     industrial_district: createLocation(
+      "industrial_district",
       "Industrial District",
       ["trailer_park","cemetary", "mill", "factory","residential_district",
         "downtown"

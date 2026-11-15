@@ -37,6 +37,7 @@ function TextDisplay() {
     return (
       <div>
         <div className = "TextDisplay">
+          <img className = "DisplayImg" src= {`./images/${window.getGame().backgroundImage}.jpeg`}/>
           <p>
             {window.getGame().displayText}
           </p>

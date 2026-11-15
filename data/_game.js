@@ -45,6 +45,7 @@ export function initGame() {
     messageIndex: 0,
     messageActive: true,
     sceneActive: true,
+    backgroundImage: "outskirts",
     interaction: [
       
     ],
@@ -53,6 +54,7 @@ export function initGame() {
     toolsUIActive: false,
     inventoryUIActive: false,
     dossierUIActive: false,
+    phoneUIActive: false,
     weekDays: {
       sunday: {
         name: "Sunday",

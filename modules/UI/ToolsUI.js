@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {setInventoryUIActive, setDossierUIActive, setInteractionUIActive, setToolsUIActive} from "../../functions/game"
+import {setInventoryUIActive, setDossierUIActive, setInteractionUIActive, setToolsUIActive, setPhoneUIActive} from "../../functions/game"
 
 const { useState, useEffect } = React;
 
@@ -20,12 +20,18 @@ const { useState, useEffect } = React;
 setInteractionUIActive(false)
 setToolsUIActive(false)
    }
+   
+   function openPhone() {
+  setPhoneUIActive(true)
+  setInteractionUIActive(false)
+  setToolsUIActive(false)
+}
     
     return (
       <div className = "ToolsUI">
         <button onClick = {openInventory}>Inventory</button>
         <button onClick = {openDossier}>Dossier</button>
-        <button>Phone</button>
+        <button onClick={openPhone}>Phone</button>
       </div>
     )
   }

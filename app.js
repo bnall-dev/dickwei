@@ -22,7 +22,7 @@ function App() {
   
   useEffect(() => {
     changeDisplayText(game.message[game.messageIndex].text)
-    console.log(game.message)
+    
   }, [game.message, game.messageIndex])
   
   useEffect(()=>{
@@ -61,7 +61,7 @@ function App() {
     
     return (
       <div className = "InventoryUI">
-    <h3>Inventory</h3>
+   
         <ul>
        {itemList}
         </ul>
@@ -127,6 +127,36 @@ function App() {
     )
   }
   
+  function PhoneUI() {
+    
+    
+    
+    return (
+      <div className = "PhoneUI">
+   
+        <ul>
+          <li>
+         <button>
+           Contacts
+         </button>
+       </li>
+       <li>
+         <button>
+           Options
+         </button>
+       </li>
+        </ul>
+        <button onClick = {()=>{window.setGame(prev => ({
+          ...prev,
+          phoneUIActive: false,
+          interactionUIActive: true,
+  toolsUIActive: true
+        }))}}>Close</button>
+        </div>
+      
+    )
+  }
+  
   function Header() {
     const dayOfWeek = Object.values(window.getGame().weekDays).find(d => d.day == window.getGame().day % 7).abbrev
     
@@ -172,6 +202,7 @@ function App() {
       {game.toolsUIActive && <ToolsUI/>}
       {game.inventoryUIActive && <InventoryUI />}
       {game.dossierUIActive && <DossierUI/>}
+      {game.phoneUIActive && <PhoneUI/>}
     </div>
   )
 }
