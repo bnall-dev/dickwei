@@ -276,7 +276,7 @@ export  function setObjFlag(obj, flag, bool){
           
         })
       )
-            setBackgroundImg(obj.id)
+           if(obj.type != "npc"){setBackgroundImg(obj.id)}
 
       passTime(10)}
     }

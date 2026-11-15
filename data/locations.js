@@ -461,8 +461,8 @@ export function locationDataInit() {
       }
     ),
     hotel: createLocation(
-      "Hotel",
       "hotel",
+      "Hotel",
       ["player_room", "residential_district"],
       {},
       "You see the Hotel.",

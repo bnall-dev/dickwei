@@ -126,6 +126,7 @@ export function objectDataInit() {
     ),
     
     fountain: createObject(
+      "fountain",
       "Fountain",
       "municipal_district",
       {},

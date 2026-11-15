@@ -5,6 +5,7 @@ export function npcDataInit() {
   
   function createNpc(name, location, flags, interactText, interactions, schedule) {
     return {
+      type: "npc",
       name: name,
       location: location,
       flags: flags,
