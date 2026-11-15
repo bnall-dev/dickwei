@@ -97,13 +97,13 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
    
           <ul>
             { <li>
-             <button style = {{border: npcIndex == 0 ? "1px solid dimgrey" : "1px solid white",
+             <button style = {{borderRadius: 100, border: npcIndex == 0 ? "1px solid dimgrey" : "1px solid white",
                color: npcIndex == 0 ? "dimgrey" :  "white"
              }} onClick = {()=>{if (npcIndex > 0) setNpcIndex(npcIndex - 1)}}>^</button>
            </li> }
              {NpcButtons()}
               <li>
-             <button style = {{border: npcIndex > npcs.length -4  ? "1px solid dimgrey" : "1px solid white",
+             <button style = {{borderRadius: 100, border: npcIndex > npcs.length -4  ? "1px solid dimgrey" : "1px solid white",
                color: npcIndex > npcs.length -4  ? "dimgrey" : "white"}} onClick = {()=>{if (npcIndex < npcs.length - 3) setNpcIndex(npcIndex + 1)}}>v</button>
            </li>
           </ul>
@@ -112,13 +112,13 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
       
           <ul>
             { <li>
-             <button style = {{border: objectIndex == 0 ? "1px solid dimgrey" : "1px solid white",
+             <button style = {{borderRadius: 100,border: objectIndex == 0 ? "1px solid dimgrey" : "1px solid white",
                color: objectIndex == 0 ? "dimgrey" :  "white"
              }} onClick = {()=>{if (objectIndex > 0) setObjectIndex(objectIndex - 1)}}>^</button>
            </li> }
              {ObjectButtons()}
               { <li>
-             <button style = {{border: objectIndex > objects.length -4  ? "1px solid dimgrey" : "1px solid white",
+             <button style = {{borderRadius: 100, border: objectIndex > objects.length -4  ? "1px solid dimgrey" : "1px solid white",
                color: objectIndex > objects.length -4  ? "dimgrey" : "white"}} onClick = {()=>{if (objectIndex < objects.length - 3) setObjectIndex(objectIndex + 1)}}>v</button>
            </li> }
           </ul>
@@ -127,13 +127,13 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
     
           <ul>
             {   <li>
-             <button style = {{border: locationIndex == 0 ? "1px solid dimgrey" : "1px solid white",
+             <button style = {{borderRadius: 100, border: locationIndex == 0 ? "1px solid dimgrey" : "1px solid white",
                color: locationIndex == 0 ? "dimgrey" :  "white"
              }} onClick = {()=>{if (locationIndex > 0) setLocationIndex(locationIndex - 1)}}>^</button>
            </li> }
            {SubLocationButtons()}
           {  <li>
-             <button style = {{border: locationIndex > subLocations.length -4  ? "1px solid dimgrey" : "1px solid white",
+             <button style = {{borderRadius: 100, border: locationIndex > subLocations.length -4  ? "1px solid dimgrey" : "1px solid white",
                color: locationIndex > subLocations.length -4  ? "dimgrey" : "white"
              }} onClick = {()=>{if (locationIndex < subLocations.length - 3) setLocationIndex(locationIndex + 1)}}>v</button>
            </li>}

@@ -578,6 +578,7 @@ export function locationDataInit() {
     ),
     
     high_school: createLocation(
+      "high_school",
       "Goodwood High",
       ["residential_district"],
       {},
@@ -606,6 +607,7 @@ export function locationDataInit() {
     ),
     
     mall: createLocation(
+      "mall",
       "Goodwood Town Mall",
       ["downtown"],
       {},
@@ -634,6 +636,7 @@ export function locationDataInit() {
     ),
     
     apartments: createLocation(
+      "apartments",
       "Apartment Building",
       ["downtown"],
       {},
@@ -662,6 +665,7 @@ export function locationDataInit() {
     ),
     
     pier: createLocation(
+      "pier",
       "Pier",
       ["beach", "lighthouse","downtown"],
       {},
@@ -690,6 +694,7 @@ export function locationDataInit() {
     ),
     
     beach: createLocation(
+      "beach",
       "Beach",
       ["pier"],
       {},
@@ -718,6 +723,7 @@ export function locationDataInit() {
     ),
     
     lighthouse: createLocation(
+      "lighthouse",
       "Lighthouse",
       ["pier"],
       {},
@@ -746,6 +752,7 @@ export function locationDataInit() {
     ),
     
     gas_station: createLocation(
+      "gas_station",
       "Gas Station",
       ["residential_district"],
       {},
@@ -774,6 +781,7 @@ export function locationDataInit() {
     ),
     
     diner: createLocation(
+      "diner",
       "Diner",
       ["residential_district"],
       {},
@@ -801,6 +809,7 @@ export function locationDataInit() {
       }
     ),
     church: createLocation(
+      "church",
       "Church",
       ["cemetary","residential_district"],
       {},
@@ -829,6 +838,7 @@ export function locationDataInit() {
     ),
     
     cemetary: createLocation(
+      "cemetary",
       "Cemetary",
       ["church", "industrial_district"],
       {},
@@ -857,6 +867,7 @@ export function locationDataInit() {
     ),
     
     trailer_park: createLocation(
+      "trailer_park",
       "Trailer Park",
       ["industrial_district"],
       {},
@@ -884,6 +895,7 @@ export function locationDataInit() {
       }
     ),
     factory: createLocation(
+      "factory",
       "Abandoned Factory",
       ["industrial_district"],
       {},
@@ -911,6 +923,7 @@ export function locationDataInit() {
       }
     ),
     mill: createLocation(
+      "mill",
       "Mill",
       ["industrial_district"],
       {},
