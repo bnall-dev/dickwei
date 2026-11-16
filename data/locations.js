@@ -6,6 +6,7 @@ export function locationDataInit() {
   
   function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
     return {
+      type: "location",
       id: id,
       name: name,
       subLocations: subLocations,

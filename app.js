@@ -69,7 +69,8 @@ function App() {
           ...prev,
           inventoryUIActive: false,
           interactionUIActive: true,
-  toolsUIActive: true
+  toolsUIActive: true,
+  message: [{text:window.getGame().locations[window.getGame().player.location].displayText}]
         }))}}>Close</button>
         </div>
       

@@ -19,7 +19,7 @@ function playerDataInit() {
       "player_gun",
       "cigarettes_open"
     ],
-    cigs: 0,
+    cigs: 1,
     currentCig: 1440,
   })
 }
@@ -44,7 +44,8 @@ export function initGame() {
  },
       { text: "Miraculously, you aren't harmed, but your car has been wrapped around a tree." },
       { text: "Dick: \"I can't believe I survived that! I shall take it as a cosmic mandate that I must solve this case!\"" },
-      { text: "Dick: \"But it looks like we're on foot from here...\"",
+       { text: "Dick: \"But it looks like we're on foot from here...\"" },
+      { text: "You light up a cigarette.",
       func: ()=>{setBackgroundImg("outskirts")}
  }
     ],

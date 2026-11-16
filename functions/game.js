@@ -193,14 +193,14 @@ export function endScene() {
    
  message: [{text: "You ran out of smokes!"},
    {text: "You return to the hotel to rest and restock."},
-   prev.dayTime == "am" ? {text: "The sun sets outside your window. It is now evening."} : {text: "You fall asleep until your alarm wakes you. It is day" + window.getGame().day + " of your investigation."}
+   prev.dayTime == "am" ? {text: "The sun sets outside your window. It is now evening. You light up a cigarette."} : {text: "You fall asleep until your alarm wakes you. It is "+ window.getGame().weekDays[Object.keys(window.getGame().weekDays).find(d=>window.getGame().weekDays[d].day == (window.getGame().day + 1) % 7)].name +  ", day " + (window.getGame().day + 1) + " of your investigation. You light up a cigarette."}
  ],
  dayTime: prev.dayTime == "am" ? "pm" : "am",
  day: prev.dayTime == "am" ? prev.day : prev.day + 1,
  player: {
    ...prev.player,
    currentCig: 1440,
-   cigs: 19,
+   cigs: 0,
    location: "player_room"
    
  } ,
@@ -276,7 +276,7 @@ export  function setObjFlag(obj, flag, bool){
           
         })
       )
-           if(obj.type != "npc"){setBackgroundImg(obj.id)}
+           if(obj.type != "npc"){setBackgroundImg(obj)}
 
       passTime(10)}
     }

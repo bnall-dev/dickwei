@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {setInventoryUIActive, setDossierUIActive, setInteractionUIActive, setToolsUIActive, setPhoneUIActive} from "../../functions/game"
+import {setInventoryUIActive, setDossierUIActive, setInteractionUIActive, setToolsUIActive, setPhoneUIActive, setMessage} from "../../functions/game"
 
 const { useState, useEffect } = React;
 
@@ -13,6 +13,7 @@ const { useState, useEffect } = React;
      setInventoryUIActive(true)
      setInteractionUIActive(false)
      setToolsUIActive(false)
+     setMessage([{text:"You take a look through your belongings."}])
    }
    
    function openDossier(){

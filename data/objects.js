@@ -4,6 +4,7 @@ export function objectDataInit() {
   
   function createObject(id, name, location, flags, interactText, interactions) {
     return {
+      type: "object",
       id: id,
       name: name,
       location: location,

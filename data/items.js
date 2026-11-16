@@ -4,6 +4,7 @@ export function itemDataInit(){
   
     function createItem(id, name, flags, interactText, interactions) {
     return {
+      type: "item",
       id: id,
       name: name,
       flags: flags,
