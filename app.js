@@ -70,7 +70,8 @@ function App() {
           inventoryUIActive: false,
           interactionUIActive: true,
   toolsUIActive: true,
-  message: [{text:window.getGame().locations[window.getGame().player.location].displayText}]
+  message: [{text:prev.locations[prev.player.location].displayText}],
+backgroundImage: prev.player.location
         }))}}>Close</button>
         </div>
       
@@ -121,7 +122,9 @@ function App() {
           ...prev,
           dossierUIActive: false,
           interactionUIActive: true,
-          toolsUIActive: true
+          toolsUIActive: true,
+          message: [{text:prev.locations[prev.player.location].displayText}],
+backgroundImage: prev.player.location
         }))}}>Close</button>
         </div>
       
@@ -151,7 +154,9 @@ function App() {
           ...prev,
           phoneUIActive: false,
           interactionUIActive: true,
-  toolsUIActive: true
+  toolsUIActive: true,
+  message: [{text:prev.locations[prev.player.location].displayText}],
+  backgroundImage: prev.player.location
         }))}}>Close</button>
         </div>
       
@@ -173,7 +178,7 @@ function App() {
       backgroundColor: "white",
       height: "5px",
       width: (window.getGame().player.currentCig / 1440 * 40).toString() + "px",
-      borderLeft: "3px solid yellow",
+      
       display: "flex"
      
     }
@@ -188,7 +193,7 @@ function App() {
       <div>
        <div style = {cigStyle}>
         <div style = {cigRemainingStyle}>
-          <div className= "Cig"/>
+          <div className= "CigFlame"/>
           </div>
         <div style = {cigFilterStyle}/>
         </div>

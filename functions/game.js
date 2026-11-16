@@ -276,7 +276,31 @@ export  function setObjFlag(obj, flag, bool){
           
         })
       )
-           if(obj.type != "npc"){setBackgroundImg(obj)}
+           if(obj.type != "npc"){setBackgroundImg(obj.id)}
 
       passTime(10)}
     }
+    
+     export  function openInventory(){
+     setInventoryUIActive(true)
+     setInteractionUIActive(false)
+     setToolsUIActive(false)
+     setMessage([{text:"You take a look through your belongings."}])
+   }
+   
+  export function openDossier(){
+     setDossierUIActive(true)
+setInteractionUIActive(false)
+setToolsUIActive(false)
+setChoiceUIActive(false)
+setMessage([{text:"You review your case files."}])
+   }
+   
+  export function openPhone() {
+  setPhoneUIActive(true)
+  setInteractionUIActive(false)
+  setToolsUIActive(false)
+  setChoiceUIActive(false)
+  setMessage([{text:"You take a look at your phone."}])
+}
+    

@@ -1,4 +1,4 @@
-import {triggerFlag, createInteraction, createAction, handleMsgUI} from "../functions/game"
+import {triggerFlag, createInteraction, createAction, handleMsgUI, passTime, openDossier, openPhone} from "../functions/game"
 
 export function itemDataInit(){
   
@@ -19,7 +19,7 @@ export function itemDataInit(){
         "player_badge",
       "Badge",
       {},
-      "",
+      "This badge signifies your authority as a Special Operative for The Agency.",
       {
         examine: createInteraction(
           "Examine",
@@ -27,11 +27,14 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "It's a gold metal badge featuring The Agency's official insignia. It is affixed to a leather wallet which contains your credentials."
                 }
               ],
               ()=>{
-                handleMsgUI("items", "player_badge", "examine", 0)
+                handleMsgUI("items", "player_badge", "examine", 0
+                 
+                )
+                passTime(30)
               },
               ()=>true
             )
@@ -43,11 +46,12 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "You give the badge a polish with your tie and admire its luster."
                 }
               ],
               ()=>{
                 handleMsgUI("items", "player_badge", "use", 0)
+                passTime(60)
               },
               ()=>true
             )])
@@ -57,7 +61,7 @@ export function itemDataInit(){
         "dossier",
       "Dossier",
       {},
-      "",
+      "This contains all relevant information regarding your current case.",
       {
         examine: createInteraction(
           "Examine",
@@ -65,11 +69,12 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "The cover of the black leather folder is embossed with The Agency's insignia. It is designed to hold a broad array of documents."
                 }
               ],
               ()=>{
                 handleMsgUI("items", "dossier", "examine", 0)
+                passTime(30)
               },
               ()=>true
             )
@@ -85,14 +90,16 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "dossier", "use", 0)
-              }
+                openDossier()
+                passTime(30)
+              },
+              ()=> true
             )])}),
       player_gun: createItem(
         "player_gun",
       "Gun",
       {},
-      "",
+      "Your trusty sidearm. For emergencies only.",
       {
         examine: createInteraction(
           "Examine",
@@ -100,11 +107,12 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "It's a customized snub-nose revolver chambered in .357 Magnum. It holds six rounds, more than enough."
                 }
               ],
               ()=>{
                 handleMsgUI("items", "player_gun", "examine", 0)
+                passTime(30)
               },
               ()=> true
             )
@@ -116,11 +124,12 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "You take several moments to deeply consider the matter before deciding that now is not the time for that."
                 }
               ],
               ()=>{
                 handleMsgUI("items", "player_gun", "use", 0)
+                passTime(300)
               },
               ()=>true
             )
@@ -145,6 +154,7 @@ export function itemDataInit(){
               ],
               ()=>{
                 handleMsgUI("items", "cigarettes_open", "examine", 0)
+                passTime(30)
               },
               ()=> true
             )
@@ -156,11 +166,18 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "You stand around for a while and smoke an entire cigarette before moving on."
                 }
               ],
               ()=>{
                 handleMsgUI("items", "cigarettes_open", "use", 0)
+                window.setGame(prev=>({...prev,
+                  player: {
+                    ...prev.player,
+                    cigs: prev.player.cigs -1,
+                    currentCig: 0
+                  }
+                }))
               },
               ()=>true
             )
@@ -172,7 +189,7 @@ export function itemDataInit(){
         "player_phone",
       "Cell Phone",
       {},
-      "",
+      "An untraceable smart phone issued by The Agency.",
       {
         examine: createInteraction(
           "Examine",
@@ -180,7 +197,7 @@ export function itemDataInit(){
             createAction(
               [
                 {
-                  text: ""
+                  text: "You take a moment to appreciate your custom wallpaper. The phone has several apps installed."
                 }
               ],
               ()=>{
@@ -200,7 +217,7 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "player_phone", "use", 0)
+                openPhone()
               },
               ()=>true
             )

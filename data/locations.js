@@ -1,4 +1,4 @@
-import { handleChangeLocation, createAction, createInteraction, passTime } from "../functions/game"
+import { handleChangeLocation, createAction, createInteraction, passTime , setMessageActive, setInteractionUIActive, setToolsUIActive} from "../functions/game"
 
 
 
@@ -437,13 +437,31 @@ export function locationDataInit() {
       "residential_district",
       "Residential District",
       ["hotel", "gas_station", "diner", "church","municipal_district", "industrial_district"],
-      {},
+      {
+        road_fixed: false
+      },
       "You see the Residential District.",
       "You are in the Residential District.",
       {
         go: createInteraction(
           "Go",
           [
+             createAction(
+              [
+                {
+                  text: "The road is blocked."
+                }
+              ],
+              ()=>{
+                handleMsgUI("locations", "residential_district", "go", 0)
+                passTime(60)
+                setMessageActive(true)
+                setInteractionUIActive(false)
+                setToolsUIActive(false)
+                
+              },
+              ()=>window.getGame().locations.residential_district.flags.road_fixed== false
+            ),
             createAction(
               [
                 {
@@ -451,7 +469,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("locations", "residential_district", "go", 0)
+                handleMsgUI("locations", "residential_district", "go", 1)
                 handleChangeLocation("residential_district")
                 passTime(300)
               },
