@@ -101,6 +101,7 @@ img {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 
   
 }
@@ -245,4 +246,12 @@ align-items: stretch;
 
 .LocationButton {
   border: 1px solid blue;
+}
+
+.CigFlame {
+  
+  height: 5px;
+  width: px;
+  background: yellow;
+  box-shadow: -1px 0 3px yellow;
 }

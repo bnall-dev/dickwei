@@ -97,14 +97,15 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
    
           <ul>
             { <li>
-             <button style = {{borderRadius: 100, border: npcIndex == 0 ? "1px solid dimgrey" : "1px solid white",
-               color: npcIndex == 0 ? "dimgrey" :  "white"
-             }} onClick = {()=>{if (npcIndex > 0) setNpcIndex(npcIndex - 1)}}>^</button>
+             <button style = {{alignSelf: "center",border: 0,width: "50%", backgroundColor: npcIndex == 0 ? "dimgrey" : "white",
+              clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)"
+             }} onClick = {()=>{if (npcIndex > 0) setNpcIndex(npcIndex - 1)}}/>
            </li> }
              {NpcButtons()}
               <li>
-             <button style = {{borderRadius: 100, border: npcIndex > npcs.length -4  ? "1px solid dimgrey" : "1px solid white",
-               color: npcIndex > npcs.length -4  ? "dimgrey" : "white"}} onClick = {()=>{if (npcIndex < npcs.length - 3) setNpcIndex(npcIndex + 1)}}>v</button>
+             <button style = {{alignSelf: "center",border: 0,width: "50%", backgroundColor: npcIndex > npcs.length -4 ? "dimgrey" : "white",
+              clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)"
+             }} onClick = {()=>{if (npcIndex < npcs.length - 3) setNpcIndex(npcIndex + 1)}}/>
            </li>
           </ul>
         
@@ -112,14 +113,15 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
       
           <ul>
             { <li>
-             <button style = {{borderRadius: 100,border: objectIndex == 0 ? "1px solid dimgrey" : "1px solid white",
-               color: objectIndex == 0 ? "dimgrey" :  "white"
-             }} onClick = {()=>{if (objectIndex > 0) setObjectIndex(objectIndex - 1)}}>^</button>
+             <button style = {{alignSelf: "center",border: 0,width: "50%", backgroundColor: objectIndex == 0 ? "dimgrey" : "white",
+              clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)"
+             }} onClick = {()=>{if (objectIndex > 0) setObjectIndex(objectIndex - 1)}}/>
            </li> }
              {ObjectButtons()}
               { <li>
-             <button style = {{borderRadius: 100, border: objectIndex > objects.length -4  ? "1px solid dimgrey" : "1px solid white",
-               color: objectIndex > objects.length -4  ? "dimgrey" : "white"}} onClick = {()=>{if (objectIndex < objects.length - 3) setObjectIndex(objectIndex + 1)}}>v</button>
+             <button style = {{alignSelf: "center",border: 0,width: "50%", backgroundColor: objectIndex > objects.length - 4 ? "dimgrey" : "white",
+              clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)"
+             }} onClick = {()=>{if (objectIndex < objects.length - 3) setObjectIndex(objectIndex + 1)}}/>
            </li> }
           </ul>
       
@@ -127,15 +129,15 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
     
           <ul>
             {   <li>
-             <button style = {{borderRadius: 100, border: locationIndex == 0 ? "1px solid dimgrey" : "1px solid white",
-               color: locationIndex == 0 ? "dimgrey" :  "white"
-             }} onClick = {()=>{if (locationIndex > 0) setLocationIndex(locationIndex - 1)}}>^</button>
+             <button style = {{alignSelf: "center",border: 0,width: "50%", backgroundColor: locationIndex == 0 ? "dimgrey" : "white",
+              clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)"
+             }} onClick = {()=>{if (locationIndex > 0) setLocationIndex(locationIndex - 1)}}/>
            </li> }
            {SubLocationButtons()}
           {  <li>
-             <button style = {{borderRadius: 100, border: locationIndex > subLocations.length -4  ? "1px solid dimgrey" : "1px solid white",
-               color: locationIndex > subLocations.length -4  ? "dimgrey" : "white"
-             }} onClick = {()=>{if (locationIndex < subLocations.length - 3) setLocationIndex(locationIndex + 1)}}>v</button>
+             <button style = {{alignSelf: "center",border: 0,width: "50%", backgroundColor: locationIndex > subLocations.length - 4 ? "dimgrey" : "white",
+              clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)"
+             }} onClick = {()=>{if (locationIndex < subLocations.length - 3) setLocationIndex(locationIndex + 1)}}/>
            </li>}
           </ul>
       

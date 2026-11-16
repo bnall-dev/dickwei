@@ -165,13 +165,16 @@ function App() {
       width: "60px",
       display: "flex",
       justifyContent: "flex-end",
-      backgroundColor: "dimgrey"
+      backgroundColor: "dimgrey",
+       background: "repeating-linear-gradient(80deg, black 0px, black 1px, dimgrey 1px, dimgrey 2px)"
     }
     const cigRemainingStyle = {
       backgroundColor: "white",
       height: "5px",
       width: (window.getGame().player.currentCig / 1440 * 40).toString() + "px",
-      borderLeft: "3px solid yellow"
+      borderLeft: "3px solid yellow",
+      display: "flex"
+     
     }
     const cigFilterStyle = {
       height: "5px",
@@ -183,7 +186,9 @@ function App() {
       <h6>{dayOfWeek} {window.getGame().dayTime == "am" ? "Daytime" : "Evening"}</h6>
       <div>
        <div style = {cigStyle}>
-        <div style = {cigRemainingStyle}/>
+        <div style = {cigRemainingStyle}>
+          <div className= "Cig"/>
+          </div>
         <div style = {cigFilterStyle}/>
         </div>
       </div>
