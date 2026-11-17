@@ -5,7 +5,8 @@ export function documentsDataInit(){
   function createDocument(name, active){
     return {
       name: name,
-      active: active
+      active: active,
+      editions: [] 
     }
   }
   
@@ -20,6 +21,10 @@ export function documentsDataInit(){
       handbook: createDocument(
         "Agency Handbook",
         true
+      ),
+      newspaper: createDocument(
+        "Good Times Daily",
+        false
       )
       
 /*

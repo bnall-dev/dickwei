@@ -1,68 +1,83 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction, handleMsgUI, passTime } from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime , setObjFlag, playerGetItem} from "../../functions/game"
 
 export const player_car = createObject(
-      "player_car",
-      "Your Car",
-      "outskirts",
-      {
-        first_examine: false
-      },
-      "Your field service vehicle.",
-      {
-        examine: createInteraction(
-          "Examine",
+  "player_car",
+  "Your Car",
+  "outskirts",
+  {
+    first_examine: false
+  },
+  "Your field service vehicle.",
+  {
+    examine: createInteraction(
+      "Examine",
+      [
+        createAction(
           [
-            createAction(
-              [
-                { text: "You examine your car." }
-              ],
-              () => {
-                handleMsgUI("objects", "player_car", "examine", 0)
-                passTime(60)
-                setObjFlag("player_car", "first_examine", true)
-              },
-              () => window.getGame().objects.player_car.flags.first_examine == false
-            ),
-             createAction(
-              [
-                { text: "You examine your car again and find your badge." }
-              ],
-              () => {
-                handleMsgUI("objects", "player_car", "examine", 1)
-                passTime(60)
-                playerGetItem("player_badge")
-              },
-              () => !window.getGame().player.inventory.includes("player_badge")
-            ),
-             createAction(
-   [
-     { text: "It's broken down." }
-   ],
-   () => {
-     handleMsgUI("objects", "player_car", "examine", 2)
-     passTime(60)
-   },
-   () => true
- )
-          ]
+            { text: "It's a reliable and impressive piece of modern engineering." },
+            {
+              text: "It is completely wrecked."
+            }
+          ],
+          () => {
+            handleMsgUI("objects", "player_car", "examine", 0)
+            passTime(60)
+            setObjFlag("player_car", "first_examine", true)
+          },
+          () => window.getGame().objects.player_car.flags.first_examine == false
         ),
-         use: createInteraction(
-          "Use",
+        createAction(
           [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "player_car", "use", 0)
-                passTime(60)
-              },
-              ()=> true
-            )
-          ]
+            { text: "You give the car and the area around it a thorough search. Under the gas pedal, you discover... " },
+            {
+              text: "Dick: \"My badge!\""
+            },
+            {
+              text: "Dick: \"I certainly wouldn't get far without this...\""
+            },
+            {
+              text: "*Obtained Badge*"
+            }
+          ],
+          () => {
+            handleMsgUI("objects", "player_car", "examine", 1)
+            passTime(180)
+            playerGetItem("player_badge")
+          },
+          () => !window.getGame().player.inventory.includes("player_badge")
+        ),
+        createAction(
+          [
+            { text: "It's completely wrecked." }
+          ],
+          () => {
+            handleMsgUI("objects", "player_car", "examine", 2)
+            passTime(60)
+          },
+          () => true
         )
-      }
+      ]
+    ),
+    use: createInteraction(
+      "Use",
+      [
+        createAction(
+          [
+          {
+            text: "It is in absolutely no state to drive."
+          },
+            {
+              text: "You pat the crumpled hood empathetically."
+            }
+          ],
+          () => {
+            handleMsgUI("objects", "player_car", "use", 0)
+            passTime(60)
+          },
+          () => true
+        )
+      ]
     )
+  }
+)

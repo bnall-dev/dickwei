@@ -91,7 +91,7 @@ export function itemDataInit(){
               ],
               ()=>{
                 openDossier()
-                passTime(30)
+                
               },
               ()=> true
             )])}),
@@ -201,7 +201,10 @@ export function itemDataInit(){
                 }
               ],
               ()=>{
-                handleMsgUI("items", "player_phone", "examine", 0)
+                handleMsgUI("items", "player_phone", "examine", 0
+                  
+                )
+                passTime(60)
               },
               ()=> true
             )
@@ -218,6 +221,7 @@ export function itemDataInit(){
               ],
               ()=>{
                 openPhone()
+                
               },
               ()=>true
             )

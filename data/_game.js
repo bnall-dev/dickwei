@@ -21,6 +21,8 @@ function playerDataInit() {
     ],
     cigs: 19,
     currentCig: 1440,
+    dollars: 20,
+    cents: 65
   })
 }
 

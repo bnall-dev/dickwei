@@ -6,7 +6,7 @@ export const post_box = createObject(
       "Post Box",
       "municipal_district",
       {},
-      "You see a post box. You could send a letter in the mail if you had one.",
+      "You could mail a letter or package here if you had one.",
       {
         examine: createInteraction(
           "Examine",
@@ -14,12 +14,12 @@ export const post_box = createObject(
             createAction(
               [
                 {
-                  text: ""
+                  text: "The red metal box has a one-way slot where you can deposit mail."
                 }
               ],
               ()=>{
                 handleMsgUI("objects", "post_box", "examine", 0)
-                passTime(60)
+                passTime(30)
               },
               ()=>true
             )
@@ -31,12 +31,12 @@ export const post_box = createObject(
             createAction(
               [
                 {
-                  text: ""
+                  text: "You don't have anything you can send!"
                 }
               ],
               ()=>{
                 handleMsgUI("objects", "post_box", "use", 0)
-                passTime()
+                passTime(30)
               },
               ()=>true
             )

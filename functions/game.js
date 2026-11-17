@@ -241,6 +241,7 @@ export  function setObjFlag(obj, flag, bool){
      setInteractionUIActive(false)
      setToolsUIActive(false)
      setMessage([{text:"You take a look through your belongings."}])
+     passTime(30)
    }
    
   export function openDossier(){
@@ -249,6 +250,7 @@ setInteractionUIActive(false)
 setToolsUIActive(false)
 setChoiceUIActive(false)
 setMessage([{text:"You review your case files."}])
+passTime(30)
    }
    
   export function openPhone() {
@@ -257,6 +259,7 @@ setMessage([{text:"You review your case files."}])
   setToolsUIActive(false)
   setChoiceUIActive(false)
   setMessage([{text:"You take a look at your phone."}])
+  passTime(30)
 }
     
     export function startNewGame(){
