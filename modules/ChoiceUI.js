@@ -52,9 +52,9 @@ setMessage( [{ text: window.getGame().locations[window.getGame().player.location
       <ul>
         {ChoiceButtons}
          <li>
-            <button onClick = {cancelChoice}>
+            {window.getGame().headerActive && <button onClick = {cancelChoice}>
               Cancel
-            </button>
+            </button>}
           </li>
       </ul>
     </div>)

@@ -1,262 +1,35 @@
 import { triggerFlag, handleScene, changeDisplayText, createAction, createInteraction, handleMsgUI, passTime, setObjFlag, playerGetItem } from "../functions/game"
+import {player_car} from "./objects/player_car"
+import {town_sign} from "./objects/town_sign"
+import {fountain} from "./objects/fountain"
+import {post_box} from "./objects/post_box"
+import {newspaper_box} from "./objects/newspaper_box"
+
+
+
+export function createObject(id, name, location, flags, interactText, interactions) {
+  return {
+    type: "object",
+    id: id,
+    name: name,
+    location: location,
+    flags: flags,
+    interactText: interactText,
+    interactions: interactions
+  }
+}
 
 export function objectDataInit() {
   
-  function createObject(id, name, location, flags, interactText, interactions) {
-    return {
-      type: "object",
-      id: id,
-      name: name,
-      location: location,
-      flags: flags,
-      interactText: interactText,
-      interactions: interactions
-    }
-  }
+  
   
 
   return {
-    player_car: createObject(
-      "player_car",
-      "Your Car",
-      "outskirts",
-      {
-        first_examine: false
-      },
-      "You see your car.",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                { text: "You examine your car." }
-              ],
-              () => {
-                handleMsgUI("objects", "player_car", "examine", 0)
-                passTime(60)
-                setObjFlag("player_car", "first_examine", true)
-              },
-              () => window.getGame().objects.player_car.flags.first_examine == false
-            ),
-             createAction(
-              [
-                { text: "You examine your car again and find your badge." }
-              ],
-              () => {
-                handleMsgUI("objects", "player_car", "examine", 1)
-                passTime(60)
-                playerGetItem("player_badge")
-              },
-              () => !window.getGame().player.inventory.includes("player_badge")
-            ),
-             createAction(
-   [
-     { text: "It's broken down." }
-   ],
-   () => {
-     handleMsgUI("objects", "player_car", "examine", 2)
-     passTime(60)
-   },
-   () => true
- )
-          ]
-        ),
-         use: createInteraction(
-          "Use",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "player_car", "use", 0)
-                passTime(60)
-              },
-              ()=> true
-            )
-          ]
-        )
-      }
-    ),
-    
-    town_sign: createObject(
-      "town_sign",
-      "Welcome Sign",
-      "outskirts",
-      {},
-      "You see a large sign.",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "town_sign", "examine", 0)
-                passTime(60)
-              },
-              ()=>true
-            )
-          ]
-        ),
-        use: createInteraction(
-          "Use",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "town_sign", "use", 0)
-                passTime(60)
-              },
-              ()=> true
-            )
-          ]
-        )
-      }
-    ),
-    
-    fountain: createObject(
-      "fountain",
-      "Fountain",
-      "municipal_district",
-      {},
-      "A large fountain dominates the town square.",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                {
-                  text: "The fountain is a statue of a mermaid."
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "fountain", "examine", 0)
-                passTime(60)
-              },
-              ()=>true
-            )
-          ]
-        ),
-        use: createInteraction(
-          "Use",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "fountain", "use", 0)
-                passTime(30)
-              },
-              ()=> true
-            )
-          ]
-        )
-      }
-    ),
-    
-    newspaper_box: createObject(
-      "newspaper_box",
-      "Newspaper Box",
-      "municipal_district",
-      {},
-      "You see a newspaper box.",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "newspaper_box", "examine", 0)
-                passTime(60)
-              },
-              ()=>true
-            )
-          ]
-        ),
-        use: createInteraction(
-          "Use",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "newspaper_box", "use", 0)
-                passTime(60)
-              },
-              ()=>true
-            )
-          ]
-        )
-      }
-    ),
-    
-    post_box: createObject(
-      "post_box",
-      "Post Box",
-      "municipal_district",
-      {},
-      "You see a post box. You could send a letter in the mail if you had one.",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "post_box", "examine", 0)
-                passTime(60)
-              },
-              ()=>true
-            )
-          ]
-        ),
-        use: createInteraction(
-          "Use",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI("objects", "post_box", "use", 0)
-                passTime()
-              },
-              ()=>true
-            )
-          ]
-        )
-      }
-    ),
+    player_car: player_car,
+    town_sign: town_sign,
+    newspaper_box: newspaper_box,
+    post_box: post_box,
+    fountain: fountain
     
     
     

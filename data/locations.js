@@ -125,6 +125,25 @@ export function locationDataInit() {
         go: createInteraction(
           "Go",
           [
+            createAction(
+            [
+            {
+              text: "The door is locked. The Town hall doesn't appear to be open on Sundays."
+            }],
+            () => {
+              
+
+              
+ handleMsgUI("locations", "town_hall", "go", 0)
+              
+              setMessageActive(true)
+               setInteractionUIActive(false)
+ setToolsUIActive(false)
+                passTime(60)
+            },
+            () => window.getGame().day % 7 == 1
+            
+          ),
           createAction(
             [
             {
@@ -134,7 +153,7 @@ export function locationDataInit() {
               
 
               
- handleMsgUI("locations", "town_hall", "go", 0)
+ handleMsgUI("locations", "town_hall", "go", 1)
               
               handleChangeLocation("town_hall"
               )
@@ -438,6 +457,22 @@ export function locationDataInit() {
         go: createInteraction(
           "Go",
           [
+             createAction(
+              [
+                {
+                  text: "The road is blocked."
+                }
+              ],
+              ()=>{
+                handleMsgUI("locations", "downtown", "go", 0)
+                passTime(60)
+                setMessageActive(true)
+                setInteractionUIActive(false)
+                setToolsUIActive(false)
+                
+              },
+              ()=>window.getGame().locations.residential_district.flags.road_fixed== false
+            ),
             createAction(
               [
                 {

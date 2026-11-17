@@ -175,7 +175,7 @@ export function itemDataInit(){
                   player: {
                     ...prev.player,
                     cigs: prev.player.cigs -1,
-                    currentCig: 0
+                    currentCig: 1
                   }
                 }))
               },

@@ -5,7 +5,7 @@ import { npcDataInit } from "./npcs"
 import { questDataInit } from "./quests"
 import { documentsDataInit } from "./documents"
 
-import {setBackgroundImg} from "../../functions/game"
+import {setBackgroundImg, setHeaderActive, startNewGame, loadGame} from "../../functions/game"
 
 function playerDataInit() {
   return (
@@ -36,28 +36,36 @@ export function initGame() {
     currentObj: locationDataInit().outskirts,
     items: itemDataInit(),
     displayText: "Dick Wei",
-    message: [{ text: "You are driving deep in the mountains, on the way to investigate a very important case." ,
-      func: ()=>{setBackgroundImg("opening2")}
-    },
-      { text: "As you apprach your destination, something suddenly averts your attention and the car spins out of control!",
-      func: ()=>{setBackgroundImg("opening3")}
- },
-      { text: "Miraculously, you aren't harmed, but your car has been wrapped around a tree." },
-      { text: "Dick: \"I can't believe I survived that! I shall take it as a cosmic mandate that I must solve this case!\"" },
-       { text: "Dick: \"But it looks like we're on foot from here...\"" },
-      { text: "You light up a cigarette.",
-      func: ()=>{setBackgroundImg("outskirts")}
- }
-    ],
+    message: [{text: "Dick Wei"}],
     messageIndex: 0,
-    messageActive: true,
+    messageActive: false,
     sceneActive: true,
-    backgroundImage: "opening1",
+    backgroundImage: "title",
     npcImage: "",
     interaction: [
-      
+      {
+        text: "New Game",
+        actions: [
+          {
+            message: [{text:""}],
+            func: ()=>{startNewGame()},
+            condition: ()=> true
+          }
+        ]
+    },
+      {
+        text: "Load Game",
+        actions: [
+          {
+            message: [{text:""}],
+            func: ()=>{loadGame()},
+            condition: ()=> true
+          }
+        ]
+    }
     ],
-    choiceUIActive: false,
+    headerActive: false,
+    choiceUIActive: true,
     interactionUIActive: false,
     toolsUIActive: false,
     inventoryUIActive: false,

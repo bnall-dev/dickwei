@@ -1,22 +1,27 @@
-
+import {setBackgroundImg} from "./UI/setBackgroundImg"
+import {setNpcImg} from "./UI/setNpcImg"
+import {changeDisplayText} from "./UI/changeDisplayText"
+import {setHeaderActive, setInventoryUIActive, setDossierUIActive, setPhoneUIActive, setToolsUIActive, setInteractionUIActive, setChoiceUIActive} from "./UI/setUIActive"
 
 export function triggerFlag(category, item, flag) {
   
 }
 
-export function setBackgroundImg(img){
-  window.setGame(prev=>({...prev,
-    backgroundImage: img
-  }))
+export {
+  setBackgroundImg,
+  setNpcImg,
+  changeDisplayText,
+  setInventoryUIActive,
+  setDossierUIActive,
+  setPhoneUIActive,
+  setToolsUIActive,
+  setInteractionUIActive,
+  setChoiceUIActive,
+  setHeaderActive
 }
-export function setNpcImg(img){
-  window.setGame(prev=>({...prev,
-    npcImage: img
-  }))
-}
+
 
 export function handleChangeLocation(id) {
-
   window.setGame(
     prev => (
     {
@@ -32,15 +37,7 @@ export function handleChangeLocation(id) {
 
 
 
-export function changeDisplayText(newText) {
-  window.setGame(prev => (
-  {
-    ...prev,
-    displayText: typeof newText === "function"
-  ? newText()
-  : newText
-  }))
-}
+
 
 export function setSceneActive(bool) {
   window.setGame(prev => ({
@@ -49,13 +46,7 @@ export function setSceneActive(bool) {
   }))
 }
 
-export function setChoiceUIActive(bool) {
-  window.setGame(prev => ({
-    ...prev,
-    choiceUIActive: bool
-  }))
-  
-}
+
 
 export function setMessageActive(bool) {
   window.setGame(prev => ({
@@ -65,46 +56,6 @@ export function setMessageActive(bool) {
   
 }
 
-export function setInteractionUIActive(bool) {
-  window.setGame(prev => ({
-    ...prev,
-    interactionUIActive: bool
-  }))
-  
-}
-
-export function setInventoryUIActive(bool) {
-  window.setGame(prev => ({
-    ...prev,
-    inventoryUIActive: bool
-  }))
-  
-}
-
-export function setPhoneUIActive(bool) {
-  window.setGame(prev => ({
-    ...prev,
-    phoneUIActive: bool
-  }))
-  
-}
-
-export function setDossierUIActive(bool) {
-  window.setGame(prev => ({
-    ...prev,
-    dossierUIActive: bool
-  }))
-  
-}
-
-
-export function setToolsUIActive(bool) {
-  window.setGame(prev => ({
-    ...prev,
-    toolsUIActive: bool
-  }))
-  
-}
 
 export function resetMessageIndex() {
   window.setGame(prev => ({
@@ -230,11 +181,7 @@ export function endScene() {
       }
     }))
     
-    if(window.getGame().player.currentCig <= 0) {
-      if (window.getGame().player.cigs > 0)
-      lightCig()
-      else endDay()
-    }
+    
     
   }
  
@@ -312,3 +259,39 @@ setMessage([{text:"You review your case files."}])
   setMessage([{text:"You take a look at your phone."}])
 }
     
+    export function startNewGame(){
+      setMessageActive(true)
+      setChoiceUIActive(false)
+      setBackgroundImg("opening1")
+      setMessage([{ text: "You are driving deep in the mountains, on the way to investigate a very important case." ,
+      func: ()=>{setBackgroundImg("opening2")}
+    },
+      { text: "As you apprach your destination, something suddenly averts your attention and the car spins out of control!",
+      func: ()=>{setBackgroundImg("opening3")}
+ },
+      { text: "Miraculously, you aren't harmed, but your car has been wrapped around a tree." },
+      { text: "Dick: \"I can't believe I survived that! I shall take it as a cosmic mandate that I must solve this case!\"" },
+       { text: "Dick: \"But it looks like we're on foot from here...\"" },
+      { text: "You light up a cigarette.",
+      func: ()=>{
+        setBackgroundImg("outskirts")
+        setHeaderActive(true)
+      }
+ }
+    ])
+    }
+    
+    export function loadGame(setGame) {
+  const savedGame = localStorage.getItem("savedGame_1");
+  
+  if (savedGame) {
+    window.setGame(JSON.parse(savedGame));
+    setMessage([{text:"*Game Loaded*"}, {
+      text: `It is ${Object.values(window.getGame().weekDays).find(d=>d.day == window.getGame().day % 7).name}${window.getGame().dayTime == "pm" ? " evening": ""}, day ${window.getGame().day} of your investigation.`
+    }])
+    setChoiceUIActive(false)
+    setInteractionUIActive(true)
+    setToolsUIActive(true)
+    
+  }
+}
