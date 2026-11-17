@@ -72,6 +72,14 @@ function App() {
       {game.inventoryUIActive && <InventoryUI />}
       {game.dossierUIActive && <DossierUI/>}
       {game.phoneUIActive && <PhoneUI/>}
+      <div style = {{
+      position: "absolute",
+      width: "100%",
+height: "100%",
+filter: "blur(0.5px)",
+pointerEvents: "none",
+        background: "repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 1.5px, rgba(0,0,0,0) .51px, rgba(0,0,0,0) 3px)"
+      }}/>
     </div>
   )
 }

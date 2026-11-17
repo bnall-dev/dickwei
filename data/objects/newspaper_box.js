@@ -5,7 +5,7 @@ export const newspaper_box = createObject(
   "newspaper_box",
   "Newspaper Box",
   "municipal_district", {},
-  "A coin operated metal box displays the front page of the's Good Times Daily.",
+  "A coin operated metal box displays the front page of the Good Times Daily.",
   {
     examine: createInteraction(
       "Examine",

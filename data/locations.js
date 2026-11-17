@@ -1,277 +1,57 @@
 import { handleChangeLocation, createAction, createInteraction, passTime , setMessageActive, setInteractionUIActive, setBackgroundImg, setToolsUIActive} from "../functions/game"
+import {outskirts} from "./locations/outskirts"
+import {municipal_district} from "./locations/municipal_district"
+import {town_hall} from "./locations/town_hall"
+import {mayors_office} from "./locations/mayors_office"
+import {sheriffs_station} from "./locations/sheriffs_station"
+import {jail} from "./locations/jail"
 
+export function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
+  return {
+    type: "location",
+    id: id,
+    name: name,
+    subLocations: subLocations,
+    flags: flags,
+    interactText: interactText,
+    displayText: displayText,
+    interactions: interactions
+  }
+}
 
+export  function handleMsgUI(cat, obj, act, i) {
+   window.setGame(
+     prev => ({
+       ...prev,
+       messageIndex: 0,
+       choiceUIActive: false,
+       interactionUIActive: true,
+       toolsUIActive: true,
+       message: window.getGame()[cat][obj].interactions[act].actions[i].message
+       
+       
+       
+     })
+   )
+ }
 
 export function locationDataInit() {
   
-  function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
-    return {
-      type: "location",
-      id: id,
-      name: name,
-      subLocations: subLocations,
-      flags: flags,
-      interactText: interactText,
-      displayText: displayText,
-      interactions: interactions
-    }
-  }
-  
- function handleMsgUI(cat, obj, act, i) {
-  window.setGame(
-    prev => ({
-      ...prev,
-      messageIndex: 0,
-      choiceUIActive: false,
-     interactionUIActive: true,
-     toolsUIActive: true,
-      message: window.getGame()[cat][obj].interactions[act].actions[i].message
-        
-    
-      
-    })
-  )
-}
+
   
   return (
   {
-    outskirts: createLocation(
-      "outskirts",
-      "Outskirts",
-      [
-        "municipal_district"
-      ],
-      [],
-      "You see the town outskirts.",
-      "You are in the town Outskirts.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-                //DEFAULT
-                {
-                  text: "You enter the town Outskirts."
-                }
-                
-              ],
-              () => {
-
-                handleMsgUI("locations", "outskirts", "go", 0)
-                handleChangeLocation("outskirts")
-                setBackgroundImg("outskirts")
-                passTime(300)
-                
-              },
-              () => true
-              
-              
-            )
-          ])
-      }),
+    outskirts: outskirts,
     
-    municipal_district: createLocation(
-      "municipal_district",
-      "Municipal District",
-      [
-        "town_hall",
-        "sheriffs_station",
-        "hospital",
-        "high_school",
-        "residential_district",
-        "downtown",
-        "outskirts"
-      ],
-      [],
-      "You see the Municipal District.",
-      "You are in the Municipal District.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction( 
-            [
-            {
-              text: "You enter the Municipal District."
-            }],
-             () => {
-             
-              handleChangeLocation("municipal_district")
-              handleMsgUI("locations", "municipal_district", "go", 0)
-              setBackgroundImg("municipal_district")
-              passTime(300)
-              
-            },
-             () => true
-          )]
-          
-        )
-      }
-    ),
+    municipal_district: municipal_district,
     
-    town_hall: createLocation(
-      "town_hall",
-      "Town Hall",
-      [
-        "mayors_office",
-        "municipal_district"
-      ],
-      [],
-      "You see the Town Hall.",
-      "You are in the Town Hall.",
-     
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-            [
-            {
-              text: "The door is locked. The Town hall doesn't appear to be open on Sundays."
-            }],
-            () => {
-              
-
-              
- handleMsgUI("locations", "town_hall", "go", 0)
-              
-              setMessageActive(true)
-               setInteractionUIActive(false)
- setToolsUIActive(false)
-                passTime(60)
-            },
-            () => window.getGame().day % 7 == 1
-            
-          ),
-          createAction(
-            [
-            {
-              text: "You enter the Town Hall."
-            }],
-            () => {
-              
-
-              
- handleMsgUI("locations", "town_hall", "go", 1)
-              
-              handleChangeLocation("town_hall"
-              )
-              setBackgroundImg("town_hall")
-                passTime(180)
-            },
-            () => true
-            
-          )]
-        )
-      }
-    ),
+    town_hall: town_hall,
     
-    mayors_office: createLocation(
-      "mayors_office",
-      "Mayor's Office",
-      [
-        "town_hall"
-      ],
-      [],
-       "You see the Mayor's Office.",
-      "You are in the Mayor's Office.",
-     
-      {
-        go: createInteraction(
-          "Go",
-          [
-          createAction(
-            [{
-              text: "You enter the Mayor's Office."
-            }],
-            () => {
-              
-
-              
-             handleMsgUI("locations", "mayors_office", "go", 0)
-              handleChangeLocation("mayors_office")
-              setBackgroundImg("mayors_office")
-              passTime(180)
-              
-            },
-            () => true
-          )]
-        )
-      }
-    ),
+    mayors_office: mayors_office,
     
-    sheriffs_station: createLocation(
-      "sheriffs_station",
-      "Sheriff's Station",
-      [
-        "jail",
-        "municipal_district"
-      ],
-      [],
-      "You see the Sheriff's Station.",
-      "You are in the Sheriff's Station.",
-     
-      {
-        go: createInteraction(
-          "Go",
-          [
-          createAction(
-            [
-            {
-              text: "You enter the Sheriff's Station."
-            }],
-            () => {
-              
-              handleMsgUI("locations", "sheriffs_station", "go", 0)
-              handleChangeLocation("sheriffs_station")
-              setBackgroundImg("sheriffs_station")
-              passTime(180)
-              
-            },
-            () => true
-          )]
-          
-        )
-      }
-    ),
+    sheriffs_station: sheriffs_station,
     
-    jail: createLocation(
-      "jail",
-      "Jail",
-      [
-     
-        "sheriffs_station"
-      ],
-      {
-        first_go: false
-      },
-      "A secure door leads toward the jail cells.",
-      "You are in the Jail.",
-      
-      {
-        go: createInteraction(
-          "Go",
-          [
-            
-            createAction(
-               [
-              {
-                text: "You enter the Jail."
-              }],
-               () => {
-             handleMsgUI("locations", "jail", "go", 0)
-                setBackgroundImg("jail")
-                handleChangeLocation("jail")
-                passTime(180)
-                },
-               () => true
-            )
-          ]
-          
-        )
-      }
-    ),
+    jail: jail,
     
     hospital: createLocation(
       "hospital",
@@ -534,6 +314,25 @@ export function locationDataInit() {
         go: createInteraction(
           "Go",
           [
+             createAction(
+   [
+   {
+     text: "The front door is locked. The school doesn't appear to be open on Sundays."
+   }],
+   () => {
+     
+     
+     
+     handleMsgUI("locations", "high_school", "go", 0)
+     
+     setMessageActive(true)
+     setInteractionUIActive(false)
+     setToolsUIActive(false)
+     passTime(60)
+   },
+   () => window.getGame().day % 7 == 1
+   
+ ),
             createAction(
               [
                 {
@@ -541,7 +340,7 @@ export function locationDataInit() {
                 }
               ],
               ()=>{
-                handleMsgUI("locations", "high_school", "go", 0)
+                handleMsgUI("locations", "high_school", "go", 1)
                 handleChangeLocation("high_school")
                 setBackgroundImg("high_school")
                 passTime(180)

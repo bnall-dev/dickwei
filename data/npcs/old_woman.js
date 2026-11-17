@@ -50,7 +50,7 @@ export const old_woman = createNpc(
             createAction(
               [
               {
-                text: ""
+                text: "Old Woman: \"You really shouldn't smoke, dear. It will rob you of your looks!\""
               }],
               () => {
                 handleMsgUI("npcs", "old_woman", "chat", 0)

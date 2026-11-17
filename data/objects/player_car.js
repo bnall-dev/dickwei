@@ -1,5 +1,5 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction, handleMsgUI, passTime , setObjFlag, playerGetItem} from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime, setObjFlag, playerGetItem } from "../../functions/game"
 
 export const player_car = createObject(
   "player_car",
@@ -67,10 +67,9 @@ export const player_car = createObject(
           {
             text: "It is in absolutely no state to drive."
           },
-            {
-              text: "You pat the crumpled hood empathetically."
-            }
-          ],
+          {
+            text: "You pat the crumpled hood empathetically."
+          }],
           () => {
             handleMsgUI("objects", "player_car", "use", 0)
             passTime(60)

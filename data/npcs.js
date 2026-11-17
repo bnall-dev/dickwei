@@ -8,6 +8,8 @@ import {sabra} from "./npcs/sabra"
 import {heather} from "./npcs/heather"
 import {monica} from "./npcs/monica"
 import {old_woman} from "./npcs/old_woman"
+import {doctor} from "./npcs/doctor"
+import {nurse} from "./npcs/nurse"
 
 export function createNpc(id, name, location, flags, interactText, interactions, schedule) {
   return {
@@ -34,6 +36,9 @@ export function npcDataInit() {
     breezy: breezy,
     heather: heather,
     monica: monica,
+    
+    doctor: doctor,
+    nurse: nurse,
     
     old_woman: old_woman
     /*
@@ -295,92 +300,7 @@ export function npcDataInit() {
     pm: ""
   }}
     ),
-    doctor: createNPC(
-      "",
-      "",
-      {},
-      "",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
-              },
-              ()=>true
-            )
-          ]
-        ),
-         investigate: createInteraction(
-          "Investigate",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.investigate.actions[0].message)
-              },
-              ()=>true
-            )
-          ]
-        ),
-         chat: createInteraction(
-          "Chat",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.chat.actions[0].message)
-              },
-              ()=>true
-            )
-          ]
-        )
-        
-      },
-      {
-  sunday: {
-    am: "",
-    pm: ""
-  },
-  monday: {
-    am: "",
-    pm: ""
-  },
-  tuesday: {
-    am: "",
-    pm: ""
-  },
-  wednesday: {
-    am: "",
-    pm: ""
-  },
-  thursday: {
-    am: "",
-    pm: ""
-  },
-  friday: {
-    am: "",
-    pm: ""
-  },
-  saturday: {
-    am: "",
-    pm: ""
-  }}
-    ),
+    
     nurse: createNPC(
       "",
       "",
