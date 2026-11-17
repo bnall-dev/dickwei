@@ -19,7 +19,7 @@ function playerDataInit() {
       "player_gun",
       "cigarettes_open"
     ],
-    cigs: 1,
+    cigs: 19,
     currentCig: 1440,
   })
 }
@@ -53,6 +53,7 @@ export function initGame() {
     messageActive: true,
     sceneActive: true,
     backgroundImage: "opening1",
+    npcImage: "",
     interaction: [
       
     ],

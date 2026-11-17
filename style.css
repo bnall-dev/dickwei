@@ -70,6 +70,7 @@ h6 {margin: 8px;font-size: 12px; font-weight: normal;}
  flex-direction:column;
  justify-content: flex-start;
  align-items: center;
+ 
 }
 
 .TextDisplay p {
@@ -82,10 +83,21 @@ padding: 8px;
 width: 80%;
 }
 
-img {
+.DisplayImg {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  
+  
+}
+
+.NpcImg {
+  position: absolute;
+  height: 85%;
+  object-fit: contain;
+  bottom: 16px;
+
+
   
 }
 

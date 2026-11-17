@@ -1,4 +1,4 @@
-import { handleChangeLocation, createAction, createInteraction, passTime , setMessageActive, setInteractionUIActive, setToolsUIActive} from "../functions/game"
+import { handleChangeLocation, createAction, createInteraction, passTime , setMessageActive, setInteractionUIActive, setBackgroundImg, setToolsUIActive} from "../functions/game"
 
 
 
@@ -60,6 +60,7 @@ export function locationDataInit() {
 
                 handleMsgUI("locations", "outskirts", "go", 0)
                 handleChangeLocation("outskirts")
+                setBackgroundImg("outskirts")
                 passTime(300)
                 
               },
@@ -98,6 +99,7 @@ export function locationDataInit() {
              
               handleChangeLocation("municipal_district")
               handleMsgUI("locations", "municipal_district", "go", 0)
+              setBackgroundImg("municipal_district")
               passTime(300)
               
             },
@@ -136,6 +138,7 @@ export function locationDataInit() {
               
               handleChangeLocation("town_hall"
               )
+              setBackgroundImg("town_hall")
                 passTime(180)
             },
             () => true
@@ -169,6 +172,7 @@ export function locationDataInit() {
               
              handleMsgUI("locations", "mayors_office", "go", 0)
               handleChangeLocation("mayors_office")
+              setBackgroundImg("mayors_office")
               passTime(180)
               
             },
@@ -202,6 +206,7 @@ export function locationDataInit() {
               
               handleMsgUI("locations", "sheriffs_station", "go", 0)
               handleChangeLocation("sheriffs_station")
+              setBackgroundImg("sheriffs_station")
               passTime(180)
               
             },
@@ -228,127 +233,7 @@ export function locationDataInit() {
       {
         go: createInteraction(
           "Go",
-          [createAction(
-              
-              [
-                {
-                  text: "As you pull the handle of the door, it suddenly bursts open. The man hurrying out slams into you and spills coffee all over himself."
-                },
-                {
-                  text: "Angry Man: \"What the hell is wrong with you?!\""
-                },
-                { text: "Dick: \"Hey man, watch the suit!\"" },
-                { text: "The man wrings out his own tie as you register that he, too, is in uniform. A previously unblemished deputy's badge drips black coffee onto his leather jacket." },
-                { text: "Angry Deputy: \"Listen here, buddy, you've got about three seconds to explain why you're trying to sneak into the jail before I throw you in there myself!\"" },
-                { text: "He jabs you sharply in the chest with a gloved finger. A fellow man of action!" },
-                {
-                  text: "You stare him dead in the eye, savoring the moment as you cooly reach into your inner pocket. You can't help but grin as you pull out...",
-                  func: () => {
-                    
-                    const hasBadgeMessage = window.getGame().player.inventory.includes("player_badge") ? [
-                      { text: "... Your Badge!" }
-                    ] : [
-                      { text: "... absolutely nothing..." },
-                      { text: "You see yourself reflected in the deputy's sunglasses, your hand held limply in the air. The deputy folds his arms." },
-                      { text: "You regain your composure clearing your throat and snapping your fingers intothe shape of  a gun." },
-                      { text: "Dick: \"I'm Special Operative Richard Wei! I work for The Agency am here regarding last night's incident.\"" },
-                      { text: "Dick: \"I seem to have misplaced my credentials, but I'm sure we can clear that up if you'll just direct me to your superior...\"" },
-                      { text: "The deputy's expression hasn't changed, but his face is turning red. He taps the badge on his chest." },
-                      { text: "Angry Deputy: \"You see this here, 'Dick'? This makes me the only superior you need to be concerned with.\"" },
-                      { text: "Angry Deputy: \"And nobody's told me anything about any 'Special Operatives' involving themselves in our case.\"" },
-                      { text: "Dick: \"'Richard,' please. Actually, 'Special Operative Wei.'\"" },
-                      { text: "Angry Deputy: \"It's time for you to leave, 'Special Operative Dick.' Come back when you find your badge.\"" },
-                      {
-                        text: "*DOSSIER UPDATED*",
-                        func: () => {
-                          window.setGame(
-                            prev => (
-                            {
-                              ...prev,
-                              quests: {
-                                ...prev.quests,
-                                report_for_duty: {
-                                  ...prev.quests.report_for_duty,
-                                  subquests: {
-                                    ...prev.quests.report_for_duty.subquests,
-                                    convince_drew: {
-                                      ...prev.quests.report_for_duty.subquests.convince_drew,
-                                      active: true
-                                    }
-                                  }
-                                }
-                              }
-                            })
-                          )
-                          
-                          window.setGame(prev => ({
-                            ...prev,
-                            choiceUIActive: window.getGame().sceneActive ? false : true,
-                            messageActive: false,
-                            interactionUIActive: window.getGame().sceneActive ? true : false,
-                            toolsUIActive: window.getGame().sceneActive ? true : false,
-                            messageIndex: 0,
-                            message: window.getGame().sceneActive == false ? [{ text: window.getGame().currentObj.interactText }] : [{ text: window.getGame().currentObj.displayText }]
-                          }))
-                          window.setGame(prev => ({
-                            ...prev,
-                            sceneActive: false
-                          }))
-                          passTime(300)
-                        }
-                      }
-                      
-                    ]
-                    
-                    window.setGame(
-                      prev => (
-                      {
-                        ...prev,
-                        message: hasBadgeMessage,
-                        messageIndex: 0
-                      })
-                    )
-                    
-                    
-                  }
-                }
-              ],
-              () => {
-                window.setGame(prev => (
-                {
-                  ...prev,
-                  message: prev.locations.jail.interactions.go.actions[0].message,
-                  messageIndex: 0,
-                  choiceUIActive: false,
-                  messageActive: true,
-                  sceneActive: true,
-                  npcs: {
-                    ...prev.npcs,
-                    drew: {
-                      ...prev.npcs.drew,
-                      location: "sheriffs_station"
-                    }
-                  },
-                  locations: {
-                    ...prev.locations,
-                    jail: {
-                      ...prev.locations.jail,
-                      flags: {
-                        ...prev.locations.jail.flags,
-                        first_go: true
-                      }
-                    }
-                  },
-                  currentObj: window.getGame().locations.sheriffs_station
-                  
-                  
-                }))
-                
-                
-               
-              },
-              () => window.getGame().locations["jail"].flags.first_go == false
-            ),
+          [
             
             createAction(
                [
@@ -357,10 +242,10 @@ export function locationDataInit() {
               }],
                () => {
              handleMsgUI("locations", "jail", "go", 0)
-                
+                setBackgroundImg("jail")
                 handleChangeLocation("jail")
                 passTime(180)
-              },
+                },
                () => true
             )
           ]
@@ -393,6 +278,7 @@ export function locationDataInit() {
               handleMsgUI("locations", "hospital", "go", 0)
               
               handleChangeLocation("hospital")
+              setBackgroundImg("hospital")
               passTime(180)
             },
             () => true
@@ -426,6 +312,7 @@ export function locationDataInit() {
                 handleMsgUI("locations", "morgue", "go", 0)
               
               handleChangeLocation("morgue")
+              setBackgroundImg("morgue")
               passTime(180)
             },
             () => true
@@ -471,6 +358,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "residential_district", "go", 1)
                 handleChangeLocation("residential_district")
+                setBackgroundImg("residential_district")
                 passTime(300)
               },
               ()=>true
@@ -499,6 +387,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "hotel", "go", 0)
                 handleChangeLocation("hotel")
+                setBackgroundImg("hotel")
                 passTime(180)
               },
               ()=> true
@@ -528,6 +417,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "player_room", "go", 0)
                 handleChangeLocation("player_room")
+                setBackgroundImg("player_room")
                 passTime(180)
               },
               ()=> true
@@ -557,6 +447,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "downtown", "go", 0)
                 handleChangeLocation("downtown")
+                setBackgroundImg("downtown")
                 passTime(300)
               },
               ()=>true
@@ -587,6 +478,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "industrial_district", "go", 0)
                 handleChangeLocation("industrial_district")
+                setBackgroundImg("industrial_district")
                 passTime(300)
               },
               ()=>true
@@ -616,6 +508,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "high_school", "go", 0)
                 handleChangeLocation("high_school")
+                setBackgroundImg("high_school")
                 passTime(180)
               },
               ()=>true
@@ -645,6 +538,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "mall", "go", 0)
                 handleChangeLocation("mall")
+                setBackgroundImg("mall")
                 passTime(180)
               },
               ()=>true
@@ -674,6 +568,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "apartments", "go", 0)
                 handleChangeLocation("apartments")
+                setBackgroundImg("apartments")
                 passTime(180)
               },
               ()=>true
@@ -790,6 +685,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "gas_station", "go", 0)
                 handleChangeLocation("gas_station")
+                setBackgroundImg("gas_station")
                 passTime(180)
               },
               ()=>true
@@ -819,6 +715,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "diner", "go", 0)
                 handleChangeLocation("diner")
+                setBackgroundImg("diner")
                 passTime(180)
               },
               ()=>true
@@ -847,6 +744,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "church", "go", 0)
                 handleChangeLocation("church")
+                setBackgroundImg("church")
                 passTime(180)
               },
               ()=>true
@@ -876,6 +774,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "cemetary", "go", 0)
                 handleChangeLocation("cemetary")
+                setBackgroundImg("cemetary")
                 passTime(180)
               },
               ()=>true
@@ -905,6 +804,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "trailer_park", "go", 0)
                 handleChangeLocation("trailer_park")
+                setBackgroundImg("trailer_park")
                 passTime(180)
               },
               ()=>true
@@ -933,6 +833,7 @@ export function locationDataInit() {
               ()=>{
                 handleMsgUI("locations", "factory", "go", 0)
                 handleChangeLocation("factory")
+                setBackgroundImg("factory")
                 passTime(180)
               },
               ()=>true
@@ -943,7 +844,7 @@ export function locationDataInit() {
     ),
     mill: createLocation(
       "mill",
-      "Mill",
+      "Saw Mill",
       ["industrial_district"],
       {},
       "You see the Mill.",

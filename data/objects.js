@@ -131,7 +131,7 @@ export function objectDataInit() {
       "Fountain",
       "municipal_district",
       {},
-      "You see a Fountain.",
+      "A large fountain dominates the town square.",
       {
         examine: createInteraction(
           "Examine",
@@ -139,7 +139,7 @@ export function objectDataInit() {
             createAction(
               [
                 {
-                  text: ""
+                  text: "The fountain is a statue of a mermaid."
                 }
               ],
               ()=>{
@@ -171,6 +171,7 @@ export function objectDataInit() {
     ),
     
     newspaper_box: createObject(
+      "newspaper_box",
       "Newspaper Box",
       "municipal_district",
       {},
@@ -214,6 +215,7 @@ export function objectDataInit() {
     ),
     
     post_box: createObject(
+      "post_box",
       "Post Box",
       "municipal_district",
       {},

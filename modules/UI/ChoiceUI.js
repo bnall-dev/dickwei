@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 const { useState, useEffect } = React;
 
-import {setChoiceUIActive, setMessage, setInteractionUIActive, setToolsUIActive, setBackgroundImg, setInventoryUIActive} from "../../functions/game"
+import {setChoiceUIActive, setMessage, setInteractionUIActive, setToolsUIActive, setBackgroundImg, setInventoryUIActive, setNpcImg} from "../../functions/game"
   
   function ChoiceUI() {
     
@@ -41,6 +41,7 @@ setMessage( [{ text: window.getGame().locations[window.getGame().player.location
         setMessage([{text: window.getGame().locations[window.getGame().player.location].displayText}])
       }
       setBackgroundImg(window.getGame().player.location)
+      setNpcImg("")
       setChoiceUIActive(false)
       
       

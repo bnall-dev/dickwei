@@ -9,6 +9,11 @@ export function setBackgroundImg(img){
     backgroundImage: img
   }))
 }
+export function setNpcImg(img){
+  window.setGame(prev=>({...prev,
+    npcImage: img
+  }))
+}
 
 export function handleChangeLocation(id) {
 
@@ -200,7 +205,7 @@ export function endScene() {
  player: {
    ...prev.player,
    currentCig: 1440,
-   cigs: 0,
+   cigs: 19,
    location: "player_room"
    
  } ,
@@ -276,7 +281,10 @@ export  function setObjFlag(obj, flag, bool){
           
         })
       )
-           if(obj.type != "npc"){setBackgroundImg(obj.id)}
+      if (obj.type !== "location"){
+        if (obj.type == "npc") {setNpcImg(obj.id)} else setBackgroundImg(obj.id)
+      }
+           
 
       passTime(10)}
     }

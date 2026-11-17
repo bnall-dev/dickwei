@@ -3,8 +3,9 @@ import { triggerFlag, createInteraction, createAction, handleMsgUI , passTime} f
 export function npcDataInit() {
 
   
-  function createNpc(name, location, flags, interactText, interactions, schedule) {
+  function createNpc(id,name, location, flags, interactText, interactions, schedule) {
     return {
+      id: id,
       type: "npc",
       name: name,
       location: location,
@@ -18,6 +19,7 @@ export function npcDataInit() {
   return (
   {
     drew: createNpc(
+      "drew",
       "Drew",
       "jail", {},
       "You see the deputy.",
@@ -122,6 +124,7 @@ export function npcDataInit() {
     ),
     
     gwen: createNpc(
+      "gwen",
       "Gwen",
       "",
       {},
@@ -216,6 +219,7 @@ export function npcDataInit() {
     ),
     
     old_woman: createNpc(
+      "old_woman",
       "Old Woman",
       "municipal_district", {},
       "An old woman putters down the sidewalk.",
@@ -306,6 +310,7 @@ export function npcDataInit() {
     ),
     
     sabra: createNpc(
+      "sabra",
       "Sabra",
       "",
       {},
@@ -392,6 +397,7 @@ export function npcDataInit() {
   }}
     ),
     rikki: createNpc(
+      "rikki",
       "Rikki",
       "",
       {},
@@ -478,6 +484,7 @@ export function npcDataInit() {
 }}
     ),
     breezy: createNpc(
+      "breezy",
       "Breezy",
       "",
       {},
@@ -564,6 +571,7 @@ export function npcDataInit() {
   }}
     ),
     heather: createNpc(
+      "heather",
       "Heather",
       "",
       {},
@@ -650,6 +658,7 @@ export function npcDataInit() {
   }}
     ),
     monica: createNpc(
+      "monica",
       "Monica",
       "",
       {},
