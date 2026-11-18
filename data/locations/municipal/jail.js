@@ -1,5 +1,5 @@
-import { createLocation, handleMsgUI } from "../locations"
-import { createInteraction, createAction, passTime, setBackgroundImg, handleChangeLocation } from "../../functions/game"
+import { createLocation, handleMsgUI } from "../../locations"
+import { createInteraction, createAction, passTime, setBackgroundImg, handleChangeLocation } from "../../../functions/game"
 
 export const jail = createLocation(
   "jail",
