@@ -9,6 +9,8 @@ import { hospital } from "./locations/municipal/hospital"
 import { morgue } from "./locations/municipal/morgue"
 import { residential_district } from "./locations/residential/residential_district"
 import { hotel } from "./locations/residential/hotel"
+import { player_room } from "./locations/residential/player_room"
+import { downtown } from "./locations/downtown/downtown"
 
 
 export function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
@@ -46,90 +48,21 @@ export function locationDataInit() {
   
   return (
   {
-    outskirts: outskirts,
     municipal_district: municipal_district,
+    outskirts: outskirts,
     town_hall: town_hall,
     mayors_office: mayors_office,
-    
     sheriffs_station: sheriffs_station,
-    
     jail: jail,
-    
     hospital: hospital,
     morgue: morgue,
     
     residential_district: residential_district,
     hotel: hotel,
-    player_room: createLocation(
-      "player_room",
-      "Your Room",
-      ["hotel"], {},
-      "You see your hotel room.",
-      "You are in your hotel room.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter your hotel room."
-              }],
-              () => {
-                handleMsgUI("locations", "player_room", "go", 0)
-                handleChangeLocation("player_room")
-                setBackgroundImg("player_room")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
+    player_room: player_room,
     
-    downtown: createLocation(
-      "downtown",
-      "Downtown",
-      ["mall", "apartments", "pier", "municipal_district", "industrial_district"], {},
-      "You see Downtown.",
-      "You are Downtown.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "The road is blocked."
-              }],
-              () => {
-                handleMsgUI("locations", "downtown", "go", 0)
-                passTime(60)
-                setMessageActive(true)
-                setInteractionUIActive(false)
-                setToolsUIActive(false)
-                
-              },
-              () => window.getGame().locations.residential_district.flags.road_fixed == false
-            ),
-            createAction(
-              [
-              {
-                text: "You go Downtown."
-              }],
-              () => {
-                handleMsgUI("locations", "downtown", "go", 0)
-                handleChangeLocation("downtown")
-                setBackgroundImg("downtown")
-                passTime(300)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
+    downtown: downtown,
+    
     industrial_district: createLocation(
       "industrial_district",
       "Industrial District",
