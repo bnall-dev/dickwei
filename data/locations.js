@@ -6,11 +6,15 @@ import { mayors_office } from "./locations/municipal/mayors_office"
 import { sheriffs_station } from "./locations/municipal/sheriffs_station"
 import { jail } from "./locations/municipal/jail"
 import { hospital } from "./locations/municipal/hospital"
+import { high_school } from "./locations/municipal/high_school"
 import { morgue } from "./locations/municipal/morgue"
 import { residential_district } from "./locations/residential/residential_district"
 import { hotel } from "./locations/residential/hotel"
 import { player_room } from "./locations/residential/player_room"
 import { downtown } from "./locations/downtown/downtown"
+import { mall } from "./locations/downtown/mall"
+import { apartments } from "./locations/downtown/apartments"
+import { industrial_district } from "./locations/industrial/industrial_district"
 
 
 export function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
@@ -53,6 +57,7 @@ export function locationDataInit() {
     town_hall: town_hall,
     mayors_office: mayors_office,
     sheriffs_station: sheriffs_station,
+    high_school: high_school,
     jail: jail,
     hospital: hospital,
     morgue: morgue,
@@ -62,139 +67,12 @@ export function locationDataInit() {
     player_room: player_room,
     
     downtown: downtown,
+    mall: mall,
+    apartments: apartments,
     
-    industrial_district: createLocation(
-      "industrial_district",
-      "Industrial District",
-      ["trailer_park", "cemetary", "mill", "factory", "residential_district",
-        "downtown"
-      ], {},
-      "You see the Industrial District.",
-      "You are in the Industrial District.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Industrial District."
-              }],
-              () => {
-                handleMsgUI("locations", "industrial_district", "go", 0)
-                handleChangeLocation("industrial_district")
-                setBackgroundImg("industrial_district")
-                passTime(300)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
+    industrial_district: industrial_district,
     
-    high_school: createLocation(
-      "high_school",
-      "Goodwood High",
-      ["residential_district"], {},
-      "You see Goodwood High School.",
-      "You are in the High School.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "The front door is locked. The school doesn't appear to be open on Sundays."
-              }],
-              () => {
-                
-                
-                
-                handleMsgUI("locations", "high_school", "go", 0)
-                
-                setMessageActive(true)
-                setInteractionUIActive(false)
-                setToolsUIActive(false)
-                passTime(60)
-              },
-              () => window.getGame().day % 7 == 1
-              
-            ),
-            createAction(
-              [
-              {
-                text: "You enter the High School."
-              }],
-              () => {
-                handleMsgUI("locations", "high_school", "go", 1)
-                handleChangeLocation("high_school")
-                setBackgroundImg("high_school")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
     
-    mall: createLocation(
-      "mall",
-      "Goodwood Town Mall",
-      ["downtown"], {},
-      "You see the Mall.",
-      "You are in the Mall.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Mall."
-              }],
-              () => {
-                handleMsgUI("locations", "mall", "go", 0)
-                handleChangeLocation("mall")
-                setBackgroundImg("mall")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
-    
-    apartments: createLocation(
-      "apartments",
-      "Apartment Building",
-      ["downtown"], {},
-      "You see an Apartment Building.",
-      "You are in the Apartment Building.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Apartment Building."
-              }],
-              () => {
-                handleMsgUI("locations", "apartments", "go", 0)
-                handleChangeLocation("apartments")
-                setBackgroundImg("apartments")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
     
     pier: createLocation(
       "pier",

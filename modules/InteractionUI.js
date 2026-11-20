@@ -2,32 +2,32 @@
   import ReactDOM from 'react-dom';
   const { useState, useEffect } = React;
   
-  import {passTime, handleInteraction} from "../../functions/game"
+  import { passTime, handleInteraction } from "../../functions/game"
   
   
   function InteractionUI() {
     
-       var [locationIndex, setLocationIndex] = useState(0)
-       var [objectIndex, setObjectIndex] = useState(0)
-       var [npcIndex, setNpcIndex] = useState(0)
-       const location = window.getGame().locations[window.getGame().player.location]
-const subLocations = location.subLocations.map(loc => window.getGame().locations[loc])
+    var [locationIndex, setLocationIndex] = useState(0)
+    var [objectIndex, setObjectIndex] = useState(0)
+    var [npcIndex, setNpcIndex] = useState(0)
+    const location = window.getGame().locations[window.getGame().player.location]
+    const subLocations = location.subLocations.map(loc => window.getGame().locations[loc])
     
-          const objects = Object.values(window.getGame().objects).filter(obj => obj.location == window.getGame().player.location)
-          
-  const npcs = Object.values(window.getGame().npcs).filter(npc => npc.location == window.getGame().player.location)        
-          
+    const objects = Object.values(window.getGame().objects).filter(obj => obj.location == window.getGame().player.location)
+    
+    const npcs = Object.values(window.getGame().npcs).filter(npc => npc.location == window.getGame().player.location)
+    
     function ObjectButtons() {
       
       
       
-
+      
       
       var viewObjects = []
-
-for (let i = objectIndex; i < objectIndex + 3; i++) {
-  viewObjects.push(objects[i] || {})
-}
+      
+      for (let i = objectIndex; i < objectIndex + 3; i++) {
+        viewObjects.push(objects[i] || {})
+      }
       
       return viewObjects.map((obj, i) => {
         return (
@@ -44,44 +44,47 @@ for (let i = objectIndex; i < objectIndex + 3; i++) {
       
       
       
-            var viewNpcs = []
-
-for (let i = npcIndex; i < npcIndex + 3; i++) {
-  viewNpcs.push(npcs[i] || {})
-}
+      var viewNpcs = []
+      
+      for (let i = npcIndex; i < npcIndex + 3; i++) {
+        viewNpcs.push(npcs[i] || {})
+      }
       
       return viewNpcs.map((npc, i) => {
         return (
           <li key = {i}>
           <button className= "NpcButton" onClick = {()=>handleInteraction(npc)}>
-            {npc.name}
+            {npc.flags && npc.flags.have_met ? npc.name : npc.preName}
           </button>
         </li>
         )
       })
       
     }
-   
-    function SubLocationButtons(){
-   
+    
+    function SubLocationButtons() {
       
-
-var viewLocations = []
-
-for (let i = locationIndex; i < locationIndex + 3; i++) {
-   viewLocations.push(subLocations[i] || {})
-}
-  
+      
+      
+      var viewLocations = []
+      
+      for (let i = locationIndex; i < locationIndex + 3; i++) {
+        viewLocations.push(subLocations[i] || {})
+      }
+      
       return viewLocations.map((loc, i) => {
-  return (
-    <li key = {i}>
-          <button className= "LocationButton" onClick = {()=>handleInteraction(loc)
+        return (
+          <li key = {i}>
+          <button className= "LocationButton" onClick = {()=>{handleInteraction(loc)
+          setLocationIndex(0)
+          setNpcIndex(0)
+          setObjectIndex(0)}
           }>
             {loc.name}
           </button>
         </li>
-  )
-})
+        )
+      })
       
     }
     
@@ -92,7 +95,9 @@ for (let i = locationIndex; i < locationIndex + 3; i++) {
     
     
     return (
-      <div className = "InteractionUI">
+      <div className = "InteractionUI" style = {{
+visibility: window.getGame().interactionUIActive == true ? "visible" : "hidden", position: window.getGame().interactionUIActive == true ? "relative" : "absolute"
+      }}>
          
    
           <ul>

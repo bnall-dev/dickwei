@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 const { useState, useEffect } = React;
 
 import { initGame } from "./data/_game"
-import { changeDisplayText, handleInteraction, lightCig, endDay} from "./functions/game"
+import { changeDisplayText, handleInteraction, lightCig, endDay } from "./functions/game"
 
 import Header from "./modules/Header"
 import TextDisplay from "./modules/TextDisplay"
@@ -30,16 +30,16 @@ function App() {
     
   }, [game.message, game.messageIndex])
   
-  useEffect(()=>{
+  useEffect(() => {
     
-    Object.keys(window.getGame().npcs).forEach((n, i)=>{
-      setGame(prev=>({
+    Object.keys(window.getGame().npcs).forEach((n, i) => {
+      setGame(prev => ({
         ...prev,
         npcs: {
           ...prev.npcs,
           [n]: {
             ...prev.npcs[n],
-            location:npcScheduleLocation(prev.npcs[n])
+            location: npcScheduleLocation(prev.npcs[n])
           }
         }
       }))
@@ -47,30 +47,44 @@ function App() {
     
   }, [game.dayTime])
   
-  useEffect(()=>{
+  useEffect(() => {
     if (window.getGame().player.currentCig <= 0) {
-  if (window.getGame().player.cigs > 0)
-    lightCig()
-  else endDay()
-}
-  },[game.player.currentCig])
+      if (window.getGame().player.cigs > 0)
+        lightCig()
+      else endDay()
+    }
+  }, [game.player.currentCig])
   
+  useEffect(() => {
+    
+    var name = ""
+    if (game.speaker == "player") { name = "Dick" }
+    else if (game.speaker != "") {
+      const npc = game.npcs[game.speaker]
+      name = npc.flags.have_met ? npc.name : npc.preName
+    }
+    setGame(prev => ({
+      ...prev,
+      speakerName: name
+    }))
+    
+  }, [game.speaker])
   
-  function npcScheduleLocation(npc){
+  function npcScheduleLocation(npc) {
     const today = Object.keys(game.weekDays)[game.day % 7 - 1]
     return npc.schedule[today][game.dayTime]
   }
-
+  
   
   return (
     <div className="app">
       <Header/>
       <TextDisplay />
-      {game.choiceUIActive && <ChoiceUI/>}
-      {game.interactionUIActive && <InteractionUI/>}
+      <ChoiceUI/>
+      <InteractionUI/>
       {game.toolsUIActive && <ToolsUI/>}
-      {game.inventoryUIActive && <InventoryUI />}
-      {game.dossierUIActive && <DossierUI/>}
+       <InventoryUI />
+      <DossierUI/>
       {game.phoneUIActive && <PhoneUI/>}
       <div style = {{
       position: "absolute",

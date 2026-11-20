@@ -1,10 +1,11 @@
 import { createNpc } from "../npcs"
-import { createInteraction, createAction, handleMsgUI, passTime } from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker } from "../../functions/game"
 
 export const old_woman = createNpc(
       "old_woman",
       "Old Woman",
-      "municipal_district", {},
+      "Old Woman",
+      "municipal_district", {have_met: false},
       "An old woman putters down the sidewalk.",
       {
         examine: createInteraction(
@@ -32,12 +33,14 @@ export const old_woman = createNpc(
             createAction(
               [
               {
-                text: "Old Woman: \"It's just terrible... that poor girl...\""
+                text: "\"It's just terrible... that poor girl...\"",
+                func: ()=>{setSpeaker("")}
               }],
               () => {
                 
                 handleMsgUI("npcs", "old_woman", "investigate", 0)
                 passTime(10)
+              setSpeaker("old_woman")
                 
               },
               () => true
@@ -50,10 +53,12 @@ export const old_woman = createNpc(
             createAction(
               [
               {
-                text: "Old Woman: \"You really shouldn't smoke, dear. It will rob you of your looks!\""
+                text: "\"You really shouldn't smoke, dear. It will rob you of your looks!\"",
+                func: ()=>{setSpeaker("")}
               }],
               () => {
                 handleMsgUI("npcs", "old_woman", "chat", 0)
+                setSpeaker("old_woman")
                 passTime(10)
               },
               () => true

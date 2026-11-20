@@ -74,14 +74,29 @@ h6 {margin: 8px;font-size: 12px; font-weight: normal;}
  
 }
 
-.TextDisplay p {
+.TextDisplay div {
   position: absolute;
+  bottom: 26px;
+  width: 80%;
+}
+
+.TextDisplay p {
+  
   font-size: 10px;
 background-color: black;
 border: 1px solid white;
-bottom: 16px;
+margin: 0;
 padding: 8px;
-width: 80%;
+
+}
+
+.TextDisplay p:first-of-type {
+  position: absolute;
+  top: -16.5px;
+
+  width: fit-content;
+  padding: 3px 20px 2px 16px;
+  border-radius: 0 8px 0 0
 }
 
 .DisplayImg {
@@ -200,8 +215,11 @@ text-align: center;
 .DossierUI h6 {
   margin-left: 48px;
 }
-
-.DossierUI {
+.DossierUI{
+  display: flex;
+  flex: 1;
+}
+.DossierUI > div {
   display: flex;
   flex-direction: column;
    padding: 16px;
@@ -209,6 +227,25 @@ text-align: center;
    border: 2px solid white;
    justify-content: space-between;
    flex: 1;
+}
+
+.DossierUI ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.DossierUI li {
+  flex: 0 0 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.DossierUI li button {
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .InventoryUI {
@@ -219,6 +256,7 @@ text-align: center;
   border: 2px solid white;
   flex: 1;
   justify-content: space-between;
+  
 }
 
 .InventoryUI ul {

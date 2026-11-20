@@ -1,11 +1,14 @@
-import {createNpc} from "../npcs"
-import {createInteraction, createAction, handleMsgUI, passTime} from "../../functions/game"
+import { createNpc } from "../npcs"
+import { createInteraction, createAction, handleMsgUI, passTime } from "../../functions/game"
 
 
 export const drew = createNpc(
   "drew",
   "Drew",
-  "jail", {},
+  "Angry Deputy",
+  "jail", {
+    have_met: false
+  },
   "You see the deputy.",
   {
     examine: createInteraction(

@@ -4,8 +4,11 @@ import { createInteraction, createAction, handleMsgUI , passTime} from "../../fu
 export const rikki = createNpc(
       "rikki",
       "Rikki",
+      "Girl with Glasses",
       "",
-      {},
+      {
+        have_met: false
+      },
       "You see Rikki.",
       {
         examine: createInteraction(

@@ -28,13 +28,17 @@ function PhoneUI() {
                 message: [],
               func: ()=>{
                 saveGame()
-                setMessage([{text: "*Game Saved*", func: () => {}
+                setMessage([{text: "*Game Saved*", func: () => {
+                  setChoiceUIActive(false)
+                  setInteractionUIActive(true)
+setToolsUIActive(true)
+                }
                   
                 }]
                  
                 )
-                setInteractionUIActive(true)
-                setToolsUIActive(true)
+                
+                setMessageActive(true)
                 
               },
               condition: ()=> true

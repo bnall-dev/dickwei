@@ -5,8 +5,9 @@ import { createInteraction, createAction, handleMsgUI, passTime } from "../../fu
 export const gwen = createNpc(
       "gwen",
       "Gwen",
+      "Girl with Pink Hair",
       "",
-      {},
+      {have_met: false},
       "She sits at the front desk typing furiously at her computer. She seems stressed out.",
       {
         examine: createInteraction(

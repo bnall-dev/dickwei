@@ -8,9 +8,12 @@ function InventoryUI() {
       <li key = {i}>
         <button onClick = {()=> handleInteraction(window.getGame().items[item])}>{window.getGame().items[item].name}</button>
       </li>)
+      
     
     return (
-      <div className = "InventoryUI">
+      <div className = "InventoryUI" style = {{
+visibility: window.getGame().inventoryUIActive == true ? "visible" : "hidden", position: window.getGame().inventoryUIActive == true ? "relative" : "absolute"
+      }}>
         <ul>
        {itemList}
         </ul>

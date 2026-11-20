@@ -11,11 +11,12 @@ import {old_woman} from "./npcs/old_woman"
 import {doctor} from "./npcs/doctor"
 import {nurse} from "./npcs/nurse"
 
-export function createNpc(id, name, location, flags, interactText, interactions, schedule) {
+export function createNpc(id, name, preName, location, flags, interactText, interactions, schedule) {
   return {
     id: id,
     type: "npc",
     name: name,
+    preName: preName,
     location: location,
     flags: flags,
     interactText: interactText,

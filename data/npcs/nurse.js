@@ -1,10 +1,11 @@
 import { createNpc } from "../npcs"
-import { createInteraction, createAction, handleMsgUI, passTime } from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker } from "../../functions/game"
 
 export const nurse = createNpc(
   "nurse",
   "Nurse",
-  "", {},
+  "Nurse",
+  "", {have_met: false},
   "A nurse overlooks the reception desk.",
   {
     examine: createInteraction(
@@ -29,10 +30,12 @@ export const nurse = createNpc(
         createAction(
           [
           {
-            text: "Nurse: \"I really don't know the details... You'll want to speak to the doctor. \""
+            text: "\"I really don't know the details... You'll want to speak to the doctor. \"",
+            func: ()=>{setSpeaker("")}
           }],
           () => {
             handleMsgUI("npcs", "nurse", "investigate", 0)
+            setSpeaker("nurse")
             passTime(30)
           },
           () => true
@@ -45,10 +48,12 @@ export const nurse = createNpc(
         createAction(
           [
           {
-            text: "Nurse: \"Sir! Please put out your cigarette!\""
+            text: "\"Sir! Please put out your cigarette!\"",
+            func: ()=>{setSpeaker("")}
           }],
           () => {
             handleMsgUI("npcs", "nurse", "chat", 0)
+            setSpeaker("nurse")
             passTime(30)
           },
           () => true

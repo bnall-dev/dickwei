@@ -1,5 +1,5 @@
 import { createLocation, handleMsgUI } from "../../locations"
-import { createInteraction, createAction, passTime, setBackgroundImg, handleChangeLocation } from "../../../functions/game"
+import { createInteraction, createAction, passTime, setBackgroundImg, handleChangeLocation, setMessageActive, setInteractionUIActive, setToolsUIActive } from "../../../functions/game"
 
 
 export const morgue = createLocation(
@@ -18,17 +18,19 @@ export const morgue = createLocation(
         createAction(
           [
           {
-            text: "You enter the morgue."
+            text: "The door is locked. You see an electronic card reader near the knob. Looks like only someone with a key card can enter."
           }],
           () => {
-            
             handleMsgUI("locations", "morgue", "go", 0)
+            setInteractionUIActive(false)
+            setToolsUIActive(false)
+            setMessageActive(true)
+           
             
-            handleChangeLocation("morgue")
-            setBackgroundImg("morgue")
-            passTime(180)
+            
+            passTime(30)
           },
-          () => true
+          () => !window.getGame().player.inventory.includes("hospital_keycard")
         )
       ])
     

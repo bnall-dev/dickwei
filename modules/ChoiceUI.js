@@ -48,7 +48,9 @@ setMessage( [{ text: window.getGame().locations[window.getGame().player.location
       
     }
     
-    return (<div className = "ChoiceUI">
+    return (<div className = "ChoiceUI" style = {{
+visibility: window.getGame().choiceUIActive == true ? "visible" : "hidden", position: window.getGame().choiceUIActive == true ? "relative" : "absolute"
+      }}>
       <ul>
         {ChoiceButtons}
          <li>

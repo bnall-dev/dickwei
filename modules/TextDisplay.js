@@ -28,9 +28,13 @@ function TextDisplay() {
   }
   
   function handleContinueButton(){
-    if (messageLineHasFunction()) {handleMessageLineFunction()
-    if (messageIsContinued()) {goToNextLine()} 
-    else endScene()}
+    if (messageLineHasFunction()) {
+    if (messageIsContinued()) {
+      handleMessageLineFunction()
+      goToNextLine()} 
+    else endScene()
+      handleMessageLineFunction()
+    }
     else if (messageIsContinued()) {goToNextLine()} 
     else endScene()
         
@@ -41,9 +45,14 @@ function TextDisplay() {
         <div className = "TextDisplay">
           <img className = "DisplayImg" src= {`./images/${window.getGame().backgroundImage}.jpeg`}/>
          <img className = "NpcImg" src= {`./images/npc/${window.getGame().npcImage}.png`} />
+         <div>
+         <p style = {{
+           display: window.getGame().speaker != ""?"block" : "none"
+         }}>{window.getGame().speakerName}</p>
           <p>
             {window.getGame().displayText}
           </p>
+          </div>
         </div>
         {window.getGame().messageActive && <div className = "continueDiv">
             <button onClick = {handleContinueButton}>

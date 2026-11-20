@@ -44,6 +44,8 @@ export function initGame() {
     sceneActive: true,
     backgroundImage: "title",
     npcImage: "",
+    speaker:"",
+    speakerName: "",
     interaction: [
       {
         text: "New Game",
@@ -72,6 +74,7 @@ export function initGame() {
     toolsUIActive: false,
     inventoryUIActive: false,
     dossierUIActive: false,
+    dossModule: "main",
     phoneUIActive: false,
     weekDays: {
       sunday: {
