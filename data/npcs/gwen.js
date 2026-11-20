@@ -7,6 +7,7 @@ export const gwen = createNpc(
       "Gwen",
       "Girl with Pink Hair",
       "",
+      "",
       {have_met: false},
       "She sits at the front desk typing furiously at her computer. She seems stressed out.",
       {

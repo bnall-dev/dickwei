@@ -5,6 +5,7 @@ export const nurse = createNpc(
   "nurse",
   "Nurse",
   "Nurse",
+  "",
   "", {have_met: false},
   "A nurse overlooks the reception desk.",
   {

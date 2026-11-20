@@ -5,7 +5,8 @@ export const old_woman = createNpc(
       "old_woman",
       "Old Woman",
       "Old Woman",
-      "municipal_district", {have_met: false},
+      "municipal_district", 
+      "",{have_met: false},
       "An old woman putters down the sidewalk.",
       {
         examine: createInteraction(

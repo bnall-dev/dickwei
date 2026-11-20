@@ -6,6 +6,7 @@ export const rikki = createNpc(
       "Rikki",
       "Girl with Glasses",
       "",
+      "",
       {
         have_met: false
       },

@@ -7,7 +7,8 @@ import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker } fr
   "doctor",
   "Dr. Trey",
   "Doctor",
-  "", {
+  "", 
+  "",{
     have_met: false
   },
   "You see the doctor.",

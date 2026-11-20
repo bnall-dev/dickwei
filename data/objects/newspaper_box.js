@@ -1,5 +1,5 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction, handleMsgUI, passTime, setMessageActive, setChoiceUIActive, setMessage, setSpeaker } from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime, setMessageActive, setChoiceUIActive, setMessage, setSpeaker, setNpcImg } from "../../functions/game"
 
 export const newspaper_box = createObject(
   "newspaper_box",
@@ -17,11 +17,15 @@ export const newspaper_box = createObject(
           },
           {
             text: "'Miss Goodwood Pageant Announced!'",
-            func: ()=>{setSpeaker("player")}
+            func: ()=>{
+              setNpcImg("player")
+              setSpeaker("player")}
           },
           {
             text: "\"It looks like the press might not be aware of the case yet. I should probably meet the paper's editor at some point...\"",
-            func: ()=>{setSpeaker("")}
+            func: ()=>{
+              setNpcImg("")
+              setSpeaker("")}
           }],
           () => {
             handleMsgUI("objects", "newspaper_box", "examine", 0)

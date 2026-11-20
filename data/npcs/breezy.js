@@ -6,6 +6,7 @@ export const breezy = createNpc(
       "Breezy",
       "Girl with Sunglasses",
       "",
+      "",
       {have_met: false},
       "You see Breezy.",
       {

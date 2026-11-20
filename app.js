@@ -72,7 +72,7 @@ function App() {
   
   function npcScheduleLocation(npc) {
     const today = Object.keys(game.weekDays)[game.day % 7 - 1]
-    return npc.schedule[today][game.dayTime]
+    return npc.specialLocation != "" ? npc.specialLocation : npc.schedule[today][game.dayTime]
   }
   
   

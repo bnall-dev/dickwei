@@ -6,6 +6,7 @@ export const heather = createNpc(
       "Heather",
       "Girl with Camera",
       "",
+      "",
       {have_met: false},
       "",
       {

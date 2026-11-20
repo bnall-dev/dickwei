@@ -6,6 +6,7 @@ export const monica = createNpc(
       "Monica",
       "Girl with Bleached Hair",
       "",
+      "",
       {have_met: false},
       "",
       {

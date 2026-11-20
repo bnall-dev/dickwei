@@ -1,12 +1,13 @@
 import { createNpc } from "../npcs"
-import { createInteraction, createAction, handleMsgUI, passTime } from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker} from "../../functions/game"
 
 
 export const drew = createNpc(
   "drew",
   "Drew",
   "Angry Deputy",
-  "jail", {
+  "", 
+  "jail",{
     have_met: false
   },
   "You see the deputy.",
@@ -35,11 +36,13 @@ export const drew = createNpc(
         createAction(
           [
           {
-            text: "Angry Deputy: \"Are you trying to get jammed up? If you can't prove who you are, get out of here!\"",
+            text: " \"Are you trying to get jammed up? If you can't prove who you are, get out of here!\"",
+            func: ()=>{setSpeaker("")}
             
           }],
           () => {
             handleMsgUI("npcs", "drew", "investigate", 0)
+            setSpeaker("drew")
             passTime(10)
           },
           () => window.getGame().player.inventory.includes("player_badge") == false

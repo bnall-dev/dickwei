@@ -287,10 +287,15 @@ export function startNewGame() {
     },
     {
       text: "Miraculously, you aren't harmed, but your car has been wrapped around a tree.",
-      func: () => { setSpeaker("player") }},
+      func: () => { 
+        setNpcImg("player")
+        setSpeaker("player")
+      }},
       { text: "\"I can't believe I survived that! I shall take it as a cosmic mandate that I must solve this case!\"" },
       { text: "\"But it looks like we're on foot from here...\"",
-        func: ()=>{setSpeaker("")}
+        func: ()=>{
+          setNpcImg("")
+          setSpeaker("")}
       },
       {
         text: "You light up a cigarette.",
