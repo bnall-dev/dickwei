@@ -45,8 +45,12 @@ export function documentsDataInit() {
           window.getGame().documents.handbook.func()
         }
       }],
-      [{
-        text: "Mastering the Craft",
+      [
+        {
+          text: "Mastering the Craft\n\nAgency Operatives have been trained as an expert in acquistion and application of information in the field. There are many ways an Operative can interact with their environment to progress with their Mission Objectives.\n\nOperatives are equipped with an array of standard equipment (See Ch. 3). In addition, many items may be acquired through interaction with people and objects and can be used in a variety of ways."
+        },
+        {
+        text: "Operatives are highly skilled in observation and can examine people and objects to deduce their qualities. Additional information may be gleaned from repeated examinations.\n\nIn addition, Operatives are adept communicators and can obtain the means to their goals by talking to people in different ways.\nInvestigating is the direct method of inquiring about case-related matters. Chatting is the indirect method, talking to individuals about their personal lives.",
         func: ()=>{setChoiceUIActive(false)
           setDossierUIActive(true)
 

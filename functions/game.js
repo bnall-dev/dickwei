@@ -133,11 +133,7 @@ export function lightCig() {
       
     },
     
-    displayText: prev.message.map((msg, index) =>
-      index === window.getGame().messageIndex ?
-      prev.displayText + newText :
-      prev.displayText),
-    
+    displayText: prev.displayText + newText
     
   }))
 }
@@ -208,11 +204,12 @@ export function playerGetItem(item) {
       ...prev.player,
       inventory: [
         ...prev.player.inventory,
-        "player_badge"
+        item
       ]
     }
   }))
 }
+
 export function handleInteraction(obj) {
   if (obj.name)
   {
@@ -324,3 +321,50 @@ setToolsUIActive(true)
       
     }
   }
+  
+  
+  export function formatMessage(message) {
+  
+  const styles = {
+    red: { color: "red" },
+    blue: { color: "blue" },
+    green: { color: "green" },
+    bold: { fontWeight: "bold" },
+    italic: { fontStyle: "italic" },
+    dim: { opacity: 0.5 },
+    underline: { textDecoration: "underline" }
+  };
+  
+  function parse(text) {
+    const regex = /<(\w+)>([\s\S]*?)<\/\1>/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+    
+    while ((match = regex.exec(text)) !== null) {
+      
+      parts.push(text.slice(lastIndex, match.index));
+      
+      const tag = match[1];
+      const content = match[2];
+      
+      if (styles[tag]) {
+        parts.push(
+          <span key={match.index} style={styles[tag]}>
+            {parse(content)}
+          </span>
+        );
+      } else {
+        parts.push(match[0]);
+      }
+      
+      lastIndex = regex.lastIndex;
+    }
+    
+    parts.push(text.slice(lastIndex));
+    
+    return parts;
+  }
+  
+  return parse(message);
+}

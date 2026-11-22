@@ -1,5 +1,5 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction, handleMsgUI, passTime, setObjFlag, playerGetItem, setSpeaker } from "../../functions/game"
+import { createInteraction, createAction, handleMsgUI, passTime, setObjFlag, playerGetItem, setSpeaker, setNpcImg} from "../../functions/game"
 
 export const player_car = createObject(
   "player_car",
@@ -30,13 +30,17 @@ export const player_car = createObject(
         createAction(
           [
             { text: "You give the car and the area around it a thorough search. Under the gas pedal, you discover... ",
-            func: ()=>{setSpeaker("player")}},
+            func: ()=>{
+              setNpcImg("player")
+              setSpeaker("player")}},
             {
               text: "\"My badge!\""
             },
             {
               text: "\"I certainly wouldn't get far without this...\"",
-              func: ()=>{setSpeaker("")}
+              func: ()=>{setSpeaker("")
+                setNpcImg("")
+              }
             },
             {
               text: "*Obtained Badge*"

@@ -1,5 +1,5 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction , handleMsgUI, passTime, setSpeaker} from "../../functions/game"
+import { createInteraction, createAction , handleMsgUI, passTime, setSpeaker, setNpcImg} from "../../functions/game"
 
 export const town_sign = createObject(
       "town_sign",
@@ -18,11 +18,15 @@ export const town_sign = createObject(
                 },
                 {
                   text: "'Welcome to GoodWood\nPopulation: 5,000... Plus You!'",
-                  func: ()=>{setSpeaker("player")}
+                  func: ()=>{setSpeaker("player")
+                    setNpcImg("player")
+                  }
                 },
                 {
                   text: "\"Charming. Unfortunately, today I only bring it back to an even 5,000...\"",
-                  func: ()=>{setSpeaker("")}
+                  func: ()=>{setSpeaker("")
+                    setNpcImg("")
+                  }
                 }
               ],
               ()=>{

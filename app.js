@@ -45,7 +45,7 @@ function App() {
       }))
     })
     
-  }, [game.dayTime])
+  }, [game.message])
   
   useEffect(() => {
     if (window.getGame().player.currentCig <= 0) {

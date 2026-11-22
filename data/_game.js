@@ -45,7 +45,6 @@ export function initGame() {
     backgroundImage: "title",
     npcImage: "",
     speaker:"",
-    speakerName: "",
     interaction: [
       {
         text: "New Game",

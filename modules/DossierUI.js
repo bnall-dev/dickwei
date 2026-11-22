@@ -5,23 +5,22 @@ const { useState, useEffect } = React;
 import {setMessageActive, setMessage, setDossierUIActive} from "../functions/game"
 
 function DossierUI() {
-  
   const questList = Object.values(window.getGame().quests).filter(q => q.active == true).map((q, i) => {
-    
-    const subquestList = Object.values(q.subquests).filter(sq => sq.active == true).map((sq, ii) => {
-      return <li key = {ii}>
-        <h5>{sq.objective}</h5>
-        <h6>{sq.description}</h6>
-      </li>
+    var string = `${q.name}\n\n`
+    const subquestList = Object.values(q.subquests).filter(sq=>sq.active == true).forEach((sq, i)=>{
+      string += `${sq.objective}\n${sq.description}`
     })
     
-    return <li key = {i} >
-      <h4>{q.name}</h4>
-      <ul>
-        {subquestList}
-      </ul>
+    return <li>
+      
+      <button onClick = {()=>{
+        setMessage([{
+          text: string
+        }])
+      }}>{q.name}</button>
     </li>
   })
+    
   
   const documentsList = Object.values(window.getGame().documents).filter(doc => doc.active == true).map((doc, i) => {
     return <li key = {i}>
@@ -115,13 +114,13 @@ visibility: window.getGame().dossierUIActive == true ? "visible" : "hidden", pos
       }}>
       {window.getGame().dossModule == "main" && <div>
       <div>
-        <h6>Mission Objectives</h6>
+        <p>Mission Objectives</p>
         <ul>
-       
+       {questList}
         </ul>
       </div>
       <div>
-        <h6>Documents</h6>
+        <p>Documents</p>
         <ul>
           {documentsList}
         </ul>

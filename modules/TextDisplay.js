@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 const { useState, useEffect } = React;
 
-import { endScene } from "../../functions/game"
+import { endScene, formatMessage } from "../../functions/game"
 
 function TextDisplay() {
   
@@ -50,7 +50,7 @@ function TextDisplay() {
            display: window.getGame().speaker != ""?"block" : "none"
          }}>{window.getGame().speakerName}</p>
           <p>
-            {window.getGame().displayText}
+            {formatMessage(window.getGame().displayText)}
           </p>
           </div>
         </div>

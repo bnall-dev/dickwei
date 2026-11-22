@@ -4,7 +4,7 @@ import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker} fro
 
 export const drew = createNpc(
   "drew",
-  "Drew",
+  "Deputy Drew",
   "Angry Deputy",
   "", 
   "jail",{

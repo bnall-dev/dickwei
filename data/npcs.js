@@ -1,5 +1,6 @@
 import { triggerFlag, createInteraction, createAction, handleMsgUI , passTime} from "../functions/game"
 
+import {sheriff} from "./npcs/sheriff"
 import {drew} from "./npcs/drew"
 import {gwen} from "./npcs/gwen"
 import {rikki} from "./npcs/rikki"
@@ -30,6 +31,7 @@ export function npcDataInit() {
   
   return (
   {
+    sheriff: sheriff,
     drew: drew,
     
     gwen: gwen,
@@ -44,92 +46,7 @@ export function npcDataInit() {
     
     old_woman: old_woman
     /*
-    sheriff: createNPC(
-      "",
-      "",
-      {},
-      "",
-      {
-        examine: createInteraction(
-          "Examine",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.examine.actions[0].message)
-              },
-              ()=>true
-            )
-          ]
-        ),
-         investigate: createInteraction(
-          "Investigate",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.investigate.actions[0].message)
-              },
-              ()=>true
-            )
-          ]
-        ),
-         chat: createInteraction(
-          "Chat",
-          [
-            createAction(
-              [
-                {
-                  text: ""
-                }
-              ],
-              ()=>{
-                handleMsgUI(window.getGame().npcs..interactions.chat.actions[0].message)
-              },
-              ()=>true
-            )
-          ]
-        )
-        
-      },
-      {
-  sunday: {
-    am: "",
-    pm: ""
-  },
-  monday: {
-    am: "",
-    pm: ""
-  },
-  tuesday: {
-    am: "",
-    pm: ""
-  },
-  wednesday: {
-    am: "",
-    pm: ""
-  },
-  thursday: {
-    am: "",
-    pm: ""
-  },
-  friday: {
-    am: "",
-    pm: ""
-  },
-  saturday: {
-    am: "",
-    pm: ""
-  }}
-    ),
+    ,
     dispatcher: createNPC(
       "",
       "",
