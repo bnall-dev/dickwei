@@ -50,7 +50,7 @@ function TextDisplay() {
            display: window.getGame().speaker != ""?"block" : "none"
          }}>{window.getGame().speakerName}</p>
           <p>
-            {formatMessage(window.getGame().displayText)}
+            {window.getGame().displayText}
           </p>
           </div>
         </div>

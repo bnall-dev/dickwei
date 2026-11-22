@@ -8,7 +8,7 @@ function DossierUI() {
   const questList = Object.values(window.getGame().quests).filter(q => q.active == true).map((q, i) => {
     var string = `${q.name}\n\n`
     const subquestList = Object.values(q.subquests).filter(sq=>sq.active == true).forEach((sq, i)=>{
-      string += `${sq.objective}\n${sq.description}`
+      string += `${sq.objective}\n${sq.description}\n`
     })
     
     return <li>

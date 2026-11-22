@@ -31,7 +31,7 @@ export function questDataInit(){
         false,
         {
           report_to_sheriff: createSubquest(
-            "Report to the sheriff's station.",
+            "Report to the Sheriff.",
             "First order of business is to get acquainted with the local authorities.",
             true,
             false,
