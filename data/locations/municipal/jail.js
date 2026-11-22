@@ -229,10 +229,10 @@ export const jail = createLocation(
                       }
                     },
                     {
-                      text: "That's correct. I've informed Dr. Trey at the hospital that you would be joining us. We should head there immediately."
+                      text: "\"That's correct. I've informed Dr. Trey at the hospital that you would be joining us. We should head there immediately.\""
                     },
                     {
-                      text: "Drew and I will have to meet you there. I imagine you'd prefer you own vehicle to the back of a squad car."
+                      text: "\"Drew and I will have to meet you there. I imagine you'd prefer you own vehicle to the back of a squad car.\""
                     }
                     
                   ] :
@@ -288,7 +288,7 @@ export const jail = createLocation(
                       text:"\"It's time for you to leave, 'Dick'.\"" ,
                       func: ()=>{
                          setSpeaker("")
- setNpcImg("")
+                         setNpcImg("")
                       }
                       
                     },
@@ -343,7 +343,18 @@ export const jail = createLocation(
             setInteractionUIActive(false)
             setToolsUIActive(false)
             setNpcImg("drew")
-            
+            window.setGame(prev=>({...prev,
+              locations: {
+                ...prev.locations,
+                sheriffs_station: {
+                  ...prev.locations.sheriffs_station,
+                  flags: {
+                    ...prev.locations.sheriffs_station.flags,
+                    player_needs_badge : true
+                  }
+                }
+              }
+            }))
             passTime(300)
           },
           () => window.getGame().locations.jail.flags.first_go == false

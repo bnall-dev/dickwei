@@ -2,29 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 const { useState, useEffect } = React;
 
-import {setMessageActive, setMessage, setDossierUIActive} from "../functions/game"
+import { setMessageActive, setMessage, setDossierUIActive } from "../functions/game"
 
 function DossierUI() {
-  const questList = Object.values(window.getGame().quests).filter(q => q.active == true).map((q, i) => {
+  
+  const questList = Object.values(window.getGame().quests).filter(q => q.active).map((q, i) => {
     var string = `${q.name}\n\n`
-    const subquestList = Object.values(q.subquests).filter(sq=>sq.active == true).forEach((sq, i)=>{
+    const subquestList = Object.values(q.subquests).filter(sq => sq.active).forEach((sq, i) => {
       string += `${sq.objective}\n${sq.description}\n`
     })
     
-    return <li>
-      
-      <button onClick = {()=>{
+    function setQuestMessage(){
         setMessage([{
           text: string
         }])
-      }}>{q.name}</button>
+    }
+    
+    return <li>
+      <button onClick = {setQuestMessage}>
+        {q.name}
+      </button>
     </li>
   })
-    
+  
   
   const documentsList = Object.values(window.getGame().documents).filter(doc => doc.active == true).map((doc, i) => {
     return <li key = {i}>
-      <button onClick = {doc.func}>{doc.name}</button>
+      <button onClick = {doc.func}>
+        {doc.name}
+      </button>
     </li>
   })
   
@@ -78,8 +84,16 @@ function DossierUI() {
   
   function Newspaper() {
     const [page, setPage] = useState(1)
-    const editionList = Array.from({ length: page == 1 ? 15 : 16 }, (ed, i) => (
-      <li>
+  
+    const editionList = Array.from({ length: page == 1 ? 15 : 16 }, (ed, i) => {
+        const newspaperButtonStyle = {
+    
+    color: page == 1 ? (window.getGame().documents.newspaper.editions.includes(i + 1) ? "white" : "dimgrey") : (window.getGame().documents.newspaper.editions.includes(i + 16) ? "white" : "dimgrey"),
+    
+    border: "1px solid " + ((page == 1 ? (window.getGame().documents.newspaper.editions.includes(i + 1) ? "white" : "dimgrey") : (window.getGame().documents.newspaper.editions.includes(i + 16) ? "white" : "dimgrey")))
+    
+  }
+     return <li>
         <button onClick={()=>{
           setMessageActive(true)
           setDossierUIActive(false)
@@ -88,15 +102,11 @@ function DossierUI() {
               page == 1? i : i + 16
             ].article
           )
-        }} style = {{
-          color: page == 1 ? (window.getGame().documents.newspaper.editions.includes(i + 1) ? "white" : "dimgrey"): (window.getGame().documents.newspaper.editions.includes(i + 16) ? "white" : "dimgrey"),
-          
-          border: "1px solid " + ((page == 1 ? (window.getGame().documents.newspaper.editions.includes(i + 1) ? "white" : "dimgrey"): (window.getGame().documents.newspaper.editions.includes(i + 16) ? "white" : "dimgrey")))
-        }}>
+        }} style = {newspaperButtonStyle}>
           Day {page == 1 ? i + 1 : i + 16}
         </button>
       </li>
-    ))
+    })
     return <div>
       <ul>
         {editionList}
@@ -108,36 +118,42 @@ function DossierUI() {
     </div>
   }
   
+  const dossierUIStyle = {
+    visibility: window.getGame().dossierUIActive == true ? "visible" : "hidden", position: window.getGame().dossierUIActive == true ? "relative" : "absolute"
+  }
+  
+  function handleCloseDossier(){
+    window.setGame(prev => ({
+            ...prev,
+            dossierUIActive: false,
+            interactionUIActive: true,
+            toolsUIActive: true,
+            message: [{text:prev.locations[prev.player.location].displayText}],
+            backgroundImage: prev.player.location
+          }))
+  }
+  
   return (
-    <div className = "DossierUI" style = {{
-visibility: window.getGame().dossierUIActive == true ? "visible" : "hidden", position: window.getGame().dossierUIActive == true ? "relative" : "absolute"
-      }}>
+    <div className = "DossierUI" style = {dossierUIStyle}>
       {window.getGame().dossModule == "main" && <div>
-      <div>
-        <p>Mission Objectives</p>
-        <ul>
-       {questList}
-        </ul>
-      </div>
-      <div>
-        <p>Documents</p>
-        <ul>
-          {documentsList}
-        </ul>
-      </div>
-      <button onClick = {()=>{window.setGame(prev => ({
-          ...prev,
-          dossierUIActive: false,
-          interactionUIActive: true,
-          toolsUIActive: true,
-          message: [{text:prev.locations[prev.player.location].displayText}],
-          backgroundImage: prev.player.location
-          }))}}>
+        <div>
+          <p>Mission Objectives</p>
+          <ul>
+            {questList}
+          </ul>
+        </div>
+        <div>
+          <p>Documents</p>
+          <ul>
+            {documentsList}
+          </ul>
+        </div>
+        <button onClick = {handleCloseDossier}>
           Close
-      </button>
+        </button>
       </div>}
       {window.getGame().dossModule == "handbook" && <Handbook/>}
-     { window.getGame().dossModule == "persons_of_interest" && <Persons/>}
+      {window.getGame().dossModule == "persons_of_interest" && <Persons/>}
       {window.getGame().dossModule == "newspaper" && <Newspaper/>}
     </div>
   )
