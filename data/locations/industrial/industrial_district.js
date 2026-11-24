@@ -4,7 +4,7 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 export const industrial_district = createLocation(
   "industrial_district",
   "Industrial District",
-  ["trailer_park", "cemetary", "mill", "factory", "residential_district",
+  ["trailer_park", "cemetery", "mill", "factory", "residential_district",
     "downtown"
   ], {},
   "You see the Industrial District.",

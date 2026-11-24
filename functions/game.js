@@ -74,7 +74,7 @@ export function setMessage(arr) {
 }
 
 export function setMessageCurrentObj() {
-  const msg = window.getGame().sceneActive ? [{ text: window.getGame().currentObj.displayText }] : [{ text: window.getGame().currentObj.interactText }]
+  const msg = window.getGame().sceneActive ? [{ text: window.getGame().currentObj.displayText }] : [{ text: window.getGame().currentObj.type == "location" ? window.getGame().currentObj.interactText[window.getGame().player.location] : window.getGame().currentObj.interactText }]
   setMessage(msg)
   
 }
@@ -217,7 +217,7 @@ export function handleInteraction(obj) {
       prev => (
       {
         ...prev,
-        displayText: obj.interactText,
+        displayText: obj.type != "location" ? obj.interactText: obj.interactText[window.getGame().player.location],
         currentObj: obj,
         interaction: Object.values(obj.interactions),
         choiceUIActive: true,

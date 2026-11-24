@@ -5,11 +5,18 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 export const residential_district = createLocation(
       "residential_district",
       "Residential District",
-      ["hotel", "gas_station", "diner", "church","municipal_district", "industrial_district"],
+      ["hotel", "diner", "gas_station", "church", "suburban_neighborhood","municipal_district", "industrial_district"],
       {
-        road_fixed: false
+        road_fixed: true
       },
-      "You see the Residential District.",
+      {
+        municipal_district: "The road leads East, toward the Residential District.",
+        industrial_district: "The road bends North, up to the Residential District.",
+        hotel: "The front door leads back outside into the Residential District.",
+        diner: "The front door leads back outside into the Residential District.",
+        church: "The front door leads back outside into the Residential District.",
+        gas_station: "The front door leads back outside into the Residential District.",
+      },
       "You are in the Residential District.",
       {
         go: createInteraction(

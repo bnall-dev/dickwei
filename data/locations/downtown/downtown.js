@@ -4,7 +4,7 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 export const downtown = createLocation(
   "downtown",
   "Downtown",
-  ["mall", "apartments", "pier", "municipal_district", "industrial_district"], {},
+  ["mall", "apartments", "pier", "municipal_district", "industrial_district"], {road_fixed: true},
   "You see Downtown.",
   "You are Downtown.",
   {
@@ -24,7 +24,7 @@ export const downtown = createLocation(
             setToolsUIActive(false)
             
           },
-          () => window.getGame().locations.residential_district.flags.road_fixed == false
+          () => window.getGame().locations.downtown.flags.road_fixed == false
         ),
         createAction(
           [

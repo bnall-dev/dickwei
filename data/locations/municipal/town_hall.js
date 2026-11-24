@@ -10,7 +10,9 @@ export const town_hall = createLocation(
     "municipal_district"
   ],
   [],
-  "You see the Town Hall.",
+  {municipal_district: "You see the Town Hall in the center of the district.",
+    mayors_office: "The office door exits back into the Town Hall."
+  },
   "You are in the Town Hall.",
   
   {

@@ -15,6 +15,12 @@ import { downtown } from "./locations/downtown/downtown"
 import { mall } from "./locations/downtown/mall"
 import { apartments } from "./locations/downtown/apartments"
 import { industrial_district } from "./locations/industrial/industrial_district"
+import { suburban_neighborhood } from "./locations/residential/suburban_neighborhood"
+import { gwens_house } from "./locations/residential/gwens_house"
+import {gas_station} from "./locations/residential/gas_station"
+import {diner} from "./locations/residential/diner"
+import {church} from "./locations/residential/church"
+import {cemetery} from "./locations/industrial/cemetery"
 
 
 export function createLocation(id, name, subLocations, flags, interactText, displayText, interactions) {
@@ -64,13 +70,19 @@ export function locationDataInit() {
     
     residential_district: residential_district,
     hotel: hotel,
+    diner: diner,
+    gas_station: gas_station,
+    church: church,
     player_room: player_room,
+    suburban_neighborhood: suburban_neighborhood,
+    gwens_house: gwens_house,
     
     downtown: downtown,
     mall: mall,
     apartments: apartments,
     
     industrial_district: industrial_district,
+    cemetery: cemetery,
     
     
     
@@ -155,116 +167,11 @@ export function locationDataInit() {
       }
     ),
     
-    gas_station: createLocation(
-      "gas_station",
-      "Gas Station",
-      ["residential_district"], {},
-      "You see the Gas Station.",
-      "You are in the Gas Station.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Gas Station."
-              }],
-              () => {
-                handleMsgUI("locations", "gas_station", "go", 0)
-                handleChangeLocation("gas_station")
-                setBackgroundImg("gas_station")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
+  
+
     
-    diner: createLocation(
-      "diner",
-      "Diner",
-      ["residential_district"], {},
-      "You see the Diner.",
-      "You are in the Diner.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Diner."
-              }],
-              () => {
-                handleMsgUI("locations", "diner", "go", 0)
-                handleChangeLocation("diner")
-                setBackgroundImg("diner")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
-    church: createLocation(
-      "church",
-      "Church",
-      ["cemetary", "residential_district"], {},
-      "You see the Church.",
-      "You are in the Church.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Church."
-              }],
-              () => {
-                handleMsgUI("locations", "church", "go", 0)
-                handleChangeLocation("church")
-                setBackgroundImg("church")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
     
-    cemetary: createLocation(
-      "cemetary",
-      "Cemetary",
-      ["church", "industrial_district"], {},
-      "You see the Cemetary.",
-      "You are in the Cemetary.",
-      {
-        go: createInteraction(
-          "Go",
-          [
-            createAction(
-              [
-              {
-                text: "You enter the Cemetary."
-              }],
-              () => {
-                handleMsgUI("locations", "cemetary", "go", 0)
-                handleChangeLocation("cemetary")
-                setBackgroundImg("cemetary")
-                passTime(180)
-              },
-              () => true
-            )
-          ]
-        )
-      }
-    ),
+    
     
     trailer_park: createLocation(
       "trailer_park",

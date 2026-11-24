@@ -44,7 +44,8 @@ function TextDisplay() {
       <div>
         <div className = "TextDisplay">
           <img className = "DisplayImg" src= {`./images/${window.getGame().backgroundImage}.jpeg`}/>
-         <img className = "NpcImg" src= {`./images/npc/${window.getGame().npcImage}.png`} />
+         {window.getGame().
+         npcImage != "" && <img className = "NpcImg" src= {`./images/npc/${window.getGame().npcImage}.png`} />}
          <div>
          <p style = {{
            display: window.getGame().speaker != ""?"block" : "none"

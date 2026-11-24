@@ -8,7 +8,7 @@ export const mayors_office = createLocation(
         "town_hall"
       ],
       [],
-       "You see the Mayor's Office.",
+      {town_hall: "A fine wooden door leads to the Mayor's office."},
       "You are in the Mayor's Office.",
      
       {

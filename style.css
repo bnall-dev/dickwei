@@ -120,7 +120,6 @@ padding: 8px;
 .InteractionUI {
   display: flex;
    padding: 12px;
-   height: 30vh;
    margin: 0 16px 16px 16px;
    border: 2px solid white;
 }

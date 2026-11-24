@@ -8,7 +8,9 @@ export const sheriffs_station = createLocation(
       "jail",
       "municipal_district"
     ], { player_needs_badge: false },
-    "You see the Sheriff's Station.",
+    {municipal_district: "You see the Sheriff's Station.",
+      jail: "The secure door leads back into the Sheriff's Station."
+    },
     "You are in the Sheriff's Station.",
     
     {

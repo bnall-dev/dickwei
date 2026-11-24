@@ -6,7 +6,9 @@ export const hotel = createLocation(
       "Hotel",
       ["player_room", "residential_district"],
       {},
-      "You see the Hotel.",
+      {residential_district: "The front door of the hotel enters into the lobby.",
+        player_room: "The door to your room exits into the hall leading to the hotel lobby."
+      },
       "You are in the Hotel.",
       {
         go: createInteraction(

@@ -70,7 +70,7 @@ export const gwen = createNpc(
       
 {
   sunday: {
-    am: "town_hall",
+    am: "gwens_house",
     pm: "gwens_house"
   },
   monday: {

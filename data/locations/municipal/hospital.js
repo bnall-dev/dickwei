@@ -8,7 +8,9 @@ export const hospital = createLocation(
     "morgue",
     "municipal_district"
   ], {},
-  "You see the Hospital.",
+  {municipal_district: "You see the Hospital.",
+    morgue: "The stairs lead up to the door back into the hospital."
+  },
   "You are in the Hospital.",
   
   {

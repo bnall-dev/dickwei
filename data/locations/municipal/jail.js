@@ -11,7 +11,7 @@ export const jail = createLocation(
   {
     first_go: false
   },
-  "A secure door leads toward the jail cells.",
+  {sheriffs_station: "A secure door leads toward the jail cells."},
   "You are in the Jail.",
   
   {

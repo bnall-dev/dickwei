@@ -32,14 +32,15 @@ export function questDataInit(){
         {
           report_to_sheriff: createSubquest(
             "Report to the Sheriff.",
-            "First order of business is to get acquainted with the local authorities.",
+            
+            "\"First order of business is to get acquainted with the local authorities.\"",
             true,
             false,
             false
         ),
           convince_drew: createSubquest(
             "Convince the deputy that you're you.",
-            "That guy sure had a stick up his... Well, it's pretty bad that I lost my badge... I'll have to retrace my steps.",
+            "\"That guy sure had a stick up his... Well, it's pretty bad that I lost my badge... I'll have to retrace my steps.\"",
             false,
             false,
             false
