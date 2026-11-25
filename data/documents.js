@@ -159,7 +159,20 @@ export function documentsDataInit() {
                 dossModule: "newspaper"
               }))
             }
-          }]
+          },
+            {
+              
+            text:"Murder in Goodwood!\n\nTragedy struck on Sunday when GoodWood resident Grace Orlean ",
+            func: ()=>{
+              setChoiceUIActive(false),
+              setDossierUIActive(true)
+              window.setGame(prev=>({...prev,
+                dossModule: "newspaper"
+              }))
+            }
+          
+            }
+          ]
       
         }
       ],

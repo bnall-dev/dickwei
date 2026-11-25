@@ -21,7 +21,12 @@ export const waitress = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.waitress.interactions.examine.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "waitress",
+  "examine",
+  0
+)
               },
               ()=>true
             )
@@ -37,7 +42,12 @@ export const waitress = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.waitress.interactions.investigate.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "waitress",
+  "investigate",
+  0
+)
               },
               ()=>true
             )
@@ -53,7 +63,12 @@ export const waitress = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.waitress.interactions.chat.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "waitress",
+  "chat",
+  0
+)
               },
               ()=>true
             )

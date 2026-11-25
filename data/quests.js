@@ -22,6 +22,7 @@ export function questDataInit(){
     }
   }
   
+  
   return (
     {
       report_for_duty: createQuest(
@@ -42,6 +43,22 @@ export function questDataInit(){
             "Convince the deputy that you're you.",
             "\"That guy sure had a stick up his... Well, it's pretty bad that I lost my badge... I'll have to retrace my steps.\"",
             false,
+            false,
+            false
+          )
+        }
+      ),
+      autopsy : createQuest(
+        "Body of Evidence",
+        false,
+        false,
+        false,
+        
+        {
+          go_to_hospital: createSubquest(
+            "Report to the Hospital.",
+            "\"Time to get this case underway. The Sheriff and Deputy Drew are waiting for me to join them in observing the autopsy.\"",
+            true,
             false,
             false
           )

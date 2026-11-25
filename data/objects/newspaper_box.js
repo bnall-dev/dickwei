@@ -1,5 +1,5 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction, handleMsgUI, passTime, setMessageActive, setChoiceUIActive, setMessage, setSpeaker, setNpcImg } from "../../functions/game"
+import { triggerFlag, createInteraction, createAction, handleMsgUI, passTime, setMessageActive, setChoiceUIActive, setMessage, setSpeaker, setNpcImg } from "../../functions/game"
 
 export const newspaper_box = createObject(
   "newspaper_box",

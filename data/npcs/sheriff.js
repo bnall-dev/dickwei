@@ -19,7 +19,12 @@ export const sheriff = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.sheriff.interactions.examine.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "sheriff",
+  "examine",
+  0
+)
               },
               ()=>true
             )
@@ -35,7 +40,12 @@ export const sheriff = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.sheriff.interactions.investigate.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "sheriff",
+  "investigate",
+  0
+)
               },
               ()=>true
             )
@@ -51,7 +61,12 @@ export const sheriff = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.sheriff.interactions.chat.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "sheriff",
+  "chat",
+  0
+)
               },
               ()=>true
             )

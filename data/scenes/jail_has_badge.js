@@ -1,5 +1,7 @@
 import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive} from "../../functions/game"
 
+import {meeting_sheriff} from "./meeting_sheriff"
+
 export const jail_has_badge = [
   {
     text: "Your badge!",
@@ -72,96 +74,15 @@ export const jail_has_badge = [
   },
   {
     text: "You present your badge as you reach for a handshake.",
-    func: () => {
-      setSpeaker("player")
-    }
-  },
-  {
-    text: "\"Special Operative Richard Wei, sir.\"",
-    func: () => {
-      setSpeaker("")
-      setNpcImg("sheriff")
-    }
-  },
-  {
-    text: "The Sheriff barely glances at your badge before firmly shaking your hand with a weary smile.",
-    func: () => {
-      setSpeaker("sheriff")
-    }
-  },
-  {
-    text: "\"Ah yes, so you're the one they sent. Dave Hayter, Sheriff of GoodWood. We appreciate your being here so urgently.\"",
-    func: () => {
-      setSpeaker("drew")
-      setNpcImg("drew")
-      window.setGame(prev => ({
-        ...prev,
-        npcs: {
-          ...prev.npcs,
-          sheriff: {
-            ...prev.npcs.sheriff,
-            flags: {
-              ...prev.npcs.sheriff.flags,
-              have_met: true
-            }
-          }
-        }
-      }))
-    }
-  },
-  {
-    text: "\"Hmph!\"",
-    func: () => {
-      setSpeaker("sheriff")
-      setNpcImg("sheriff")
-    }
-  },
-  {
-    text: "\"Drew... mind your manners. You'll have to pardon Deputy Bernard, Operative Wei. I may have neglected to inform him of your arrival. He can be... protective of our little jurisdiction.\"",
-    func: () => {
-      setNpcImg("player")
-      setSpeaker("player")
-      window.setGame(prev => ({
-        ...prev,
-        npcs: {
-          ...prev.npcs,
-          drew: {
-            ...prev.npcs.drew,
-            flags: {
-              ...prev.npcs.drew.flags,
-              have_met: true
-            }
-          }
-        }
-      }))
-    }
-  },
-  {
-    text: "\"Heh. Nice to meet ya, 'Drew.' I promise I'm not here to step on anybody's toes.\"",
-    func: () => {
-      setNpcImg("drew")
-      setSpeaker("drew")
-    }
-  },
-  {
-    text: "\"That's Deputy Bernard!!\"",
-    func: () => {
-      setSpeaker("player")
-      setNpcImg("player")
-    }
-  },
-  {
-    text: "\"Sheriff, I'd like to get to business immediately. I've reviewed your initial report and understand that the autopsy has yet to be performed?\"",
-    func: () => {
-      setNpcImg("sheriff")
-      setSpeaker("sheriff")
-    }
-  },
-  {
-    text: "\"That's correct. I've informed Dr. Trey at the hospital that you would be joining us. We should head there immediately.\""
-  },
-  {
-    text: "\"Drew and I will have to meet you there. I imagine you'd prefer you own vehicle to the back of a squad car.\""
+  
+      func: () => {
+  
+  setMessage(meeting_sheriff)
+  setChoiceUIActive(false)
+  setMessageActive(true)
+}
+    
   }
+
   
 ]

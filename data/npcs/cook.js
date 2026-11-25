@@ -1,5 +1,5 @@
 import { createNpc } from "../npcs"
-import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker } from "../../functions/game"
+import { meetNpc, createInteraction, createAction, handleMsgUI, passTime, setSpeaker } from "../../functions/game"
 
 
 export const cook = createNpc(
@@ -17,11 +17,16 @@ export const cook = createNpc(
             createAction(
               [
                 {
-                  text: ""
+                  text: "test"
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.cook.interactions.examine.actions[0].message)
+                handleMsgUI(
+                  "npcs",
+                  "cook",
+                  "examine",
+                  0
+                )
               },
               ()=>true
             )
@@ -37,7 +42,12 @@ export const cook = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.cook.interactions.investigate.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "cook",
+  "investigate",
+  0
+)
               },
               ()=>true
             )
@@ -53,7 +63,12 @@ export const cook = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.cook.interactions.chat.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "cook",
+  "chat",
+  0
+)
               },
               ()=>true
             )

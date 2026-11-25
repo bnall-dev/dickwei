@@ -32,7 +32,7 @@ export const downtown = createLocation(
             text: "You go Downtown."
           }],
           () => {
-            handleMsgUI("locations", "downtown", "go", 0)
+            handleMsgUI("locations", "downtown", "go", 1)
             handleChangeLocation("downtown")
             setBackgroundImg("downtown")
             passTime(300)

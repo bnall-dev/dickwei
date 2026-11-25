@@ -3,7 +3,19 @@ import { setNpcImg } from "./UI/setNpcImg"
 import { changeDisplayText } from "./UI/changeDisplayText"
 import { setHeaderActive, setInventoryUIActive, setDossierUIActive, setPhoneUIActive, setToolsUIActive, setInteractionUIActive, setChoiceUIActive } from "./UI/setUIActive"
 
-export function triggerFlag(category, item, flag) {
+export function triggerFlag(cat, item, flag, bool) {
+  window.setGame(prev=>({...prev,
+  [cat]:{
+    ...prev[cat],
+    [item]: {
+      ...prev[cat][item],
+      flags: {
+        ...prev[cat][item].flags,
+        [flag]: bool
+      }
+    }
+  }
+  }))
   
 }
 
@@ -181,6 +193,10 @@ export function passTime(sec) {
   
 }
 
+export function meetNpc(npc){
+  triggerFlag("npcs",npc,"have_met", true)
+}
+
 export function setObjFlag(obj, flag, bool) {
   window.setGame(prev => ({
     ...prev,
@@ -322,3 +338,39 @@ setToolsUIActive(true)
     }
   }
 
+export function setNpcLocation(npc, location){
+  window.setGame(prev=>({...prev,
+    npcs: {
+      ...prev.npcs,
+      [npc]: {
+        ...prev.npcs[npc],
+        specialLocation: location
+      }
+    }
+  }))
+}
+
+export function completeQuest(quest){
+  window.setGame(prev=>({...prev,
+    quests: {
+      ...prev.quests,
+      [quest]: {
+        ...prev.quests[quest],
+        complete: true,
+        active: false
+      }
+    }
+  }))
+}
+
+export function addQuest(quest){
+  window.setGame(prev=>({...prev,
+    quests: {
+      ...prev.quests,
+      [quest]: {
+        ...prev.quests[quest],
+        active: true
+      }
+    }
+  }))
+}

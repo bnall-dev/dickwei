@@ -1,5 +1,5 @@
 import { createNpc } from "../npcs"
-import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker } from "../../functions/game"
+import { meetNpc, createInteraction, createAction, handleMsgUI, passTime, setSpeaker } from "../../functions/game"
 
 
 
@@ -62,25 +62,13 @@ import { createInteraction, createAction, handleMsgUI, passTime, setSpeaker } fr
           {
   text: "\"Sir, this is a hospital!!\""},
           {
-            text: "*Documents Updated*",
+            text: "*Dossier Updated*",
             func: ()=>{setSpeaker("")}
           }],
           () => {
             handleMsgUI("npcs", "doctor", "chat", 0)
             setSpeaker("doctor")
-            window.setGame(prev => ({
-              ...prev,
-              npcs: {
-                ...prev.npcs,
-                doctor: {
-                  ...prev.npcs.doctor,
-                  flags: {
-                    ...prev.npcs.doctor.flags,
-                    have_met: true
-                  }
-                }
-              }
-            }))
+            meetNpc("doctor")
             passTime(30)
           },
           () => window.getGame().npcs.doctor.flags.have_met == false

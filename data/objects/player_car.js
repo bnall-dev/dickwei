@@ -1,5 +1,5 @@
 import { createObject } from "../objects"
-import { createInteraction, createAction, handleMsgUI, passTime, setObjFlag, playerGetItem, setSpeaker, setNpcImg} from "../../functions/game"
+import { triggerFlag, createInteraction, createAction, handleMsgUI, passTime, setObjFlag, playerGetItem, setSpeaker, setNpcImg} from "../../functions/game"
 
 export const player_car = createObject(
   "player_car",
@@ -23,7 +23,7 @@ export const player_car = createObject(
           () => {
             handleMsgUI("objects", "player_car", "examine", 0)
             passTime(60)
-            setObjFlag("player_car", "first_examine", true)
+            triggerFlag("objects","player_car", "first_examine", true)
           },
           () => window.getGame().objects.player_car.flags.first_examine == false
         ),

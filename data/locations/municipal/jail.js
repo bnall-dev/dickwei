@@ -1,5 +1,5 @@
 import { createLocation, handleMsgUI } from "../../locations"
-import { createInteraction, createAction, passTime, setBackgroundImg, handleChangeLocation, setNpcImg, setSpeaker, setMessageActive, setInteractionUIActive, setToolsUIActive, setMessage, setChoiceUIActive } from "../../../functions/game"
+import { createInteraction, createAction, passTime, setBackgroundImg, handleChangeLocation, setNpcImg, setSpeaker, setMessageActive, setInteractionUIActive, setToolsUIActive, setMessage, setChoiceUIActive, triggerFlag } from "../../../functions/game"
 
 import {scenes} from "../../scenes"
 
@@ -30,18 +30,9 @@ export const jail = createLocation(
             setInteractionUIActive(false)
             setToolsUIActive(false)
             setNpcImg("drew")
-            window.setGame(prev=>({...prev,
-              locations: {
-                ...prev.locations,
-                sheriffs_station: {
-                  ...prev.locations.sheriffs_station,
-                  flags: {
-                    ...prev.locations.sheriffs_station.flags,
-                    player_needs_badge : true
-                  }
-                }
-              }
-            }))
+            
+            triggerFlag("locations","sheriffs_station","player_needs_badge", true)
+            
             passTime(300)
           },
           () => window.getGame().locations.jail.flags.first_go == false

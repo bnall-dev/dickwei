@@ -21,7 +21,12 @@ export const priest = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.priest.interactions.examine.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "priest",
+  "examine",
+  0
+)
               },
               ()=>true
             )
@@ -37,7 +42,12 @@ export const priest = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.priest.interactions.investigate.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "priest",
+  "investigate",
+  0
+)
               },
               ()=>true
             )
@@ -53,7 +63,12 @@ export const priest = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.priest.interactions.chat.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "priest",
+  "chat",
+  0
+)
               },
               ()=>true
             )

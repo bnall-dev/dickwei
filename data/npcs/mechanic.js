@@ -21,7 +21,12 @@ export const mechanic = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.mechanic.interactions.examine.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "mechanic",
+  "examine",
+  0
+)
               },
               ()=>true
             )
@@ -37,7 +42,12 @@ export const mechanic = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.mechanic.interactions.investigate.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "mechanic",
+  "investigate",
+  0
+)
               },
               ()=>true
             )
@@ -53,7 +63,12 @@ export const mechanic = createNpc(
                 }
               ],
               ()=>{
-                handleMsgUI(window.getGame().npcs.mechanic.interactions.chat.actions[0].message)
+                handleMsgUI(
+  "npcs",
+  "mechanic",
+  "chat",
+  0
+)
               },
               ()=>true
             )
