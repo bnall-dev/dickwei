@@ -35,7 +35,7 @@ export const town_hall = createLocation(
             setToolsUIActive(false)
             passTime(60)
           },
-          () => window.getGame().day % 7 == 1
+          () => window.getGame().day % 7 == 8
           
         ),
         createAction(

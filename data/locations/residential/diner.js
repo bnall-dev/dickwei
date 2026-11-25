@@ -15,7 +15,7 @@ export const diner = createLocation(
         createAction(
           [
           {
-            text: "You enter the Diner."
+            text: "A bell rings against the door as you enter the diner and take in the smell of flapjacks and fresh coffee."
           }],
           () => {
             handleMsgUI("locations", "diner", "go", 0)

@@ -24,7 +24,7 @@ export const municipal_district = createLocation(
         hospital:"The front door leads back outside to the Municipal District."
       },
 
-      "You are in the Municipal District.",
+      "You stand in the Municipal District.",
       {
         go: createInteraction(
           "Go",

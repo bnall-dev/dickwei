@@ -23,26 +23,34 @@ import {setChoiceUIActive, setMessage, setInteractionUIActive, setToolsUIActive,
       }
     )
     
-    function setMessageLocationDisplay(){
-setMessage( [{ text: window.getGame().locations[window.getGame().player.location].displayText }])
-
-    }
+    function setMessageLocationDisplay() {
+  const text = window.getGame().locations[window.getGame().player.location].displayText
+  
+  setMessage([{ text }])
+  
+  window.setGame(prev => ({
+    ...prev,
+    displayText: text,
+    messageIndex: 0
+  }))
+}
     
     function cancelChoice() {
       
       
-      console.log(window.getGame().currentObj)
+   
       if(window.getGame().currentObj.type == "item") {setInventoryUIActive(true)
         setMessage([{text: "You take a look through your belongings."}])
       }
       else {setInteractionUIActive(true)
       setToolsUIActive(true)
       setMessageLocationDisplay()
-        setMessage([{text: window.getGame().locations[window.getGame().player.location].displayText}])
+        
       }
       setBackgroundImg(window.getGame().player.location)
       setNpcImg("")
       setChoiceUIActive(false)
+      
       
       
       

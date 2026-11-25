@@ -9,7 +9,7 @@ export const cemetery = createLocation(
     church: "A door toward the back of the Church leads to the Cemetery.",
     industrial_district: "A wrought-iron gate stands open permitting passage to the Cemetery."
   },
-  "You are in the Cemetery.",
+  "You stand, taking in the ominous silence of the Cemetary.",
   {
     go: createInteraction(
       "Go",
@@ -17,7 +17,7 @@ export const cemetery = createLocation(
         createAction(
           [
           {
-            text: "You enter the Cemetery."
+            text: "The Cemetery is eerily silent aside from the crunch of leaves as you enter."
           }],
           () => {
             handleMsgUI("locations", "cemetery", "go", 0)

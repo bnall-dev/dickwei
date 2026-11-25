@@ -101,6 +101,28 @@ export function documentsDataInit() {
       name: "Persons of Interest",
       active: true,
       npcs: {
+        sheriff:[{
+          text: "Name: Hayter, Dave\nAge: 66\nOccupation: Sheriff"
+          ,
+        func: ()=>{setChoiceUIActive(false)
+          setDossierUIActive(true)
+          window.setGame(prev=>({...prev,
+            dossModules: "persons_of_interest"
+          }))
+          window.getGame().documents.persons_of_interest.func()
+        }
+        }],
+        drew:[{
+          text: "Name: Bernard, Drew\nAge: 34\nOccupation: Deputy"
+          ,
+        func: ()=>{setChoiceUIActive(false)
+          setDossierUIActive(true)
+          window.setGame(prev=>({...prev,
+            dossModules: "persons_of_interest"
+          }))
+          window.getGame().documents.persons_of_interest.func()
+        }
+        }],
         doctor: [{
           text: "Name: Trey, Devon\nAge: 40\nOccupation: Doctor"
           ,
@@ -148,6 +170,24 @@ export function documentsDataInit() {
           message: [{ text: "The Good Times Daily Newspaper\n\"How Things Are in Your Neck of the Woods\"\n\n Community Funded" }]
         }))
       }
+    },
+    brochure: {
+      name: "Tourism Brochure",
+      active: false,
+      func: (setDossMods) => {
+        setMessage([{
+          text: "Welcome to GoodWood!\nTourism Guide\n\n",
+          func: () => {
+            setDossierUIActive(true)
+            setChoiceUIActive(false)
+            setMessage([{ text: "You review your case files." }])
+          }
+        }])
+        setMessageActive(true)
+        setDossierUIActive(false)
+      }
+      
+      
     }
     
     /*

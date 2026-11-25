@@ -7,7 +7,7 @@ export const high_school = createLocation(
   "Goodwood High",
   ["residential_district"], {},
   {municipal_district: "You see the campus of the local high school."},
-  "You are in the High School.",
+  "You stand on campus at GoodWood High.",
   {
     go: createInteraction(
       "Go",
@@ -28,7 +28,7 @@ export const high_school = createLocation(
             setToolsUIActive(false)
             passTime(60)
           },
-          () => window.getGame().day % 7 == 1
+          () => window.getGame().day % 7 == 8
           
         ),
         createAction(

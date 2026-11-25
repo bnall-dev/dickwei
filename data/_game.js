@@ -5,6 +5,7 @@ import { npcDataInit } from "./npcs"
 import { questDataInit } from "./quests"
 import { documentsDataInit } from "./documents"
 
+
 import {setBackgroundImg, setHeaderActive, startNewGame, loadGame} from "../../functions/game"
 
 function playerDataInit() {
@@ -37,6 +38,7 @@ export function initGame() {
     documents: documentsDataInit(),
     currentObj: locationDataInit().outskirts,
     items: itemDataInit(),
+    
     displayText: "Dick Wei",
     message: [{text: "Dick Wei"}],
     messageIndex: 0,

@@ -4,6 +4,10 @@ import {town_sign} from "./objects/town_sign"
 import {fountain} from "./objects/fountain"
 import {post_box} from "./objects/post_box"
 import {newspaper_box} from "./objects/newspaper_box"
+import {jukebox} from "./objects/jukebox"
+import {booth} from "./objects/booth"
+import {brochure_stand} from "./objects/brochure_stand"
+
 
 
 
@@ -29,7 +33,10 @@ export function objectDataInit() {
     town_sign: town_sign,
     newspaper_box: newspaper_box,
     post_box: post_box,
-    fountain: fountain
+    fountain: fountain,
+    jukebox: jukebox,
+    booth: booth,
+    brochure_stand: brochure_stand
     
     
     

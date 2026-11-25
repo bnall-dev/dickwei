@@ -8,8 +8,8 @@ export const outskirts = createLocation(
     "municipal_district"
   ],
   [],
-  {municipal_district: "You see the road out of town lead West into the Outskirts."},
-  "You are in the town Outskirts.",
+  {municipal_district: "You see the road out of town wind West into the Outskirts."},
+  "You stand in the town Outskirts. Enormous connifer trees tower along both sides of the road.",
   {
     go: createInteraction(
       "Go",
@@ -18,7 +18,7 @@ export const outskirts = createLocation(
           [
             //DEFAULT
             {
-              text: "You enter the town Outskirts."
+              text: "The distant sounds of the town die away as you enter the Outskirts."
             }
             
           ],

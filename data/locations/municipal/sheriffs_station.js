@@ -11,7 +11,7 @@ export const sheriffs_station = createLocation(
     {municipal_district: "You see the Sheriff's Station.",
       jail: "The secure door leads back into the Sheriff's Station."
     },
-    "You are in the Sheriff's Station.",
+    "You stand in the Sheriff's Station. Several hunting tophies decorate the walls.",
     
     {
       go: createInteraction(

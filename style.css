@@ -300,7 +300,11 @@ align-items: stretch;
   margin: 4px;
 }
 
-
+button:active {
+  background-color: white;
+  color: black;
+  
+}
 
 
 .NpcButton {

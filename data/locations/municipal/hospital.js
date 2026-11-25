@@ -11,7 +11,7 @@ export const hospital = createLocation(
   {municipal_district: "You see the Hospital.",
     morgue: "The stairs lead up to the door back into the hospital."
   },
-  "You are in the Hospital.",
+  "You stand in the Hospital lobby.",
   
   {
     go: createInteraction(
