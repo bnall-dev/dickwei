@@ -1,4 +1,4 @@
-import {triggerFlag, meetNpc, setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, setNpcLocation, completeQuest, addQuest } from "../../functions/game"
+import {triggerFlag, meetNpc, setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, setNpcLocation, completeQuest, addQuest , passTime} from "../../functions/game"
 
 
 
@@ -8,6 +8,7 @@ export const meeting_sheriff = [
     func: () => {
       setSpeaker("")
       setNpcImg("sheriff")
+      passTime(10)
     }
   },
   {
@@ -112,6 +113,7 @@ export const meeting_sheriff = [
    func: () => {
      setNpcImg("")
      setSpeaker("")
+     passTime(60)
    },
   },
   {
@@ -124,6 +126,7 @@ export const meeting_sheriff = [
      setInteractionUIActive(true)
      setToolsUIActive(true)
      setChoiceUIActive(false)
+     passTime(60)
      setMessage([{text: window.getGame().locations[window.getGame().player.location].displayText}])
      setNpcLocation("sheriff", "hospital")
      setNpcLocation("drew", "hospital")

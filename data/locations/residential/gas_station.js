@@ -3,11 +3,11 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 
 export const gas_station = createLocation(
   "gas_station",
-  "Gas Station",
+  "Last Stop",
   ["residential_district"], {},
-  {residential_district: "You see the Gas Station."
+  {residential_district: "The fuel station has gas pumps, a garage, and a convenience store."
   },
-  "You are at the Gas Station.",
+  "You are at the Last Stop Fuel Depot.",
   {
     go: createInteraction(
       "Go",

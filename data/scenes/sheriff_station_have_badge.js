@@ -1,4 +1,4 @@
-import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive} from "../../functions/game"
+import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, passTime} from "../../functions/game"
 
 
 import {meeting_sheriff} from "./meeting_sheriff"
@@ -26,6 +26,7 @@ export const sheriff_station_have_badge = [
     text: "\"Settle down, Drew.\"",
     func: () => {
       setSpeaker("")
+      passTime(10)
     }
   },
   {
@@ -33,6 +34,7 @@ export const sheriff_station_have_badge = [
     func: () => {
       setNpcImg("player")
       setSpeaker("player")
+      passTime(10)
     }
   },
   {

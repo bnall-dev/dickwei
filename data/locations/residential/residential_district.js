@@ -5,14 +5,14 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 export const residential_district = createLocation(
       "residential_district",
       "Residential District",
-      ["hotel", "diner", "gas_station", "church", "suburban_neighborhood","municipal_district", "industrial_district"],
+      ["high_school", "diner", "gas_station", "church", "suburban_neighborhood","municipal_district", "downtown"],
       {
-        road_fixed: true
+        road_blocked: true
       },
       {
-        municipal_district: "The road leads East, toward the Residential District.",
-        industrial_district: "The road bends North, up to the Residential District.",
-        hotel: "The front door leads back outside into the Residential District.",
+        downtown: "The road leads Wast, toward the Residential District.",
+        municipal_district: "The road leads South to the Residential District.",
+        high_school: "The campus gate exits back into the Residential District.",
         diner: "The front door leads back outside into the Residential District.",
         church: "The front door leads back outside into the Residential District.",
         gas_station: "The front door leads back outside into the Residential District.",
@@ -25,7 +25,7 @@ export const residential_district = createLocation(
              createAction(
               [
                 {
-                  text: "The road is blocked."
+                  text: ""
                 }
               ],
               ()=>{
@@ -36,7 +36,7 @@ export const residential_district = createLocation(
                 setToolsUIActive(false)
                 
               },
-              ()=>window.getGame().locations.residential_district.flags.road_fixed== false
+              ()=>window.getGame().locations.residential_district.flags.road_blocked
             ),
             createAction(
               [

@@ -4,7 +4,7 @@ import { createInteraction, createAction, handleMsgUI, passTime } from "../../fu
 export const brochure_stand = createObject(
       "brochure_stand",
       "Brochure Stand",
-      "town_hall",
+      "hotel",
       {},
       "The stand holds a variety of paper pamphlets.",
       {

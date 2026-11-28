@@ -13,7 +13,7 @@ export const sheriffs_station = createLocation(
     {municipal_district: "You see the Sheriff's Station.",
       jail: "The secure door leads back into the Sheriff's Station."
     },
-    "You stand in the Sheriff's Station. Several hunting tophies decorate the walls.",
+    "You stand in the Sheriff's Station. Several hunting and fishing trophies decorate the walls.",
     
     {
       go: createInteraction(
@@ -29,7 +29,7 @@ export const sheriffs_station = createLocation(
                 setInteractionUIActive(false)
                 setToolsUIActive(false)
                 setMessageActive(true)
-                passTime(300)
+                passTime(180)
                 
               },
               () => window.getGame().locations.sheriffs_station.flags.player_needs_badge == true && window.getGame().player.inventory.includes("player_badge")

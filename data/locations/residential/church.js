@@ -4,10 +4,10 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 export const church = createLocation(
   "church",
   "Church",
-  ["cemetery", "residential_district"], {},
+  ["residential_district"], {},
   {
     residential_district: "To the South, you can see the steeple of the Church above the trees.",
-    cemetery: "There is a door leading into the back of the Church."
+    
   },
   "You are in the Church.",
   {

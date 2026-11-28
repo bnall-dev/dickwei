@@ -1,4 +1,4 @@
-import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive} from "../../functions/game"
+import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, passTime} from "../../functions/game"
 
 import {meeting_sheriff} from "./meeting_sheriff"
 
@@ -16,6 +16,7 @@ export const jail_has_badge = [
     func: () => {
       setNpcImg("drew")
       setSpeaker("")
+      passTime(10)
     }
   },
   {
@@ -32,6 +33,7 @@ export const jail_has_badge = [
     func: () => {
       setSpeaker("")
       setNpcImg("")
+      passTime(10)
     }
   },
   {
@@ -48,7 +50,7 @@ export const jail_has_badge = [
       
       setNpcImg(""),
         setSpeaker("")
-      
+      passTime(10)
     }
   },
   {
@@ -70,6 +72,7 @@ export const jail_has_badge = [
     func: () => {
       setSpeaker("")
       setNpcImg("player")
+      passTime(10)
     }
   },
   {

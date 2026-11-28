@@ -6,19 +6,20 @@ export const municipal_district = createLocation(
       "municipal_district",
       "Municipal District",
       [
-        "town_hall",
+        "hotel",
         "sheriffs_station",
+        "town_hall",
+      
         "hospital",
-        "high_school",
         "residential_district",
-        "downtown",
+        "industrial_district",
         "outskirts"
       ],
       [],
       {outskirts: "The road leads East, where you can see peeks of a few buildings beyond the trees.",
-        downtown:"The road leads North, toward the Municipal district.",
-        residential_district:"The road leads West, toward the Municipal District.",
-        high_school:"The front gate of the campus exits back to the Municipal District.",
+        residential_district:"The road leads North, toward the Municipal district.",
+        industrial_district:"The road leads West, toward the Municipal District.",
+        hotel:"The lobby door exits back to the Municipal District.",
         town_hall:"The front door leads back outside to the Municipal District.",
         sheriffs_station:"The front door leads back outside to the Municipal District.",
         hospital:"The front door leads back outside to the Municipal District."

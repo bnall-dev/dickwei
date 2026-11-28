@@ -33,7 +33,7 @@ export const jail = createLocation(
             
             triggerFlag("locations","sheriffs_station","player_needs_badge", true)
             
-            passTime(300)
+            passTime(180)
           },
           () => window.getGame().locations.jail.flags.first_go == false
         ),

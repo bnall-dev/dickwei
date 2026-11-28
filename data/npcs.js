@@ -24,6 +24,7 @@ import {homeless} from "./npcs/homeless"
 import {teacher} from "./npcs/teacher"
 import {coach} from "./npcs/coach"
 import {lawyer} from "./npcs/lawyer"
+import {concierge} from "./npcs/concierge"
 
 
 export function createNpc(id, name, preName, location, specialLocation, flags, interactText, interactions, schedule) {
@@ -70,6 +71,7 @@ export function npcDataInit() {
     lawyer: lawyer,
     mailman: mailman,
     homeless: homeless,
+    concierge: concierge,
     
     old_woman: old_woman
 

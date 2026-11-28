@@ -3,11 +3,11 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 
 export const diner = createLocation(
   "diner",
-  "Diner",
+  "The Silver Spoon",
   ["residential_district"], {},
   {residential_district: "You see the Diner."
   },
-  "You are at the Diner.",
+  "You are at the Silver Spoon Diner.",
   {
     go: createInteraction(
       "Go",

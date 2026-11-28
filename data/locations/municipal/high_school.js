@@ -6,8 +6,8 @@ export const high_school = createLocation(
   "high_school",
   "Goodwood High",
   ["residential_district"], {},
-  {municipal_district: "You see the campus of the local high school."},
-  "You stand on campus at GoodWood High.",
+  {residential_district: "Beyond the campus gates are several buildings and sports facilities."},
+  "You stand on campus at GoodWood High School.",
   {
     go: createInteraction(
       "Go",

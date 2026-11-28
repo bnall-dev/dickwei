@@ -1,4 +1,4 @@
-import {triggerFlag, meetNpc, setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, setNpcLocation, completeQuest, addQuest, setBackgroundImg } from "../../functions/game"
+import {triggerFlag, meetNpc, setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, setNpcLocation, completeQuest, addQuest, setBackgroundImg , passTime} from "../../functions/game"
 
 
 export const autopsy = [
@@ -28,6 +28,7 @@ export const autopsy = [
   func: () => {
     setNpcImg("drew")
     setSpeaker("")
+    passTime(10)
   }
 },
 {
@@ -64,31 +65,31 @@ export const autopsy = [
   func: () => {
     setNpcImg("")
     setSpeaker("")
+    passTime(60)
   }
 },
 {
   text: "Dr. Trey waves a card on a lanyard near the scanner by the door to the morgue. As you follow him down the stairs, you notice that the Sheriff and Deputy hang back for a moment.",
   func: () => {
    setBackgroundImg("morgue")
+   passTime(120)
   }
 },
 {
   text: "You shiver as the temperature plummets and follow the doctor to a curtained off area.",
+  func:()=>{
+    passTime(120)
+  }
   
 },
 {
   text: "The Sheriff joins you shortly, but Deputy Drew seems to have remained upstairs.",
   func: () => {
   setBackgroundImg("corpse")
+  passTime(120)
 }
 },
-{
-  text: "The doctor draws back the curtain to reveal a shrouded figure laid upon an examination table.",
-  func: () => {
-    setNpcImg("doctor")
-    setSpeaker("doctor")
-  }
-},
+
 {
   text: "Holding a clipboard, the doctor draws back the curtain to reveal a shrouded figure laid upon an examination table.",
   func: () => {
@@ -97,13 +98,6 @@ export const autopsy = [
   }
 },
 
-  {
-    text: "The doctor draws back the curtain to reveal a shrouded figure laid upon an examination table.",
-    func: () => {
-      setNpcImg("doctor")
-      setSpeaker("doctor")
-    }
-  },
 
   {
     text: "\"Her name is Grace Orlean.\"",
@@ -193,10 +187,28 @@ export const autopsy = [
   }
 },
 {
-  text: "\"Cause of death, undetermined...\"",
+  text: "",
   func: () => {
-    setNpcImg("doctor")
-    setSpeaker("doctor")
+    setNpcImg("")
+    setSpeaker("")
+    setBackgroundImg("morgue")
+  }
+},
+
+
+
+{
+  text: "*Dossier Updated*",
+  func: () => {
+setInteractionUIActive (true)
+setToolsUIActive(true)
+setMessageActive(false)
+setChoiceUIActive(false)
+completeQuest("autopsy")
+setNpcLocation("doctor", "morgue")
+
+setMessage([{text: window.getGame().locations.morgue.displayText}])
+
   }
 }
   

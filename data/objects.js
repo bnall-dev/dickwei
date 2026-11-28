@@ -7,6 +7,7 @@ import {newspaper_box} from "./objects/newspaper_box"
 import {jukebox} from "./objects/jukebox"
 import {booth} from "./objects/booth"
 import {brochure_stand} from "./objects/brochure_stand"
+import {hotel_elevator} from "./objects/hotel_elevator"
 
 
 
@@ -36,7 +37,8 @@ export function objectDataInit() {
     fountain: fountain,
     jukebox: jukebox,
     booth: booth,
-    brochure_stand: brochure_stand
+    brochure_stand: brochure_stand,
+    hotel_elevator: hotel_elevator,
     
     
     

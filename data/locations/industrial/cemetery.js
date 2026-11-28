@@ -4,9 +4,9 @@ import { createInteraction, createAction, passTime, setBackgroundImg, handleChan
 export const cemetery = createLocation(
   "cemetery",
   "Cemetery",
-  ["church", "industrial_district"], {},
+  [ "industrial_district"], {},
   {
-    church: "A door toward the back of the Church leads to the Cemetery.",
+    
     industrial_district: "A wrought-iron gate stands open permitting passage to the Cemetery."
   },
   "You stand, taking in the ominous silence of the Cemetary.",

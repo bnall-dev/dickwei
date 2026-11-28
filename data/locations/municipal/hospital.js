@@ -4,15 +4,15 @@ import {scenes} from "../../scenes"
 
 export const hospital = createLocation(
   "hospital",
-  "Hospital",
+  "Old Growth Memorial",
   [
     "morgue",
     "municipal_district"
   ], {},
-  {municipal_district: "You see the Hospital.",
+  {municipal_district: "Automatic sliding doors enter into the hotel lobby.",
     morgue: "The stairs lead up to the door back into the hospital."
   },
-  "You stand in the Hospital lobby.",
+  "You stand in the lobby of the Old Growth Memorial Hospital.",
   
   {
     go: createInteraction(
@@ -22,6 +22,7 @@ export const hospital = createLocation(
         ()=>{
           handleMsgUI("locations", "hospital", "go", 0)
           setInteractionUIActive(false)
+          handleChangeLocation ("morgue")
           setToolsUIActive(false)
           setMessageActive(true)
 setBackgroundImg("hospital")
@@ -32,7 +33,7 @@ passTime(180)
         createAction(
           [
           {
-            text: "You enter the Hospital."
+            text: "You enter the hospital lobby."
           }],
           () => {
             handleMsgUI("locations", "hospital", "go", 1)

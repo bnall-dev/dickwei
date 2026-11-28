@@ -1,11 +1,14 @@
-import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive} from "../../functions/game"
+import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, passTime} from "../../functions/game"
 import {jail_no_badge} from "./jail_no_badge"
 import {jail_has_badge} from "./jail_has_badge"
 
 
 export const jail_first_go = [
             {
-              text: "As you reach for the knob, the door swings open, a man rushes out, colliding with you and sending his coffee splashing onto himself."
+              text: "As you reach for the knob, the door swings open, a man rushes out, colliding with you and sending his coffee splashing onto himself.",
+              func: ()=>{
+                passTime(10)
+              }
             },
             {
               text: "The man, a deputy by his uniform, wrings coffee from his jacket in frustration before turning his attention to you.",
@@ -26,6 +29,7 @@ export const jail_first_go = [
               func: () => {
                 setNpcImg("drew")
                 setSpeaker("")
+                passTime (10)
               }
             },
             {
@@ -43,6 +47,7 @@ export const jail_first_go = [
               func: () => {
                 
                 setSpeaker("")
+                passTime(10)
               }
               
             },
@@ -52,6 +57,7 @@ export const jail_first_go = [
               func: () => {
                 setChoiceUIActive(false)
                 setMessageActive(true)
+                passTime(10)
                 setMessage(
                   window.getGame().player.inventory.includes("player_badge") ? jail_has_badge :
                   jail_no_badge

@@ -1,4 +1,4 @@
-import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive} from "../../functions/game"
+import {setMessage, setMessageActive, setChoiceUIActive, setNpcImg, setSpeaker, setInteractionUIActive, setToolsUIActive, passTime} from "../../functions/game"
 
 export const jail_no_badge = [
   
@@ -7,7 +7,7 @@ export const jail_no_badge = [
     text: "You see your empty hand held out limply in the reflection in the deputy's sunglasses. His expression doesn't change but you feel a rise in tension.",
     func: () => {
       setNpcImg("player")
-      
+      passTime(10)
     }
   },
   {
@@ -24,6 +24,7 @@ export const jail_no_badge = [
       
       setSpeaker("")
       setNpcImg("drew")
+      passTime(10)
     }
   },
   {
@@ -53,6 +54,7 @@ export const jail_no_badge = [
     func: () => {
       setSpeaker("")
       setNpcImg("")
+      passTime(10)
     }
     
   },
